@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--LLBLGen Pro v3.5 project file. Do not manually edit this file. Incorrect references could lead to an unloadable project file.-->
+<Project Version="3.5" TargetFrameworkName="LLBLGen Pro Runtime Framework">
+  <Properties>
+    <Abbreviations />
+    <Property Name="AdditionalTaskPerformerFolder" Value="" />
+    <Property Name="AdditionalTasksFolder" Value="" />
+    <Property Name="AdditionalTemplatesFolder" Value="" />
+    <Property Name="AdditionalTypeConverterFolder" Value="" />
+    <Property Name="AddNewElementsAfterRefresh" Value="0" />
+    <Property Name="AddNewFieldsAfterRefresh" Value="0" />
+    <Property Name="AddNewViewsAsEntitiesAfterRefresh" Value="0" />
+    <Property Name="AutoAddManyToManyRelationships" Value="false" />
+    <Property Name="AutoAssignSequencesToIntegerPks" Value="true" />
+    <Property Name="AutoAssignTypeConverterToFieldMapping" Value="false" />
+    <Property Name="CleanUpVsNetProjects" Value="true" />
+    <Property Name="ConnectionStringKeyNamePattern" Value="ConnectionString.{$ProviderName}" />
+    <Property Name="EncodingToUse" Value="0" />
+    <Property Name="EnforcePascalCasingAlways" Value="true" />
+    <Property Name="EntityFieldNameStripPattern" Value="{}{}" />
+    <Property Name="EntityNameStripPattern" Value="{tbl_}{}" />
+    <Property Name="ExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="FailCodeGenerationOnWriteError" Value="false" />
+    <Property Name="FieldMappedOntoRelatedFieldPattern" Value="{$RelatedFieldName}" />
+    <Property Name="FkFieldsAreNamedAfterTargetField" Value="true" />
+    <Property Name="ForeignKeyFieldPattern" Value="{$NavigatorName}{$RelatedFieldName}" />
+    <Property Name="GroupUsage" Value="0" />
+    <Property Name="IdentifyingFieldsFollowDBPrimaryKeyConstraints" Value="0" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseInsensitiveDBs" Value="false" />
+    <Property Name="InsertUnderscoreAtWordBreakCaseSensitiveDBs" Value="false" />
+    <Property Name="LengthPrecisionScaleFollowDBLengthPrecisionScale" Value="0" />
+    <Property Name="MakeElementNamePascalCasing" Value="true" />
+    <Property Name="NavigatorMappedOntoManyToManyPattern" Value="{$EndEntityName}CollectionVia{$IntermediateEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneManyToOnePattern" Value="{$EndEntityName$S}" />
+    <Property Name="NavigatorMappedOntoOneToManyPattern" Value="{$EndEntityName$P}" />
+    <Property Name="NonExcludableOrphanedElementDetectedAction" Value="3" />
+    <Property Name="PreferDecimalOverCurrencyTypes" Value="true" />
+    <Property Name="PreferNaturalCharacterTypes" Value="true" />
+    <Property Name="PreferVariableLengthTypes" Value="true" />
+    <Property Name="ProjectCreator" Value="ninja" />
+    <Property Name="ProjectName" Value="Enio" />
+    <Property Name="ReflectNullabilityOfElementFieldInTargetField" Value="0" />
+    <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
+    <Property Name="RelationalModelDataElementNameCasingCaseSensitiveDBs" Value="3" />
+    <Property Name="RelationshipsFollowDBForeignKeyConstraints" Value="0" />
+    <Property Name="RemoveUnderscoresFromElementName" Value="true" />
+    <Property Name="RemoveUnmappedElementsAfterRefresh" Value="0" />
+    <Property Name="ResetFieldOrderBasedOnTargetOrderAtRefresh" Value="false" />
+    <Property Name="RetrieveDBCustomProperties" Value="false" />
+    <Property Name="RootNamespace" Value="" />
+    <Property Name="SequencePattern" Value="SEQ_{$EntityName}" />
+    <Property Name="SetGroupNameAfterSchemaName" Value="true" />
+    <Property Name="SetSchemaNameAfterGroupName" Value="true" />
+    <Property Name="StoredProcNameStripPattern" Value="{pr_, sp_}{}" />
+    <Property Name="StoreTimeLastGeneratedIntoProject" Value="false" />
+    <Property Name="SyncMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="SyncRelationalModelDataElementNameAfterRename" Value="0" />
+    <Property Name="SyncRenamedMappedElementNamesAfterRefresh" Value="0" />
+    <Property Name="TargetPerEntityEdgesRequireBackingFkConstraint" Value="true" />
+    <Property Name="TypedViewFieldNameStripPattern" Value="{}{}" />
+    <Property Name="TypedViewNameStripPattern" Value="{vw_}{}" />
+    <Property Name="UniqueConstraintsFollowDBUniqueConstraints" Value="0" />
+    <Property Name="UpdateCustomPropertiesAfterRefresh" Value="0" />
+    <Property Name="UseCustomFieldOrderingOnNewElements" Value="false" />
+  </Properties>
+  <TypeShortcuts />
+  <CodeGenerationCyclePreferences>
+    <OutputType Value="1">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="G:\Documents\Visual Studio 2010\Projects\NinjaSoftware.Enio\DbScripts" />
+        <FrameworkName Value="DDL SQL" />
+        <LanguageName Value="SQL" />
+        <PlatformName Value="RDBMS" />
+        <PresetName Value="SD.Presets.DDLSQL.CreateScript" />
+        <RootNamespace Value="" />
+        <TemplateGroup Value="Create DDL SQL" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.PostgreSqlSpecific.DDLSQL" />
+          <Binding Name="SD.TemplateBindings.SqlServerSpecific.DDLSQL" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.DDLSQL" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+    <OutputType Value="2">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="G:\Documents\Visual Studio 2010\Projects\NinjaSoftware.Enio\DbScripts" />
+        <FrameworkName Value="DDL SQL" />
+        <LanguageName Value="SQL" />
+        <PlatformName Value="RDBMS" />
+        <PresetName Value="SD.Presets.DDLSQL.UpdateScript" />
+        <RootNamespace Value="" />
+        <TemplateGroup Value="Update DDL SQL" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.PostgreSqlSpecific.DDLSQL" />
+          <Binding Name="SD.TemplateBindings.SqlServerSpecific.DDLSQL" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.DDLSQL" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+    <OutputType Value="3">
+      <LastUsedPreferences>
+        <DestinationRootFolder Value="G:\Documents\Visual Studio 2010\Projects\NinjaSoftware.Enio\CoolJ" />
+        <FrameworkName Value="LLBLGen Pro Runtime Framework" />
+        <LanguageName Value="C#" />
+        <PlatformName Value=".NET 4.0" />
+        <PresetName Value="SD.Presets.Adapter.General2010" />
+        <RootNamespace Value="NinjaSoftware.Enio" />
+        <TemplateGroup Value="Adapter" />
+        <TemplateBindings>
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET35" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET40" />
+          <Binding Name="SD.TemplateBindings.SqlServerSpecific.NET20" />
+          <Binding Name="SD.TemplateBindings.SharedTemplates.NET20" />
+          <Binding Name="SD.TemplateBindings.PostgreSqlSpecific.NET20" />
+          <Binding Name="SD.TemplateBindings.General" />
+        </TemplateBindings>
+      </LastUsedPreferences>
+    </OutputType>
+  </CodeGenerationCyclePreferences>
+  <CodeGenerationMetaDataDefaults>
+    <TargetElement Type="256">
+      <OutputSettingValues>
+        <Attributes>
+          <Attribute Value="Browsable($false)" />
+        </Attributes>
+      </OutputSettingValues>
+    </TargetElement>
+  </CodeGenerationMetaDataDefaults>
+  <EntityModel>
+    <ValueTypeDefinitions />
+    <EntityDefinitions>
+      <EntityDefinition Name="Artikl">
+        <Fields>
+          <Field Name="ArtiklId" Type="long" IsPrimaryKey="true" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Jm" Type="string" MaxLength="10" />
+          <Field Name="Naziv" Type="string" MaxLength="100" />
+          <Field Name="Pdv" Type="decimal" Precision="4" Scale="2" />
+          <Field Name="StatusId" Type="long" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Brojac">
+        <Fields>
+          <Field Name="BrojacId" Type="long" IsPrimaryKey="true" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Godina" Type="short" />
+          <Field Name="Naziv" Type="string" MaxLength="100" />
+          <Field Name="SlijedeciBroj" Type="int" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Cjenik">
+        <Fields>
+          <Field Name="ArtiklId" Type="long" />
+          <Field Name="Cijena" Type="decimal" Precision="10" Scale="4" />
+          <Field Name="CjenikId" Type="long" IsPrimaryKey="true" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="PartnerId" Type="long" />
+        </Fields>
+        <UniqueConstraints>
+          <UniqueConstraint Name="CjenikUnique">
+            <Field Name="ArtiklId" />
+            <Field Name="PartnerId" />
+          </UniqueConstraint>
+        </UniqueConstraints>
+      </EntityDefinition>
+      <EntityDefinition Name="Config">
+        <Fields>
+          <Field Name="Adresa" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="AktivnaGodina" Type="short" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Mjesto" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="Naziv" Type="string" MaxLength="100" />
+          <Field Name="Oib" Type="string" MaxLength="11" IsPrimaryKey="true" />
+          <Field Name="Zr" Type="string" IsOptional="true" MaxLength="50" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Korisnik">
+        <Fields>
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="KorisnikId" Type="long" IsPrimaryKey="true" />
+          <Field Name="Password" Type="string" MaxLength="50" />
+          <Field Name="RoleId" Type="long" />
+          <Field Name="Username" Type="string" MaxLength="20" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Partner">
+        <Fields>
+          <Field Name="Adresa" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Mjesto" Type="string" IsOptional="true" MaxLength="20" />
+          <Field Name="Naziv" Type="string" MaxLength="100" />
+          <Field Name="Oib" Type="string" MaxLength="11" />
+          <Field Name="PartnerId" Type="long" IsPrimaryKey="true" />
+          <Field Name="Posta" Type="string" IsOptional="true" MaxLength="10" />
+          <Field Name="StatusId" Type="long" />
+          <Field Name="Valuta" Type="short" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="RacunGlava">
+        <Fields>
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Datum" Type="datetime" />
+          <Field Name="Godina" Type="short" />
+          <Field Name="MjestoRadaAdresa" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="MjestoRadaNaziv" Type="string" IsOptional="true" MaxLength="100" />
+          <Field Name="PartnerId" Type="long" />
+          <Field Name="RacunGlavaId" Type="long" IsPrimaryKey="true" />
+          <Field Name="StatusId" Type="long" />
+          <Field Name="TarifaId" Type="long" />
+          <Field Name="TarifaStopa" Type="decimal" Precision="5" Scale="2" />
+          <Field Name="Valuta" Type="short" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="RacunStavka">
+        <Fields>
+          <Field Name="ArtiklId" Type="long" />
+          <Field Name="Cijena" Type="decimal" Precision="10" Scale="2" />
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Iznos" Type="decimal" Precision="10" Scale="2" />
+          <Field Name="Kolicina" Type="decimal" Precision="8" Scale="2" />
+          <Field Name="PdvIznos" Type="decimal" Precision="10" Scale="2" />
+          <Field Name="PdvPosto" Type="decimal" Precision="4" Scale="2" />
+          <Field Name="Pozicija" Type="short" />
+          <Field Name="RacunGlavaId" Type="long" />
+          <Field Name="RacunStavkaId" Type="long" IsPrimaryKey="true" />
+          <Field Name="TarifaIznos" Type="decimal" Precision="10" Scale="2" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="RoleRo">
+        <Fields>
+          <Field Name="Code" Type="string" MaxLength="50" />
+          <Field Name="Name" Type="string" MaxLength="50" />
+          <Field Name="RoleId" Type="long" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="StatusRo">
+        <Fields>
+          <Field Name="Code" Type="string" MaxLength="50" />
+          <Field Name="Name" Type="string" MaxLength="50" />
+          <Field Name="StatusId" Type="long" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+      <EntityDefinition Name="Tarifa">
+        <Fields>
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="Naziv" Type="string" MaxLength="100" />
+          <Field Name="StatusId" Type="long" />
+          <Field Name="Stopa" Type="decimal" Precision="5" Scale="2" />
+          <Field Name="TarifaId" Type="long" IsPrimaryKey="true" />
+        </Fields>
+      </EntityDefinition>
+    </EntityDefinitions>
+    <Relationships>
+      <NormalRelationship Name="Artikl.Status-StatusRo.ArtiklCollection" Start=":Artikl" End=":StatusRo" StartNavigator="Status" EndNavigator="ArtiklCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="StatusId" PkField="StatusId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Cjenik.Artikl-Artikl.CjenikCollection" Start=":Cjenik" End=":Artikl" StartNavigator="Artikl" EndNavigator="CjenikCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="ArtiklId" PkField="ArtiklId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Cjenik.Partner-Partner.CjenikCollection" Start=":Cjenik" End=":Partner" StartNavigator="Partner" EndNavigator="CjenikCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="PartnerId" PkField="PartnerId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Korisnik.Role-RoleRo.KorisnikCollection" Start=":Korisnik" End=":RoleRo" StartNavigator="Role" EndNavigator="KorisnikCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="RoleId" PkField="RoleId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Partner.Status-StatusRo.PartnerCollection" Start=":Partner" End=":StatusRo" StartNavigator="Status" EndNavigator="PartnerCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="StatusId" PkField="StatusId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="RacunGlava.Partner-Partner.RacunGlavaCollection" Start=":RacunGlava" End=":Partner" StartNavigator="Partner" EndNavigator="RacunGlavaCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="PartnerId" PkField="PartnerId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="RacunGlava.Status-StatusRo.RacunGlavaCollection" Start=":RacunGlava" End=":StatusRo" StartNavigator="Status" EndNavigator="RacunGlavaCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="StatusId" PkField="StatusId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="RacunGlava.Tarifa-Tarifa.RacunGlavaCollection" Start=":RacunGlava" End=":Tarifa" StartNavigator="Tarifa" EndNavigator="RacunGlavaCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="TarifaId" PkField="TarifaId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="RacunStavka.Artikl-Artikl.RacunStavkaCollection" Start=":RacunStavka" End=":Artikl" StartNavigator="Artikl" EndNavigator="RacunStavkaCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="ArtiklId" PkField="ArtiklId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="RacunStavka.RacunGlava-RacunGlava.RacunStavkaCollection" Start=":RacunStavka" End=":RacunGlava" StartNavigator="RacunGlava" EndNavigator="RacunStavkaCollection" Type="4">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="RacunGlavaId" PkField="RacunGlavaId" />
+        </FieldRelationships>
+      </NormalRelationship>
+    </Relationships>
+    <InheritanceHierarchies />
+  </EntityModel>
+  <TargetDatabases>
+    <TargetDatabase Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <ConnectionElements />
+      <SystemSequences>
+        <Sequence Name="SCOPE_IDENTITY()" />
+        <Sequence Name="@@IDENTITY" />
+      </SystemSequences>
+      <Catalogs>
+        <Catalog Name="Enio">
+          <Schemas>
+            <Schema Name="dbo">
+              <Tables>
+                <Table Name="Artikl">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_d480edb42f7b917ecc486c70076" DbType="0" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Jm" Ordinal="3" DbType="12" Length="10" />
+                    <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
+                    <Field Name="Pdv" Ordinal="5" DbType="5" Precision="4" Scale="2" />
+                    <Field Name="StatusId" Ordinal="6" DbType="0" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Brojac">
+                  <Fields>
+                    <Field Name="BrojacId" Ordinal="1" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_15c6f4d4f51b2c99c458e66c8c3" DbType="0" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Godina" Ordinal="3" DbType="16" Precision="5" />
+                    <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
+                    <Field Name="SlijedeciBroj" Ordinal="5" DbType="8" Precision="10" />
+                  </Fields>
+                </Table>
+                <Table Name="Cjenik">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" DbType="0" Precision="19" />
+                    <Field Name="Cijena" Ordinal="2" DbType="5" Precision="10" Scale="4" />
+                    <Field Name="CjenikId" Ordinal="3" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_115005a482f8b1a2a795c97ea20" DbType="0" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="4" DbType="12" Length="50" />
+                    <Field Name="PartnerId" Ordinal="5" DbType="0" Precision="19" />
+                  </Fields>
+                  <UniqueConstraints>
+                    <UniqueConstraint Name="UC_e54ae784860b5b0411d030fdd1b">
+                      <Field Name="ArtiklId" />
+                      <Field Name="PartnerId" />
+                    </UniqueConstraint>
+                  </UniqueConstraints>
+                </Table>
+                <Table Name="Config">
+                  <Fields>
+                    <Field Name="Adresa" Ordinal="1" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="AktivnaGodina" Ordinal="2" DbType="16" Precision="5" />
+                    <Field Name="ConcurrencyGuid" Ordinal="3" DbType="12" Length="50" />
+                    <Field Name="Mjesto" Ordinal="4" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="Naziv" Ordinal="5" DbType="12" Length="100" />
+                    <Field Name="Oib" Ordinal="6" IsPrimaryKey="true" PkConstraintName="PK_bb95011426dab7a6af2f7ecc673" DbType="12" Length="11" />
+                    <Field Name="Zr" Ordinal="7" IsOptional="true" DbType="12" Length="50" />
+                  </Fields>
+                </Table>
+                <Table Name="Korisnik">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="12" Length="50" />
+                    <Field Name="KorisnikId" Ordinal="2" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_65be2654831a0f712588a778c90" DbType="0" Precision="19" />
+                    <Field Name="Password" Ordinal="3" DbType="12" Length="50" />
+                    <Field Name="Username" Ordinal="4" DbType="12" Length="20" />
+                    <Field Name="RoleId" Ordinal="5" DbType="0" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Partner">
+                  <Fields>
+                    <Field Name="Adresa" Ordinal="1" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="Mjesto" Ordinal="3" IsOptional="true" DbType="12" Length="20" />
+                    <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
+                    <Field Name="Oib" Ordinal="5" DbType="12" Length="11" />
+                    <Field Name="PartnerId" Ordinal="6" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_671b0fd4b46b4662786ad978f9a" DbType="0" Precision="19" />
+                    <Field Name="Posta" Ordinal="7" IsOptional="true" DbType="12" Length="10" />
+                    <Field Name="StatusId" Ordinal="8" DbType="0" Precision="19" />
+                    <Field Name="Valuta" Ordinal="9" DbType="16" Precision="5" />
+                  </Fields>
+                </Table>
+                <Table Name="RacunGlava">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="12" Length="50" />
+                    <Field Name="Datum" Ordinal="2" DbType="4" />
+                    <Field Name="Godina" Ordinal="3" DbType="16" Precision="5" />
+                    <Field Name="MjestoRadaAdresa" Ordinal="4" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="MjestoRadaNaziv" Ordinal="5" IsOptional="true" DbType="12" Length="100" />
+                    <Field Name="PartnerId" Ordinal="6" DbType="0" Precision="19" />
+                    <Field Name="RacunGlavaId" Ordinal="7" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_ec513c84e8aa0b477cb3ce2816d" DbType="0" Precision="19" />
+                    <Field Name="StatusId" Ordinal="8" DbType="0" Precision="19" />
+                    <Field Name="TarifaId" Ordinal="9" DbType="0" Precision="19" />
+                    <Field Name="TarifaStopa" Ordinal="10" DbType="5" Precision="5" Scale="2" />
+                    <Field Name="Valuta" Ordinal="11" DbType="16" Precision="5" />
+                  </Fields>
+                </Table>
+                <Table Name="RacunStavka">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" DbType="0" Precision="19" />
+                    <Field Name="Cijena" Ordinal="2" DbType="5" Precision="10" Scale="2" />
+                    <Field Name="ConcurrencyGuid" Ordinal="3" DbType="12" Length="50" />
+                    <Field Name="Iznos" Ordinal="4" DbType="5" Precision="10" Scale="2" />
+                    <Field Name="Kolicina" Ordinal="5" DbType="5" Precision="8" Scale="2" />
+                    <Field Name="PdvIznos" Ordinal="6" DbType="5" Precision="10" Scale="2" />
+                    <Field Name="PdvPosto" Ordinal="7" DbType="5" Precision="4" Scale="2" />
+                    <Field Name="Pozicija" Ordinal="8" DbType="16" Precision="5" />
+                    <Field Name="RacunGlavaId" Ordinal="9" DbType="0" Precision="19" />
+                    <Field Name="RacunStavkaId" Ordinal="10" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_03c1f0c4af58c17ce285c941812" DbType="0" Precision="19" />
+                    <Field Name="TarifaIznos" Ordinal="11" DbType="5" Precision="10" Scale="2" />
+                  </Fields>
+                </Table>
+                <Table Name="RoleRo">
+                  <Fields>
+                    <Field Name="Code" Ordinal="1" DbType="12" Length="50" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="RoleId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_52296334a7aa55d86c550e11b3b" DbType="0" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="StatusRo">
+                  <Fields>
+                    <Field Name="Code" Ordinal="1" DbType="12" Length="50" />
+                    <Field Name="Name" Ordinal="2" DbType="12" Length="50" />
+                    <Field Name="StatusId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_7a613b94012823b5843f2fed461" DbType="0" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Tarifa">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="12" Length="50" />
+                    <Field Name="Naziv" Ordinal="2" DbType="12" Length="100" />
+                    <Field Name="StatusId" Ordinal="3" DbType="0" Precision="19" />
+                    <Field Name="Stopa" Ordinal="4" DbType="5" Precision="5" Scale="2" />
+                    <Field Name="TarifaId" Ordinal="5" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_b4c9f554a22baee23e425894791" DbType="0" Precision="19" />
+                  </Fields>
+                </Table>
+              </Tables>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="dbo:Artikl:FK_d4c8f1443eb816aa724efcdde2e">
+              <FieldPairs>
+                <FieldPair PkField="dbo:StatusRo:StatusId" FkField="dbo:Artikl:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Cjenik:FK_30a409b4f3ca8d0bdd26e4b96e0">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Artikl:ArtiklId" FkField="dbo:Cjenik:ArtiklId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Cjenik:FK_47a832d412683069e687ef0f2f7">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Partner:PartnerId" FkField="dbo:Cjenik:PartnerId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Korisnik:FK_dfb14634469b1397878150e222d">
+              <FieldPairs>
+                <FieldPair PkField="dbo:RoleRo:RoleId" FkField="dbo:Korisnik:RoleId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:Partner:FK_7a2ae1e4c40be653c373315ebd4">
+              <FieldPairs>
+                <FieldPair PkField="dbo:StatusRo:StatusId" FkField="dbo:Partner:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:RacunGlava:FK_63db5294b5799fd45e2e934efef">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Partner:PartnerId" FkField="dbo:RacunGlava:PartnerId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:RacunGlava:FK_b3f3866433f9629df549bb2ba25">
+              <FieldPairs>
+                <FieldPair PkField="dbo:StatusRo:StatusId" FkField="dbo:RacunGlava:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:RacunGlava:FK_e2b0d6c4ba78d54a196f1b6c476">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Tarifa:TarifaId" FkField="dbo:RacunGlava:TarifaId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:RacunStavka:FK_669f8ee405cbffd0c838cda7063">
+              <FieldPairs>
+                <FieldPair PkField="dbo:RacunGlava:RacunGlavaId" FkField="dbo:RacunStavka:RacunGlavaId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="dbo:RacunStavka:FK_ae23b95474ca1ed12a5178b760e">
+              <FieldPairs>
+                <FieldPair PkField="dbo:Artikl:ArtiklId" FkField="dbo:RacunStavka:ArtiklId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+    <TargetDatabase Type="88EBFD8C-CBDD-4452-88AF-1C99E41A123F">
+      <ConnectionElements />
+      <SystemSequences />
+      <Catalogs>
+        <Catalog Name="Default">
+          <Schemas>
+            <Schema Name="public">
+              <Sequences>
+                <Sequence Name="GenericSequence" />
+              </Sequences>
+              <Tables>
+                <Table Name="Artikl">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" IsPrimaryKey="true" PkConstraintName="PK_8936853496aa7bc23377b00435f" DbType="10" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="Jm" Ordinal="3" DbType="24" Length="10" />
+                    <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
+                    <Field Name="Pdv" Ordinal="5" DbType="14" Precision="4" Scale="2" />
+                    <Field Name="StatusId" Ordinal="6" DbType="10" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Brojac">
+                  <Fields>
+                    <Field Name="BrojacId" Ordinal="1" IsPrimaryKey="true" PkConstraintName="PK_35b0167480796dc7e7f871d25c8" DbType="10" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="Godina" Ordinal="3" DbType="8" />
+                    <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
+                    <Field Name="SlijedeciBroj" Ordinal="5" DbType="9" />
+                  </Fields>
+                </Table>
+                <Table Name="Cjenik">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" DbType="10" Precision="19" />
+                    <Field Name="Cijena" Ordinal="2" DbType="14" Precision="10" Scale="4" />
+                    <Field Name="CjenikId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_19f7ec84559b62994314500461f" DbType="10" Precision="19" />
+                    <Field Name="ConcurrencyGuid" Ordinal="4" DbType="24" Length="50" />
+                    <Field Name="PartnerId" Ordinal="5" DbType="10" Precision="19" />
+                  </Fields>
+                  <UniqueConstraints>
+                    <UniqueConstraint Name="UC_39d17614e3e9be4f4b04b4e8ede">
+                      <Field Name="ArtiklId" />
+                      <Field Name="PartnerId" />
+                    </UniqueConstraint>
+                  </UniqueConstraints>
+                </Table>
+                <Table Name="Config">
+                  <Fields>
+                    <Field Name="Adresa" Ordinal="1" IsOptional="true" DbType="24" Length="100" />
+                    <Field Name="AktivnaGodina" Ordinal="2" DbType="8" />
+                    <Field Name="ConcurrencyGuid" Ordinal="3" DbType="24" Length="50" />
+                    <Field Name="Mjesto" Ordinal="4" IsOptional="true" DbType="24" Length="100" />
+                    <Field Name="Naziv" Ordinal="5" DbType="24" Length="100" />
+                    <Field Name="Oib" Ordinal="6" IsPrimaryKey="true" PkConstraintName="PK_af1b54743b1a8475f9e3f8a2642" DbType="24" Length="11" />
+                    <Field Name="Zr" Ordinal="7" IsOptional="true" DbType="24" Length="50" />
+                  </Fields>
+                </Table>
+                <Table Name="Korisnik">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="24" Length="50" />
+                    <Field Name="KorisnikId" Ordinal="2" IsPrimaryKey="true" PkConstraintName="PK_f232d1c4e00ad36363f6b81c847" DbType="10" Precision="19" />
+                    <Field Name="Password" Ordinal="3" DbType="24" Length="50" />
+                    <Field Name="Username" Ordinal="4" DbType="24" Length="20" />
+                    <Field Name="RoleId" Ordinal="5" DbType="10" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Partner">
+                  <Fields>
+                    <Field Name="Adresa" Ordinal="1" IsOptional="true" DbType="24" Length="100" />
+                    <Field Name="ConcurrencyGuid" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="Mjesto" Ordinal="3" IsOptional="true" DbType="24" Length="20" />
+                    <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
+                    <Field Name="Oib" Ordinal="5" DbType="24" Length="11" />
+                    <Field Name="PartnerId" Ordinal="6" IsPrimaryKey="true" PkConstraintName="PK_ec363ca41a09a25ebb6c0283629" DbType="10" Precision="19" />
+                    <Field Name="Posta" Ordinal="7" IsOptional="true" DbType="24" Length="10" />
+                    <Field Name="StatusId" Ordinal="8" DbType="10" Precision="19" />
+                    <Field Name="Valuta" Ordinal="9" DbType="8" />
+                  </Fields>
+                </Table>
+                <Table Name="RacunGlava">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="24" Length="50" />
+                    <Field Name="Datum" Ordinal="2" DbType="5" />
+                    <Field Name="Godina" Ordinal="3" DbType="8" />
+                    <Field Name="MjestoRadaAdresa" Ordinal="4" IsOptional="true" DbType="24" Length="100" />
+                    <Field Name="MjestoRadaNaziv" Ordinal="5" IsOptional="true" DbType="24" Length="100" />
+                    <Field Name="PartnerId" Ordinal="6" DbType="10" Precision="19" />
+                    <Field Name="RacunGlavaId" Ordinal="7" IsPrimaryKey="true" PkConstraintName="PK_2ace6ec4137803379b7e704c868" DbType="10" Precision="19" />
+                    <Field Name="StatusId" Ordinal="8" DbType="10" Precision="19" />
+                    <Field Name="TarifaId" Ordinal="9" DbType="10" Precision="19" />
+                    <Field Name="TarifaStopa" Ordinal="10" DbType="14" Precision="5" Scale="2" />
+                    <Field Name="Valuta" Ordinal="11" DbType="8" />
+                  </Fields>
+                </Table>
+                <Table Name="RacunStavka">
+                  <Fields>
+                    <Field Name="ArtiklId" Ordinal="1" DbType="10" Precision="19" />
+                    <Field Name="Cijena" Ordinal="2" DbType="14" Precision="10" Scale="2" />
+                    <Field Name="ConcurrencyGuid" Ordinal="3" DbType="24" Length="50" />
+                    <Field Name="Iznos" Ordinal="4" DbType="14" Precision="10" Scale="2" />
+                    <Field Name="Kolicina" Ordinal="5" DbType="14" Precision="8" Scale="2" />
+                    <Field Name="PdvIznos" Ordinal="6" DbType="14" Precision="10" Scale="2" />
+                    <Field Name="PdvPosto" Ordinal="7" DbType="14" Precision="4" Scale="2" />
+                    <Field Name="Pozicija" Ordinal="8" DbType="8" />
+                    <Field Name="RacunGlavaId" Ordinal="9" DbType="10" Precision="19" />
+                    <Field Name="RacunStavkaId" Ordinal="10" IsPrimaryKey="true" PkConstraintName="PK_eea0bcd456c9a21f143257b7cdb" DbType="10" Precision="19" />
+                    <Field Name="TarifaIznos" Ordinal="11" DbType="14" Precision="10" Scale="2" />
+                  </Fields>
+                </Table>
+                <Table Name="RoleRo">
+                  <Fields>
+                    <Field Name="Code" Ordinal="1" DbType="24" Length="50" />
+                    <Field Name="Name" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="RoleId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_eb5df4740fda93e603b4a609eef" DbType="10" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="StatusRo">
+                  <Fields>
+                    <Field Name="Code" Ordinal="1" DbType="24" Length="50" />
+                    <Field Name="Name" Ordinal="2" DbType="24" Length="50" />
+                    <Field Name="StatusId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_c966b344206835938ce0e1a22cb" DbType="10" Precision="19" />
+                  </Fields>
+                </Table>
+                <Table Name="Tarifa">
+                  <Fields>
+                    <Field Name="ConcurrencyGuid" Ordinal="1" DbType="24" Length="50" />
+                    <Field Name="Naziv" Ordinal="2" DbType="24" Length="100" />
+                    <Field Name="StatusId" Ordinal="3" DbType="10" Precision="19" />
+                    <Field Name="Stopa" Ordinal="4" DbType="14" Precision="5" Scale="2" />
+                    <Field Name="TarifaId" Ordinal="5" IsPrimaryKey="true" PkConstraintName="PK_a89a7a34ced81027e34dae234e2" DbType="10" Precision="19" />
+                  </Fields>
+                </Table>
+              </Tables>
+            </Schema>
+          </Schemas>
+          <ForeignKeyConstraints>
+            <ForeignKeyConstraint Name="public:Artikl:FK_268540648c29018a1a754786844">
+              <FieldPairs>
+                <FieldPair PkField="public:StatusRo:StatusId" FkField="public:Artikl:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:Cjenik:FK_1556ecf466881bc95e2b77cbbc7">
+              <FieldPairs>
+                <FieldPair PkField="public:Artikl:ArtiklId" FkField="public:Cjenik:ArtiklId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:Cjenik:FK_d18803841fba0377240280bf196">
+              <FieldPairs>
+                <FieldPair PkField="public:Partner:PartnerId" FkField="public:Cjenik:PartnerId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:Korisnik:FK_15df8b8464f933e1f3cce430182">
+              <FieldPairs>
+                <FieldPair PkField="public:RoleRo:RoleId" FkField="public:Korisnik:RoleId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:Partner:FK_e32220d43c2845753ff91e7e105">
+              <FieldPairs>
+                <FieldPair PkField="public:StatusRo:StatusId" FkField="public:Partner:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunGlava:FK_12e16d34d84949c25167b213d97">
+              <FieldPairs>
+                <FieldPair PkField="public:StatusRo:StatusId" FkField="public:RacunGlava:StatusId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunGlava:FK_432e8c241f98aed846b19115ec5">
+              <FieldPairs>
+                <FieldPair PkField="public:Partner:PartnerId" FkField="public:RacunGlava:PartnerId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunGlava:FK_de4ccaf4171b10223250058c83a">
+              <FieldPairs>
+                <FieldPair PkField="public:Tarifa:TarifaId" FkField="public:RacunGlava:TarifaId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunStavka:FK_0f87aab433f919d541b07458fb6">
+              <FieldPairs>
+                <FieldPair PkField="public:Artikl:ArtiklId" FkField="public:RacunStavka:ArtiklId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunStavka:FK_494c7c54bbc8faa69f07c2ed698">
+              <FieldPairs>
+                <FieldPair PkField="public:RacunGlava:RacunGlavaId" FkField="public:RacunStavka:RacunGlavaId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+          </ForeignKeyConstraints>
+        </Catalog>
+      </Catalogs>
+    </TargetDatabase>
+  </TargetDatabases>
+  <MappingStores>
+    <MappingStore Type="2D18D138-1DD2-467E-86CC-4838250611AE">
+      <EntityMappings>
+        <EntityMapping EntityName=":Artikl" TargetName="Enio:dbo:Artikl">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Pdv" TargetFieldName="Pdv" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Brojac" TargetName="Enio:dbo:Brojac">
+          <FieldMappings>
+            <FieldMapping FieldName="BrojacId" TargetFieldName="BrojacId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="SlijedeciBroj" TargetFieldName="SlijedeciBroj" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Cjenik" TargetName="Enio:dbo:Cjenik">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
+            <FieldMapping FieldName="CjenikId" TargetFieldName="CjenikId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Config" TargetName="Enio:dbo:Config">
+          <FieldMappings>
+            <FieldMapping FieldName="Adresa" TargetFieldName="Adresa" />
+            <FieldMapping FieldName="AktivnaGodina" TargetFieldName="AktivnaGodina" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Mjesto" TargetFieldName="Mjesto" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Oib" TargetFieldName="Oib" />
+            <FieldMapping FieldName="Zr" TargetFieldName="Zr" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Korisnik" TargetName="Enio:dbo:Korisnik">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="KorisnikId" TargetFieldName="KorisnikId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="Password" TargetFieldName="Password" />
+            <FieldMapping FieldName="RoleId" TargetFieldName="RoleId" />
+            <FieldMapping FieldName="Username" TargetFieldName="Username" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Partner" TargetName="Enio:dbo:Partner">
+          <FieldMappings>
+            <FieldMapping FieldName="Adresa" TargetFieldName="Adresa" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Mjesto" TargetFieldName="Mjesto" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Oib" TargetFieldName="Oib" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="Posta" TargetFieldName="Posta" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RacunGlava" TargetName="Enio:dbo:RacunGlava">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Datum" TargetFieldName="Datum" />
+            <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
+            <FieldMapping FieldName="MjestoRadaAdresa" TargetFieldName="MjestoRadaAdresa" />
+            <FieldMapping FieldName="MjestoRadaNaziv" TargetFieldName="MjestoRadaNaziv" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
+            <FieldMapping FieldName="RacunGlavaId" TargetFieldName="RacunGlavaId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" />
+            <FieldMapping FieldName="TarifaStopa" TargetFieldName="TarifaStopa" />
+            <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RacunStavka" TargetName="Enio:dbo:RacunStavka">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Iznos" TargetFieldName="Iznos" />
+            <FieldMapping FieldName="Kolicina" TargetFieldName="Kolicina" />
+            <FieldMapping FieldName="PdvIznos" TargetFieldName="PdvIznos" />
+            <FieldMapping FieldName="PdvPosto" TargetFieldName="PdvPosto" />
+            <FieldMapping FieldName="Pozicija" TargetFieldName="Pozicija" />
+            <FieldMapping FieldName="RacunGlavaId" TargetFieldName="RacunGlavaId" />
+            <FieldMapping FieldName="RacunStavkaId" TargetFieldName="RacunStavkaId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="TarifaIznos" TargetFieldName="TarifaIznos" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RoleRo" TargetName="Enio:dbo:RoleRo">
+          <FieldMappings>
+            <FieldMapping FieldName="Code" TargetFieldName="Code" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="RoleId" TargetFieldName="RoleId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":StatusRo" TargetName="Enio:dbo:StatusRo">
+          <FieldMappings>
+            <FieldMapping FieldName="Code" TargetFieldName="Code" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Tarifa" TargetName="Enio:dbo:Tarifa">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="Stopa" TargetFieldName="Stopa" />
+            <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" SequenceToUse="SCOPE_IDENTITY()" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+    <MappingStore Type="88EBFD8C-CBDD-4452-88AF-1C99E41A123F">
+      <EntityMappings>
+        <EntityMapping EntityName=":Artikl" TargetName="Default:public:Artikl">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Pdv" TargetFieldName="Pdv" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Brojac" TargetName="Default:public:Brojac">
+          <FieldMappings>
+            <FieldMapping FieldName="BrojacId" TargetFieldName="BrojacId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="SlijedeciBroj" TargetFieldName="SlijedeciBroj" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Cjenik" TargetName="Default:public:Cjenik">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
+            <FieldMapping FieldName="CjenikId" TargetFieldName="CjenikId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Config" TargetName="Default:public:Config">
+          <FieldMappings>
+            <FieldMapping FieldName="Adresa" TargetFieldName="Adresa" />
+            <FieldMapping FieldName="AktivnaGodina" TargetFieldName="AktivnaGodina" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Mjesto" TargetFieldName="Mjesto" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Oib" TargetFieldName="Oib" />
+            <FieldMapping FieldName="Zr" TargetFieldName="Zr" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Korisnik" TargetName="Default:public:Korisnik">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="KorisnikId" TargetFieldName="KorisnikId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="Password" TargetFieldName="Password" />
+            <FieldMapping FieldName="RoleId" TargetFieldName="RoleId" />
+            <FieldMapping FieldName="Username" TargetFieldName="Username" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Partner" TargetName="Default:public:Partner">
+          <FieldMappings>
+            <FieldMapping FieldName="Adresa" TargetFieldName="Adresa" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Mjesto" TargetFieldName="Mjesto" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="Oib" TargetFieldName="Oib" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="Posta" TargetFieldName="Posta" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RacunGlava" TargetName="Default:public:RacunGlava">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Datum" TargetFieldName="Datum" />
+            <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
+            <FieldMapping FieldName="MjestoRadaAdresa" TargetFieldName="MjestoRadaAdresa" />
+            <FieldMapping FieldName="MjestoRadaNaziv" TargetFieldName="MjestoRadaNaziv" />
+            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
+            <FieldMapping FieldName="RacunGlavaId" TargetFieldName="RacunGlavaId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" />
+            <FieldMapping FieldName="TarifaStopa" TargetFieldName="TarifaStopa" />
+            <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RacunStavka" TargetName="Default:public:RacunStavka">
+          <FieldMappings>
+            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Iznos" TargetFieldName="Iznos" />
+            <FieldMapping FieldName="Kolicina" TargetFieldName="Kolicina" />
+            <FieldMapping FieldName="PdvIznos" TargetFieldName="PdvIznos" />
+            <FieldMapping FieldName="PdvPosto" TargetFieldName="PdvPosto" />
+            <FieldMapping FieldName="Pozicija" TargetFieldName="Pozicija" />
+            <FieldMapping FieldName="RacunGlavaId" TargetFieldName="RacunGlavaId" />
+            <FieldMapping FieldName="RacunStavkaId" TargetFieldName="RacunStavkaId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="TarifaIznos" TargetFieldName="TarifaIznos" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":RoleRo" TargetName="Default:public:RoleRo">
+          <FieldMappings>
+            <FieldMapping FieldName="Code" TargetFieldName="Code" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="RoleId" TargetFieldName="RoleId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":StatusRo" TargetName="Default:public:StatusRo">
+          <FieldMappings>
+            <FieldMapping FieldName="Code" TargetFieldName="Code" />
+            <FieldMapping FieldName="Name" TargetFieldName="Name" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+          </FieldMappings>
+        </EntityMapping>
+        <EntityMapping EntityName=":Tarifa" TargetName="Default:public:Tarifa">
+          <FieldMappings>
+            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
+            <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
+            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
+            <FieldMapping FieldName="Stopa" TargetFieldName="Stopa" />
+            <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" SequenceToUse="Default:public:GenericSequence" />
+          </FieldMappings>
+        </EntityMapping>
+      </EntityMappings>
+      <TypedViewMappings />
+      <SPCallMappings />
+      <TypeConversionDefinitions />
+    </MappingStore>
+  </MappingStores>
+  <ModelViews />
+</Project>
