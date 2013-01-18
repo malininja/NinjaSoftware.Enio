@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -14,30 +13,28 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endif
 using System.Xml.Serialization;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Api.CoolJ;
 
-namespace NinjaSoftware.Enio.EntityClasses
+namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	/// <summary>Entity class which represents the entity 'Config'.<br/><br/></summary>
 	[Serializable]
 	public partial class ConfigEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -48,6 +45,48 @@ namespace NinjaSoftware.Enio.EntityClasses
 		public static partial class MemberNames
 		{
 		}
+
+        /// <summary>
+		/// Returns number of entities after filterBucket is applied.
+		/// If you need number of all entities send null as filterBucket.
+        /// </summary>
+		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
+			IRelationPredicateBucket filterBucket)
+		{
+			EntityCollection entityCollection = new EntityCollection(new ConfigEntityFactory());
+			return adapter.GetDbCount(entityCollection, filterBucket);
+		}
+		
+		/// <summary>
+        /// Efficient pageing for grid.
+        /// </summary>
+        /// <param name="pageNumber">Must be greater than zero.</param>
+        /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
+        public static EntityCollection<ConfigEntity> FetchConfigCollectionForPaging(DataAccessAdapterBase adapter,
+			RelationPredicateBucket bucket,
+			PrefetchPath2 prefetchPath,
+            int pageNumber,
+            int pageSize,
+            string sortField,
+            string sortDirection)
+        {
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(ConfigFields));
+
+            EntityCollection<ConfigEntity> toReturn = new EntityCollection<ConfigEntity>(new ConfigEntityFactory());
+            adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
+
+            return toReturn;
+        }
+		
+		public static EntityCollection<ConfigEntity> FetchConfigCollection(DataAccessAdapterBase adapter,
+			IRelationPredicateBucket filterBucket,
+			PrefetchPath2 prefetchPath)
+		{
+			EntityCollection<ConfigEntity> toReturn = new EntityCollection<ConfigEntity>(new ConfigEntityFactory());
+			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
+			return toReturn;
+		}
+		
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
@@ -108,7 +147,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 
 
@@ -224,7 +262,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 
@@ -290,7 +327,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -331,7 +367,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 
@@ -377,7 +412,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Adresa property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Adresa"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 100<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String Adresa
 		{
@@ -387,7 +422,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The AktivnaGodina property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."AktivnaGodina"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Smallint, 0, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int16 AktivnaGodina
 		{
@@ -397,7 +432,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The ConcurrencyGuid property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."ConcurrencyGuid"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String ConcurrencyGuid
 		{
@@ -407,7 +442,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Mjesto property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Mjesto"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 100<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String Mjesto
 		{
@@ -417,7 +452,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Naziv property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Naziv"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 100<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Naziv
 		{
@@ -427,7 +462,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Oib property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Oib"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 11<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 11<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.String Oib
 		{
@@ -437,7 +472,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Zr property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Zr"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		public virtual System.String Zr
 		{
@@ -457,11 +492,11 @@ namespace NinjaSoftware.Enio.EntityClasses
 			get { return false;}
 		}
 		
-		/// <summary>Returns the NinjaSoftware.Enio.EntityType enum value for this entity.</summary>
+		/// <summary>Returns the NinjaSoftware.Enio.CoolJ.EntityType enum value for this entity.</summary>
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.EntityType.ConfigEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity; }
 		}
 
 		#endregion
@@ -471,7 +506,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

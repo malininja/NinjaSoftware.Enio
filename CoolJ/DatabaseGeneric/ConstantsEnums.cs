@@ -2,14 +2,13 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
 
-namespace NinjaSoftware.Enio
+namespace NinjaSoftware.Enio.CoolJ
 {
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Artikl.</summary>
 	public enum ArtiklFieldIndex
@@ -252,7 +251,6 @@ namespace NinjaSoftware.Enio
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START CustomUserConstants
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	#endregion
 
 	#region Included code

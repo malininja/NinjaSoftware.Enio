@@ -2,38 +2,36 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
 using System.Collections.Generic;
-using NinjaSoftware.Enio.EntityClasses;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.FactoryClasses
+namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 {
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	
 	/// <summary>general base class for the generated factories</summary>
 	[Serializable]
 	public partial class EntityFactoryBase2<TEntity> : EntityFactoryCore2
 		where TEntity : EntityBase2, IEntity2
 	{
-		private readonly NinjaSoftware.Enio.EntityType _typeOfEntity;
+		private readonly NinjaSoftware.Enio.CoolJ.EntityType _typeOfEntity;
 		private readonly bool _isInHierarchy;
 		
 		/// <summary>CTor</summary>
 		/// <param name="entityName">Name of the entity.</param>
 		/// <param name="typeOfEntity">The type of entity.</param>
 		/// <param name="isInHierarchy">If true, the entity of this factory is in an inheritance hierarchy, false otherwise</param>
-		public EntityFactoryBase2(string entityName, NinjaSoftware.Enio.EntityType typeOfEntity, bool isInHierarchy) : base(entityName)
+		public EntityFactoryBase2(string entityName, NinjaSoftware.Enio.CoolJ.EntityType typeOfEntity, bool isInHierarchy) : base(entityName)
 		{
 			_typeOfEntity = typeOfEntity;
 			_isInHierarchy = isInHierarchy;
@@ -51,7 +49,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 		/// <returns>new IEntity instance</returns>
 		public override IEntity2 CreateEntityFromEntityTypeValue(int entityTypeValue)
 		{
-			return GeneralEntityFactory.Create((NinjaSoftware.Enio.EntityType)entityTypeValue);
+			return GeneralEntityFactory.Create((NinjaSoftware.Enio.CoolJ.EntityType)entityTypeValue);
 		}
 
 		/// <summary>Creates the relations collection to the entity to join all targets so this entity can be fetched. </summary>
@@ -104,7 +102,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class ArtiklEntityFactory : EntityFactoryBase2<ArtiklEntity> {
 		/// <summary>CTor</summary>
-		public ArtiklEntityFactory() : base("ArtiklEntity", NinjaSoftware.Enio.EntityType.ArtiklEntity, false) { }
+		public ArtiklEntityFactory() : base("ArtiklEntity", NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, false) { }
 		
 		/// <summary>Creates a new ArtiklEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -113,7 +111,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new ArtiklEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewArtiklUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -125,7 +122,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class BrojacEntityFactory : EntityFactoryBase2<BrojacEntity> {
 		/// <summary>CTor</summary>
-		public BrojacEntityFactory() : base("BrojacEntity", NinjaSoftware.Enio.EntityType.BrojacEntity, false) { }
+		public BrojacEntityFactory() : base("BrojacEntity", NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity, false) { }
 		
 		/// <summary>Creates a new BrojacEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -134,7 +131,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new BrojacEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewBrojacUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -146,7 +142,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class CjenikEntityFactory : EntityFactoryBase2<CjenikEntity> {
 		/// <summary>CTor</summary>
-		public CjenikEntityFactory() : base("CjenikEntity", NinjaSoftware.Enio.EntityType.CjenikEntity, false) { }
+		public CjenikEntityFactory() : base("CjenikEntity", NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity, false) { }
 		
 		/// <summary>Creates a new CjenikEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -155,7 +151,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new CjenikEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewCjenikUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -167,7 +162,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class ConfigEntityFactory : EntityFactoryBase2<ConfigEntity> {
 		/// <summary>CTor</summary>
-		public ConfigEntityFactory() : base("ConfigEntity", NinjaSoftware.Enio.EntityType.ConfigEntity, false) { }
+		public ConfigEntityFactory() : base("ConfigEntity", NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity, false) { }
 		
 		/// <summary>Creates a new ConfigEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -176,7 +171,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new ConfigEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewConfigUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -188,7 +182,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class KorisnikEntityFactory : EntityFactoryBase2<KorisnikEntity> {
 		/// <summary>CTor</summary>
-		public KorisnikEntityFactory() : base("KorisnikEntity", NinjaSoftware.Enio.EntityType.KorisnikEntity, false) { }
+		public KorisnikEntityFactory() : base("KorisnikEntity", NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity, false) { }
 		
 		/// <summary>Creates a new KorisnikEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -197,7 +191,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new KorisnikEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewKorisnikUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -209,7 +202,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class PartnerEntityFactory : EntityFactoryBase2<PartnerEntity> {
 		/// <summary>CTor</summary>
-		public PartnerEntityFactory() : base("PartnerEntity", NinjaSoftware.Enio.EntityType.PartnerEntity, false) { }
+		public PartnerEntityFactory() : base("PartnerEntity", NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity, false) { }
 		
 		/// <summary>Creates a new PartnerEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -218,7 +211,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new PartnerEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewPartnerUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -230,7 +222,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class RacunGlavaEntityFactory : EntityFactoryBase2<RacunGlavaEntity> {
 		/// <summary>CTor</summary>
-		public RacunGlavaEntityFactory() : base("RacunGlavaEntity", NinjaSoftware.Enio.EntityType.RacunGlavaEntity, false) { }
+		public RacunGlavaEntityFactory() : base("RacunGlavaEntity", NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity, false) { }
 		
 		/// <summary>Creates a new RacunGlavaEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -239,7 +231,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new RacunGlavaEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewRacunGlavaUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -251,7 +242,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class RacunStavkaEntityFactory : EntityFactoryBase2<RacunStavkaEntity> {
 		/// <summary>CTor</summary>
-		public RacunStavkaEntityFactory() : base("RacunStavkaEntity", NinjaSoftware.Enio.EntityType.RacunStavkaEntity, false) { }
+		public RacunStavkaEntityFactory() : base("RacunStavkaEntity", NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity, false) { }
 		
 		/// <summary>Creates a new RacunStavkaEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -260,7 +251,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new RacunStavkaEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewRacunStavkaUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -272,7 +262,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class RoleRoEntityFactory : EntityFactoryBase2<RoleRoEntity> {
 		/// <summary>CTor</summary>
-		public RoleRoEntityFactory() : base("RoleRoEntity", NinjaSoftware.Enio.EntityType.RoleRoEntity, false) { }
+		public RoleRoEntityFactory() : base("RoleRoEntity", NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity, false) { }
 		
 		/// <summary>Creates a new RoleRoEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -281,7 +271,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new RoleRoEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewRoleRoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -293,7 +282,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class StatusRoEntityFactory : EntityFactoryBase2<StatusRoEntity> {
 		/// <summary>CTor</summary>
-		public StatusRoEntityFactory() : base("StatusRoEntity", NinjaSoftware.Enio.EntityType.StatusRoEntity, false) { }
+		public StatusRoEntityFactory() : base("StatusRoEntity", NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity, false) { }
 		
 		/// <summary>Creates a new StatusRoEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -302,7 +291,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new StatusRoEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewStatusRoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -314,7 +302,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	[Serializable]
 	public partial class TarifaEntityFactory : EntityFactoryBase2<TarifaEntity> {
 		/// <summary>CTor</summary>
-		public TarifaEntityFactory() : base("TarifaEntity", NinjaSoftware.Enio.EntityType.TarifaEntity, false) { }
+		public TarifaEntityFactory() : base("TarifaEntity", NinjaSoftware.Enio.CoolJ.EntityType.TarifaEntity, false) { }
 		
 		/// <summary>Creates a new TarifaEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
@@ -323,7 +311,6 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			IEntity2 toReturn = new TarifaEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewTarifaUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -338,42 +325,42 @@ namespace NinjaSoftware.Enio.FactoryClasses
 		/// <summary>Creates a new, empty Entity object of the type specified</summary>
 		/// <param name="entityTypeToCreate">The entity type to create.</param>
 		/// <returns>A new, empty Entity object.</returns>
-		public static IEntity2 Create(NinjaSoftware.Enio.EntityType entityTypeToCreate)
+		public static IEntity2 Create(NinjaSoftware.Enio.CoolJ.EntityType entityTypeToCreate)
 		{
 			IEntityFactory2 factoryToUse = null;
 			switch(entityTypeToCreate)
 			{
-				case NinjaSoftware.Enio.EntityType.ArtiklEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity:
 					factoryToUse = new ArtiklEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.BrojacEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity:
 					factoryToUse = new BrojacEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.CjenikEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity:
 					factoryToUse = new CjenikEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.ConfigEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity:
 					factoryToUse = new ConfigEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.KorisnikEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity:
 					factoryToUse = new KorisnikEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.PartnerEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					factoryToUse = new PartnerEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.RacunGlavaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity:
 					factoryToUse = new RacunGlavaEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.RacunStavkaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity:
 					factoryToUse = new RacunStavkaEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.RoleRoEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity:
 					factoryToUse = new RoleRoEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.StatusRoEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity:
 					factoryToUse = new StatusRoEntityFactory();
 					break;
-				case NinjaSoftware.Enio.EntityType.TarifaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.TarifaEntity:
 					factoryToUse = new TarifaEntityFactory();
 					break;
 			}
@@ -391,10 +378,10 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	public static class EntityFactoryFactory
 	{
 #if CF
-		/// <summary>Gets the factory of the entity with the NinjaSoftware.Enio.EntityType specified</summary>
+		/// <summary>Gets the factory of the entity with the NinjaSoftware.Enio.CoolJ.EntityType specified</summary>
 		/// <param name="typeOfEntity">The type of entity.</param>
 		/// <returns>factory to use or null if not found</returns>
-		public static IEntityFactory2 GetFactory(NinjaSoftware.Enio.EntityType typeOfEntity)
+		public static IEntityFactory2 GetFactory(NinjaSoftware.Enio.CoolJ.EntityType typeOfEntity)
 		{
 			return GeneralEntityFactory.Create(typeOfEntity).GetEntityFactory();
 		}
@@ -404,10 +391,10 @@ namespace NinjaSoftware.Enio.FactoryClasses
 		/// <summary>Initializes the <see cref="EntityFactoryFactory"/> class.</summary>
 		static EntityFactoryFactory()
 		{
-			Array entityTypeValues = Enum.GetValues(typeof(NinjaSoftware.Enio.EntityType));
+			Array entityTypeValues = Enum.GetValues(typeof(NinjaSoftware.Enio.CoolJ.EntityType));
 			foreach(int entityTypeValue in entityTypeValues)
 			{
-				IEntity2 dummy = GeneralEntityFactory.Create((NinjaSoftware.Enio.EntityType)entityTypeValue);
+				IEntity2 dummy = GeneralEntityFactory.Create((NinjaSoftware.Enio.CoolJ.EntityType)entityTypeValue);
 				_factoryPerType.Add(dummy.GetType(), dummy.GetEntityFactory());
 			}
 		}
@@ -422,10 +409,10 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			return toReturn;
 		}
 
-		/// <summary>Gets the factory of the entity with the NinjaSoftware.Enio.EntityType specified</summary>
+		/// <summary>Gets the factory of the entity with the NinjaSoftware.Enio.CoolJ.EntityType specified</summary>
 		/// <param name="typeOfEntity">The type of entity.</param>
 		/// <returns>factory to use or null if not found</returns>
-		public static IEntityFactory2 GetFactory(NinjaSoftware.Enio.EntityType typeOfEntity)
+		public static IEntityFactory2 GetFactory(NinjaSoftware.Enio.CoolJ.EntityType typeOfEntity)
 		{
 			return GetFactory(GeneralEntityFactory.Create(typeOfEntity).GetType());
 		}
@@ -435,7 +422,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 	/// <summary>Element creator for creating project elements from somewhere else, like inside Linq providers.</summary>
 	public class ElementCreator : ElementCreatorBase, IElementCreator2
 	{
-		/// <summary>Gets the factory of the Entity type with the NinjaSoftware.Enio.EntityType value passed in</summary>
+		/// <summary>Gets the factory of the Entity type with the NinjaSoftware.Enio.CoolJ.EntityType value passed in</summary>
 		/// <param name="entityTypeValue">The entity type value.</param>
 		/// <returns>the entity factory of the entity type or null if not found</returns>
 		public IEntityFactory2 GetFactory(int entityTypeValue)
@@ -487,7 +474,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 		/// <returns>ready to use dynamic relation</returns>
 		public override IDynamicRelation CreateDynamicRelation(DerivedTableDefinition leftOperand, JoinHint joinType, string rightOperandEntityName, string aliasRightOperand, IPredicate onClause)
 		{
-			return new DynamicRelation(leftOperand, joinType, (NinjaSoftware.Enio.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.EntityType), rightOperandEntityName, false), aliasRightOperand, onClause);
+			return new DynamicRelation(leftOperand, joinType, (NinjaSoftware.Enio.CoolJ.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.CoolJ.EntityType), rightOperandEntityName, false), aliasRightOperand, onClause);
 		}
 
 		/// <summary>Creates a new dynamic relation instance</summary>
@@ -500,7 +487,7 @@ namespace NinjaSoftware.Enio.FactoryClasses
 		/// <returns>ready to use dynamic relation</returns>
 		public override IDynamicRelation CreateDynamicRelation(string leftOperandEntityName, JoinHint joinType, string rightOperandEntityName, string aliasLeftOperand, string aliasRightOperand, IPredicate onClause)
 		{
-			return new DynamicRelation((NinjaSoftware.Enio.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.EntityType), leftOperandEntityName, false), joinType, (NinjaSoftware.Enio.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
+			return new DynamicRelation((NinjaSoftware.Enio.CoolJ.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.CoolJ.EntityType), leftOperandEntityName, false), joinType, (NinjaSoftware.Enio.CoolJ.EntityType)Enum.Parse(typeof(NinjaSoftware.Enio.CoolJ.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
 		}
 		
 		/// <summary>Obtains the inheritance info provider instance from the singleton </summary>
@@ -510,12 +497,12 @@ namespace NinjaSoftware.Enio.FactoryClasses
 			return InheritanceInfoProviderSingleton.GetInstance();
 		}
 		
-		/// <summary>Implementation of the routine which gets the factory of the Entity type with the NinjaSoftware.Enio.EntityType value passed in</summary>
+		/// <summary>Implementation of the routine which gets the factory of the Entity type with the NinjaSoftware.Enio.CoolJ.EntityType value passed in</summary>
 		/// <param name="entityTypeValue">The entity type value.</param>
 		/// <returns>the entity factory of the entity type or null if not found</returns>
 		protected override IEntityFactoryCore GetFactoryImpl(int entityTypeValue)
 		{
-			return EntityFactoryFactory.GetFactory((NinjaSoftware.Enio.EntityType)entityTypeValue);
+			return EntityFactoryFactory.GetFactory((NinjaSoftware.Enio.CoolJ.EntityType)entityTypeValue);
 		}
 #if !CF		
 		/// <summary>Implementation of the routine which gets the factory of the Entity type with the .NET type passed in</summary>

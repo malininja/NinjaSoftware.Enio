@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -12,7 +11,7 @@ using System.Collections;
 using System.Data;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.PostgreSql.DatabaseSpecific
+namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 {
 	/// <summary>Singleton implementation of the PersistenceInfoProvider. This class is the singleton wrapper through which the actual instance is retrieved.</summary>
 	/// <remarks>It uses a single instance of an internal class. The access isn't marked with locks as the PersistenceInfoProviderBase class is threadsafe.</remarks>

@@ -2,19 +2,18 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
 
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.FactoryClasses
+namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 {
 	/// <summary>Factory class for IEntityField2 instances, used in IEntityFields2 instances.</summary>
 	public static partial class EntityFieldFactory

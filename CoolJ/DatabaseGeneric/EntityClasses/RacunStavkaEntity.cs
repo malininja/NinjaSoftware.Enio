@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -14,24 +13,23 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endif
 using System.Xml.Serialization;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Api.CoolJ;
 
-namespace NinjaSoftware.Enio.EntityClasses
+namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	/// <summary>Entity class which represents the entity 'RacunStavka'.<br/><br/></summary>
 	[Serializable]
 	public partial class RacunStavkaEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private ArtiklEntity _artikl;
@@ -39,7 +37,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -54,6 +51,55 @@ namespace NinjaSoftware.Enio.EntityClasses
 			/// <summary>Member name RacunGlava</summary>
 			public static readonly string RacunGlava = "RacunGlava";
 		}
+
+        /// <summary>
+		/// Returns number of entities after filterBucket is applied.
+		/// If you need number of all entities send null as filterBucket.
+        /// </summary>
+		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
+			IRelationPredicateBucket filterBucket)
+		{
+			EntityCollection entityCollection = new EntityCollection(new RacunStavkaEntityFactory());
+			return adapter.GetDbCount(entityCollection, filterBucket);
+		}
+		
+		/// <summary>
+        /// Efficient pageing for grid.
+        /// </summary>
+        /// <param name="pageNumber">Must be greater than zero.</param>
+        /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
+        public static EntityCollection<RacunStavkaEntity> FetchRacunStavkaCollectionForPaging(DataAccessAdapterBase adapter,
+			RelationPredicateBucket bucket,
+			PrefetchPath2 prefetchPath,
+            int pageNumber,
+            int pageSize,
+            string sortField,
+            string sortDirection)
+        {
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(RacunStavkaFields));
+
+            EntityCollection<RacunStavkaEntity> toReturn = new EntityCollection<RacunStavkaEntity>(new RacunStavkaEntityFactory());
+            adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
+
+            return toReturn;
+        }
+		
+		public static EntityCollection<RacunStavkaEntity> FetchRacunStavkaCollection(DataAccessAdapterBase adapter,
+			IRelationPredicateBucket filterBucket,
+			PrefetchPath2 prefetchPath)
+		{
+			EntityCollection<RacunStavkaEntity> toReturn = new EntityCollection<RacunStavkaEntity>(new RacunStavkaEntityFactory());
+			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
+			return toReturn;
+		}
+		
+		public static RacunStavkaEntity FetchRacunStavka(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long RacunStavkaId)
+		{
+			RacunStavkaEntity _RacunStavkaEntity = new RacunStavkaEntity(RacunStavkaId);
+			adapter.FetchEntity(_RacunStavkaEntity, prefetchPath);
+			return _RacunStavkaEntity;
+		}
+
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
@@ -124,7 +170,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 
 		
@@ -292,7 +337,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 
@@ -378,7 +422,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -420,7 +463,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncArtikl(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _artikl, new PropertyChangedEventHandler( OnArtiklPropertyChanged ), "Artikl", NinjaSoftware.Enio.RelationClasses.StaticRacunStavkaRelations.ArtiklEntityUsingArtiklIdStatic, true, signalRelatedEntity, "RacunStavkaCollection", resetFKFields, new int[] { (int)RacunStavkaFieldIndex.ArtiklId } );
+			this.PerformDesetupSyncRelatedEntity( _artikl, new PropertyChangedEventHandler( OnArtiklPropertyChanged ), "Artikl", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticRacunStavkaRelations.ArtiklEntityUsingArtiklIdStatic, true, signalRelatedEntity, "RacunStavkaCollection", resetFKFields, new int[] { (int)RacunStavkaFieldIndex.ArtiklId } );
 			_artikl = null;
 		}
 
@@ -432,7 +475,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 			{
 				DesetupSyncArtikl(true, true);
 				_artikl = (ArtiklEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _artikl, new PropertyChangedEventHandler( OnArtiklPropertyChanged ), "Artikl", NinjaSoftware.Enio.RelationClasses.StaticRacunStavkaRelations.ArtiklEntityUsingArtiklIdStatic, true, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _artikl, new PropertyChangedEventHandler( OnArtiklPropertyChanged ), "Artikl", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticRacunStavkaRelations.ArtiklEntityUsingArtiklIdStatic, true, new string[] {  } );
 			}
 		}
 		
@@ -453,7 +496,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncRacunGlava(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _racunGlava, new PropertyChangedEventHandler( OnRacunGlavaPropertyChanged ), "RacunGlava", NinjaSoftware.Enio.RelationClasses.StaticRacunStavkaRelations.RacunGlavaEntityUsingRacunGlavaIdStatic, true, signalRelatedEntity, "RacunStavkaCollection", resetFKFields, new int[] { (int)RacunStavkaFieldIndex.RacunGlavaId } );
+			this.PerformDesetupSyncRelatedEntity( _racunGlava, new PropertyChangedEventHandler( OnRacunGlavaPropertyChanged ), "RacunGlava", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticRacunStavkaRelations.RacunGlavaEntityUsingRacunGlavaIdStatic, true, signalRelatedEntity, "RacunStavkaCollection", resetFKFields, new int[] { (int)RacunStavkaFieldIndex.RacunGlavaId } );
 			_racunGlava = null;
 		}
 
@@ -465,7 +508,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 			{
 				DesetupSyncRacunGlava(true, true);
 				_racunGlava = (RacunGlavaEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _racunGlava, new PropertyChangedEventHandler( OnRacunGlavaPropertyChanged ), "RacunGlava", NinjaSoftware.Enio.RelationClasses.StaticRacunStavkaRelations.RacunGlavaEntityUsingRacunGlavaIdStatic, true, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _racunGlava, new PropertyChangedEventHandler( OnRacunGlavaPropertyChanged ), "RacunGlava", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticRacunStavkaRelations.RacunGlavaEntityUsingRacunGlavaIdStatic, true, new string[] {  } );
 			}
 		}
 		
@@ -493,7 +536,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 
@@ -517,14 +559,14 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathArtikl
 		{
-			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(ArtiklEntityFactory))),	(IEntityRelation)GetRelationsForField("Artikl")[0], (int)NinjaSoftware.Enio.EntityType.RacunStavkaEntity, (int)NinjaSoftware.Enio.EntityType.ArtiklEntity, 0, null, null, null, null, "Artikl", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(ArtiklEntityFactory))),	(IEntityRelation)GetRelationsForField("Artikl")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, 0, null, null, null, null, "Artikl", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RacunGlava' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathRacunGlava
 		{
-			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))),	(IEntityRelation)GetRelationsForField("RacunGlava")[0], (int)NinjaSoftware.Enio.EntityType.RacunStavkaEntity, (int)NinjaSoftware.Enio.EntityType.RacunGlavaEntity, 0, null, null, null, null, "RacunGlava", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))),	(IEntityRelation)GetRelationsForField("RacunGlava")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity, 0, null, null, null, null, "RacunGlava", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -553,7 +595,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The ArtiklId property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."ArtiklId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int64 ArtiklId
 		{
@@ -563,7 +605,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Cijena property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."Cijena"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 10, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal Cijena
 		{
@@ -573,7 +615,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The ConcurrencyGuid property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."ConcurrencyGuid"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String ConcurrencyGuid
 		{
@@ -583,7 +625,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Iznos property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."Iznos"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 10, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal Iznos
 		{
@@ -593,7 +635,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Kolicina property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."Kolicina"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 8, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 8, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal Kolicina
 		{
@@ -603,7 +645,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The PdvIznos property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."PdvIznos"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 10, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal PdvIznos
 		{
@@ -613,7 +655,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The PdvPosto property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."PdvPosto"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 4, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 4, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal PdvPosto
 		{
@@ -623,7 +665,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Pozicija property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."Pozicija"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Smallint, 0, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int16 Pozicija
 		{
@@ -633,7 +675,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The RacunGlavaId property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."RacunGlavaId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int64 RacunGlavaId
 		{
@@ -643,7 +685,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The RacunStavkaId property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."RacunStavkaId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
 		public virtual System.Int64 RacunStavkaId
 		{
@@ -653,7 +695,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The TarifaIznos property of the Entity RacunStavka<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RacunStavka"."TarifaIznos"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 10, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal TarifaIznos
 		{
@@ -709,11 +751,11 @@ namespace NinjaSoftware.Enio.EntityClasses
 			get { return false;}
 		}
 		
-		/// <summary>Returns the NinjaSoftware.Enio.EntityType enum value for this entity.</summary>
+		/// <summary>Returns the NinjaSoftware.Enio.CoolJ.EntityType enum value for this entity.</summary>
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.EntityType.RacunStavkaEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity; }
 		}
 
 		#endregion
@@ -723,7 +765,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

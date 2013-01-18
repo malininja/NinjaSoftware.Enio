@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -14,24 +13,23 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endif
 using System.Xml.Serialization;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Api.CoolJ;
 
-namespace NinjaSoftware.Enio.EntityClasses
+namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	/// <summary>Entity class which represents the entity 'Artikl'.<br/><br/></summary>
 	[Serializable]
 	public partial class ArtiklEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private EntityCollection<CjenikEntity> _cjenikCollection;
@@ -40,7 +38,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -57,6 +54,55 @@ namespace NinjaSoftware.Enio.EntityClasses
 			/// <summary>Member name RacunStavkaCollection</summary>
 			public static readonly string RacunStavkaCollection = "RacunStavkaCollection";
 		}
+
+        /// <summary>
+		/// Returns number of entities after filterBucket is applied.
+		/// If you need number of all entities send null as filterBucket.
+        /// </summary>
+		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
+			IRelationPredicateBucket filterBucket)
+		{
+			EntityCollection entityCollection = new EntityCollection(new ArtiklEntityFactory());
+			return adapter.GetDbCount(entityCollection, filterBucket);
+		}
+		
+		/// <summary>
+        /// Efficient pageing for grid.
+        /// </summary>
+        /// <param name="pageNumber">Must be greater than zero.</param>
+        /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
+        public static EntityCollection<ArtiklEntity> FetchArtiklCollectionForPaging(DataAccessAdapterBase adapter,
+			RelationPredicateBucket bucket,
+			PrefetchPath2 prefetchPath,
+            int pageNumber,
+            int pageSize,
+            string sortField,
+            string sortDirection)
+        {
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(ArtiklFields));
+
+            EntityCollection<ArtiklEntity> toReturn = new EntityCollection<ArtiklEntity>(new ArtiklEntityFactory());
+            adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
+
+            return toReturn;
+        }
+		
+		public static EntityCollection<ArtiklEntity> FetchArtiklCollection(DataAccessAdapterBase adapter,
+			IRelationPredicateBucket filterBucket,
+			PrefetchPath2 prefetchPath)
+		{
+			EntityCollection<ArtiklEntity> toReturn = new EntityCollection<ArtiklEntity>(new ArtiklEntityFactory());
+			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
+			return toReturn;
+		}
+		
+		public static ArtiklEntity FetchArtikl(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long ArtiklId)
+		{
+			ArtiklEntity _ArtiklEntity = new ArtiklEntity(ArtiklId);
+			adapter.FetchEntity(_ArtiklEntity, prefetchPath);
+			return _ArtiklEntity;
+		}
+
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
@@ -124,7 +170,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 
 		
@@ -300,7 +345,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 
@@ -404,7 +448,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -436,7 +479,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
 		private void DesetupSyncStatus(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, signalRelatedEntity, "ArtiklCollection", resetFKFields, new int[] { (int)ArtiklFieldIndex.StatusId } );
+			this.PerformDesetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, signalRelatedEntity, "ArtiklCollection", resetFKFields, new int[] { (int)ArtiklFieldIndex.StatusId } );
 			_status = null;
 		}
 
@@ -448,7 +491,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 			{
 				DesetupSyncStatus(true, true);
 				_status = (StatusRoEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, new string[] {  } );
+				this.PerformSetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, new string[] {  } );
 			}
 		}
 		
@@ -476,7 +519,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 
@@ -500,21 +542,21 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathCjenikCollection
 		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<CjenikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(CjenikEntityFactory))), (IEntityRelation)GetRelationsForField("CjenikCollection")[0], (int)NinjaSoftware.Enio.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.EntityType.CjenikEntity, 0, null, null, null, null, "CjenikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+			get	{ return new PrefetchPathElement2( new EntityCollection<CjenikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(CjenikEntityFactory))), (IEntityRelation)GetRelationsForField("CjenikCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity, 0, null, null, null, null, "CjenikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
 		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RacunStavka' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathRacunStavkaCollection
 		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<RacunStavkaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunStavkaEntityFactory))), (IEntityRelation)GetRelationsForField("RacunStavkaCollection")[0], (int)NinjaSoftware.Enio.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.EntityType.RacunStavkaEntity, 0, null, null, null, null, "RacunStavkaCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+			get	{ return new PrefetchPathElement2( new EntityCollection<RacunStavkaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunStavkaEntityFactory))), (IEntityRelation)GetRelationsForField("RacunStavkaCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity, 0, null, null, null, null, "RacunStavkaCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
 		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'StatusRo' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathStatus
 		{
-			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(StatusRoEntityFactory))),	(IEntityRelation)GetRelationsForField("Status")[0], (int)NinjaSoftware.Enio.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.EntityType.StatusRoEntity, 0, null, null, null, null, "Status", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(StatusRoEntityFactory))),	(IEntityRelation)GetRelationsForField("Status")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity, 0, null, null, null, null, "Status", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -543,7 +585,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The ArtiklId property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."ArtiklId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
 		public virtual System.Int64 ArtiklId
 		{
@@ -553,7 +595,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The ConcurrencyGuid property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."ConcurrencyGuid"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String ConcurrencyGuid
 		{
@@ -563,7 +605,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Jm property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."Jm"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 10<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 10<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Jm
 		{
@@ -573,7 +615,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Naziv property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."Naziv"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 100<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Naziv
 		{
@@ -583,7 +625,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Pdv property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."Pdv"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Numeric, 4, 2, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 4, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Decimal Pdv
 		{
@@ -593,7 +635,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The StatusId property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."StatusId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int64 StatusId
 		{
@@ -645,11 +687,11 @@ namespace NinjaSoftware.Enio.EntityClasses
 			get { return false;}
 		}
 		
-		/// <summary>Returns the NinjaSoftware.Enio.EntityType enum value for this entity.</summary>
+		/// <summary>Returns the NinjaSoftware.Enio.CoolJ.EntityType enum value for this entity.</summary>
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.EntityType.ArtiklEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity; }
 		}
 
 		#endregion
@@ -659,7 +701,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

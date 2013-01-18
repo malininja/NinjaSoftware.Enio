@@ -2,21 +2,19 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.HelperClasses
+namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	
 	/// <summary>Singleton implementation of the inheritanceInfoProvider. This class is the singleton wrapper through which the actual instance is retrieved.</summary>
 	/// <remarks>It uses a single instance of an internal class. The access isn't marked with locks as the InheritanceInfoProviderBase class is threadsafe.</remarks>
@@ -40,7 +38,6 @@ namespace NinjaSoftware.Enio.HelperClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomInheritanceInfoProviderSingletonCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 	}
 

@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -10,12 +9,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.HelperClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.RelationClasses
+namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 {
 	/// <summary>Implements the relations factory for the entity: Partner. </summary>
 	public partial class PartnerRelations

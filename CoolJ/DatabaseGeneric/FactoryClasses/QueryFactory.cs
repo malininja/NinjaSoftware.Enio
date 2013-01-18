@@ -2,16 +2,16 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
+// Code is generated on: 18. siječanj 2013. 16:33:23
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET35
 // Templates vendor: Solutions Design.
 ////////////////////////////////////////////////////////////// 
 using System;
-using NinjaSoftware.Enio.EntityClasses;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using SD.LLBLGen.Pro.QuerySpec;
 
-namespace NinjaSoftware.Enio.FactoryClasses
+namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 {
 	/// <summary>Factory class to produce DynamicQuery instances and EntityQuery instances</summary>
 	public partial class QueryFactory

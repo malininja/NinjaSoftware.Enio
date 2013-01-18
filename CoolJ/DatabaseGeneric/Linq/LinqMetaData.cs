@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET35
 // Templates vendor: Solutions Design.
 //////////////////////////////////////////////////////////////
@@ -11,13 +10,13 @@ using System.Collections.Generic;
 using SD.LLBLGen.Pro.LinqSupportClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.EntityClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
-namespace NinjaSoftware.Enio.Linq
+namespace NinjaSoftware.Enio.CoolJ.Linq
 {
 	/// <summary>Meta-data class for the construction of Linq queries which are to be executed using LLBLGen Pro code.</summary>
 	public partial class LinqMetaData: ILinqMetaData
@@ -59,39 +58,39 @@ namespace NinjaSoftware.Enio.Linq
 		public IDataSource GetQueryableForEntity(int typeOfEntity)
 		{
 			IDataSource toReturn = null;
-			switch((NinjaSoftware.Enio.EntityType)typeOfEntity)
+			switch((NinjaSoftware.Enio.CoolJ.EntityType)typeOfEntity)
 			{
-				case NinjaSoftware.Enio.EntityType.ArtiklEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity:
 					toReturn = this.Artikl;
 					break;
-				case NinjaSoftware.Enio.EntityType.BrojacEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity:
 					toReturn = this.Brojac;
 					break;
-				case NinjaSoftware.Enio.EntityType.CjenikEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity:
 					toReturn = this.Cjenik;
 					break;
-				case NinjaSoftware.Enio.EntityType.ConfigEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity:
 					toReturn = this.Config;
 					break;
-				case NinjaSoftware.Enio.EntityType.KorisnikEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity:
 					toReturn = this.Korisnik;
 					break;
-				case NinjaSoftware.Enio.EntityType.PartnerEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					toReturn = this.Partner;
 					break;
-				case NinjaSoftware.Enio.EntityType.RacunGlavaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity:
 					toReturn = this.RacunGlava;
 					break;
-				case NinjaSoftware.Enio.EntityType.RacunStavkaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity:
 					toReturn = this.RacunStavka;
 					break;
-				case NinjaSoftware.Enio.EntityType.RoleRoEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity:
 					toReturn = this.RoleRo;
 					break;
-				case NinjaSoftware.Enio.EntityType.StatusRoEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity:
 					toReturn = this.StatusRo;
 					break;
-				case NinjaSoftware.Enio.EntityType.TarifaEntity:
+				case NinjaSoftware.Enio.CoolJ.EntityType.TarifaEntity:
 					toReturn = this.Tarifa;
 					break;
 				default:

@@ -2,17 +2,16 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
 using SD.LLBLGen.Pro.ORMSupportClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ;
 
-namespace NinjaSoftware.Enio.HelperClasses
+namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 {
 	/// <summary>Field Creation Class for entity ArtiklEntity</summary>
 	public partial class ArtiklFields

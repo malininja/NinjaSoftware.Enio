@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -10,12 +9,11 @@
 using System;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.HelperClasses
+namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 {
 	
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	
 	/// <summary>Singleton implementation of the FieldInfoProvider. This class is the singleton wrapper through which the actual instance is retrieved.</summary>
 	/// <remarks>It uses a single instance of an internal class. The access isn't marked with locks as the FieldInfoProviderBase class is threadsafe.</remarks>
@@ -83,9 +81,9 @@ namespace NinjaSoftware.Enio.HelperClasses
 			this.AddFieldIndexEnumForElementName(typeof(BrojacFieldIndex), "BrojacEntity");
 			this.AddElementFieldInfo("BrojacEntity", "BrojacId", typeof(System.Int64), true, false, false, false,  (int)BrojacFieldIndex.BrojacId, 0, 0, 19);
 			this.AddElementFieldInfo("BrojacEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)BrojacFieldIndex.ConcurrencyGuid, 50, 0, 0);
-			this.AddElementFieldInfo("BrojacEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)BrojacFieldIndex.Godina, 0, 0, 0);
+			this.AddElementFieldInfo("BrojacEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)BrojacFieldIndex.Godina, 0, 0, 5);
 			this.AddElementFieldInfo("BrojacEntity", "Naziv", typeof(System.String), false, false, false, false,  (int)BrojacFieldIndex.Naziv, 100, 0, 0);
-			this.AddElementFieldInfo("BrojacEntity", "SlijedeciBroj", typeof(System.Int32), false, false, false, false,  (int)BrojacFieldIndex.SlijedeciBroj, 0, 0, 0);
+			this.AddElementFieldInfo("BrojacEntity", "SlijedeciBroj", typeof(System.Int32), false, false, false, false,  (int)BrojacFieldIndex.SlijedeciBroj, 0, 0, 10);
 		}
 		/// <summary>Inits CjenikEntity's FieldInfo objects</summary>
 		private void InitCjenikEntityInfos()
@@ -102,7 +100,7 @@ namespace NinjaSoftware.Enio.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(ConfigFieldIndex), "ConfigEntity");
 			this.AddElementFieldInfo("ConfigEntity", "Adresa", typeof(System.String), false, false, false, true,  (int)ConfigFieldIndex.Adresa, 100, 0, 0);
-			this.AddElementFieldInfo("ConfigEntity", "AktivnaGodina", typeof(System.Int16), false, false, false, false,  (int)ConfigFieldIndex.AktivnaGodina, 0, 0, 0);
+			this.AddElementFieldInfo("ConfigEntity", "AktivnaGodina", typeof(System.Int16), false, false, false, false,  (int)ConfigFieldIndex.AktivnaGodina, 0, 0, 5);
 			this.AddElementFieldInfo("ConfigEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)ConfigFieldIndex.ConcurrencyGuid, 50, 0, 0);
 			this.AddElementFieldInfo("ConfigEntity", "Mjesto", typeof(System.String), false, false, false, true,  (int)ConfigFieldIndex.Mjesto, 100, 0, 0);
 			this.AddElementFieldInfo("ConfigEntity", "Naziv", typeof(System.String), false, false, false, false,  (int)ConfigFieldIndex.Naziv, 100, 0, 0);
@@ -131,7 +129,7 @@ namespace NinjaSoftware.Enio.HelperClasses
 			this.AddElementFieldInfo("PartnerEntity", "PartnerId", typeof(System.Int64), true, false, false, false,  (int)PartnerFieldIndex.PartnerId, 0, 0, 19);
 			this.AddElementFieldInfo("PartnerEntity", "Posta", typeof(System.String), false, false, false, true,  (int)PartnerFieldIndex.Posta, 10, 0, 0);
 			this.AddElementFieldInfo("PartnerEntity", "StatusId", typeof(System.Int64), false, true, false, false,  (int)PartnerFieldIndex.StatusId, 0, 0, 19);
-			this.AddElementFieldInfo("PartnerEntity", "Valuta", typeof(System.Int16), false, false, false, false,  (int)PartnerFieldIndex.Valuta, 0, 0, 0);
+			this.AddElementFieldInfo("PartnerEntity", "Valuta", typeof(System.Int16), false, false, false, false,  (int)PartnerFieldIndex.Valuta, 0, 0, 5);
 		}
 		/// <summary>Inits RacunGlavaEntity's FieldInfo objects</summary>
 		private void InitRacunGlavaEntityInfos()
@@ -139,7 +137,7 @@ namespace NinjaSoftware.Enio.HelperClasses
 			this.AddFieldIndexEnumForElementName(typeof(RacunGlavaFieldIndex), "RacunGlavaEntity");
 			this.AddElementFieldInfo("RacunGlavaEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)RacunGlavaFieldIndex.ConcurrencyGuid, 50, 0, 0);
 			this.AddElementFieldInfo("RacunGlavaEntity", "Datum", typeof(System.DateTime), false, false, false, false,  (int)RacunGlavaFieldIndex.Datum, 0, 0, 0);
-			this.AddElementFieldInfo("RacunGlavaEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)RacunGlavaFieldIndex.Godina, 0, 0, 0);
+			this.AddElementFieldInfo("RacunGlavaEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)RacunGlavaFieldIndex.Godina, 0, 0, 5);
 			this.AddElementFieldInfo("RacunGlavaEntity", "MjestoRadaAdresa", typeof(System.String), false, false, false, true,  (int)RacunGlavaFieldIndex.MjestoRadaAdresa, 100, 0, 0);
 			this.AddElementFieldInfo("RacunGlavaEntity", "MjestoRadaNaziv", typeof(System.String), false, false, false, true,  (int)RacunGlavaFieldIndex.MjestoRadaNaziv, 100, 0, 0);
 			this.AddElementFieldInfo("RacunGlavaEntity", "PartnerId", typeof(System.Int64), false, true, false, false,  (int)RacunGlavaFieldIndex.PartnerId, 0, 0, 19);
@@ -147,7 +145,7 @@ namespace NinjaSoftware.Enio.HelperClasses
 			this.AddElementFieldInfo("RacunGlavaEntity", "StatusId", typeof(System.Int64), false, true, false, false,  (int)RacunGlavaFieldIndex.StatusId, 0, 0, 19);
 			this.AddElementFieldInfo("RacunGlavaEntity", "TarifaId", typeof(System.Int64), false, true, false, false,  (int)RacunGlavaFieldIndex.TarifaId, 0, 0, 19);
 			this.AddElementFieldInfo("RacunGlavaEntity", "TarifaStopa", typeof(System.Decimal), false, false, false, false,  (int)RacunGlavaFieldIndex.TarifaStopa, 0, 2, 5);
-			this.AddElementFieldInfo("RacunGlavaEntity", "Valuta", typeof(System.Int16), false, false, false, false,  (int)RacunGlavaFieldIndex.Valuta, 0, 0, 0);
+			this.AddElementFieldInfo("RacunGlavaEntity", "Valuta", typeof(System.Int16), false, false, false, false,  (int)RacunGlavaFieldIndex.Valuta, 0, 0, 5);
 		}
 		/// <summary>Inits RacunStavkaEntity's FieldInfo objects</summary>
 		private void InitRacunStavkaEntityInfos()
@@ -160,7 +158,7 @@ namespace NinjaSoftware.Enio.HelperClasses
 			this.AddElementFieldInfo("RacunStavkaEntity", "Kolicina", typeof(System.Decimal), false, false, false, false,  (int)RacunStavkaFieldIndex.Kolicina, 0, 2, 8);
 			this.AddElementFieldInfo("RacunStavkaEntity", "PdvIznos", typeof(System.Decimal), false, false, false, false,  (int)RacunStavkaFieldIndex.PdvIznos, 0, 2, 10);
 			this.AddElementFieldInfo("RacunStavkaEntity", "PdvPosto", typeof(System.Decimal), false, false, false, false,  (int)RacunStavkaFieldIndex.PdvPosto, 0, 2, 4);
-			this.AddElementFieldInfo("RacunStavkaEntity", "Pozicija", typeof(System.Int16), false, false, false, false,  (int)RacunStavkaFieldIndex.Pozicija, 0, 0, 0);
+			this.AddElementFieldInfo("RacunStavkaEntity", "Pozicija", typeof(System.Int16), false, false, false, false,  (int)RacunStavkaFieldIndex.Pozicija, 0, 0, 5);
 			this.AddElementFieldInfo("RacunStavkaEntity", "RacunGlavaId", typeof(System.Int64), false, true, false, false,  (int)RacunStavkaFieldIndex.RacunGlavaId, 0, 0, 19);
 			this.AddElementFieldInfo("RacunStavkaEntity", "RacunStavkaId", typeof(System.Int64), true, false, false, false,  (int)RacunStavkaFieldIndex.RacunStavkaId, 0, 0, 19);
 			this.AddElementFieldInfo("RacunStavkaEntity", "TarifaIznos", typeof(System.Decimal), false, false, false, false,  (int)RacunStavkaFieldIndex.TarifaIznos, 0, 2, 10);

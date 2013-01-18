@@ -2,38 +2,34 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
 //////////////////////////////////////////////////////////////
 using System;
 using System.Collections.Generic;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 #if !CF
 using System.Runtime.Serialization;
 #endif
-namespace NinjaSoftware.Enio.EntityClasses
+namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>Common base class which is the base class for all generated entities which aren't a subtype of another entity.</summary>
 	[Serializable]
 	public abstract partial class CommonEntityBase : EntityBase2
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		/// <summary>CTor</summary>
@@ -53,7 +49,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 		{
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 		
 		/// <summary>Gets the inheritance info provider instance of the project this entity instance is located in. </summary>
@@ -103,8 +98,19 @@ namespace NinjaSoftware.Enio.EntityClasses
 		#region Custom Entity code
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
+
+        protected override IConcurrencyPredicateFactory CreateConcurrencyPredicateFactory()
+        {
+            string concurrencyFieldName = System.Configuration.ConfigurationManager.AppSettings["ConcurrencyFieldName"];
+            return new NinjaSoftware.Api.CoolJ.OptimisticConcurrencyPredicateFactory(concurrencyFieldName, true, false);
+        }
+
+        public virtual void Save(DataAccessAdapterBase adapter, bool refetchAfterSave, bool recurse)
+        {
+            adapter.SaveEntity(this, refetchAfterSave, recurse);
+        }
+
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

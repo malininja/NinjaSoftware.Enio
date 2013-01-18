@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{90B5D912-1102-4D69-9712-C7F861CF2774}</ProjectGuid>
+    <ProjectGuid>{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NinjaSoftware.Enio.SqlServer.DatabaseSpecific</RootNamespace>
-    <AssemblyName>NinjaSoftware.Enio.SqlServerDBSpecific</AssemblyName>
+    <RootNamespace>NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific</RootNamespace>
+    <AssemblyName>NinjaSoftware.Enio.CoolJ.SqlServerDBSpecific</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,25 +48,25 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseSpecific\AssemblyInfo.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
-    <Compile Include="DatabaseSpecific\PersistenceInfoProvider.cs">
+    <AppDesigner Include="Properties\" />
+    <Compile Include="DatabaseSpecific\ActionProcedures.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <None Include="DatabaseSpecific\App.config">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </None>
-    <Compile Include="DatabaseSpecific\ActionProcedures.cs">
-      <GeneratedBy>LLBLGen Pro</GeneratedBy>
-    </Compile>
-    <Compile Include="DatabaseSpecific\RetrievalProcedures.cs">
+    <Compile Include="DatabaseSpecific\AssemblyInfo.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DatabaseSpecific\DataAccessAdapter.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
-    <AppDesigner Include="Properties\" />
+    <Compile Include="DatabaseSpecific\PersistenceInfoProvider.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DatabaseSpecific\RetrievalProcedures.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

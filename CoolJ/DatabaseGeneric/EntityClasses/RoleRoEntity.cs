@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:12
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -14,31 +13,29 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 #endif
 using System.Xml.Serialization;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.HelperClasses;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.RelationClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Api.CoolJ;
 
-namespace NinjaSoftware.Enio.EntityClasses
+namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	/// <summary>Entity class which represents the entity 'RoleRo'.<br/><br/></summary>
 	[Serializable]
 	public partial class RoleRoEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private EntityCollection<KorisnikEntity> _korisnikCollection;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -51,6 +48,55 @@ namespace NinjaSoftware.Enio.EntityClasses
 			/// <summary>Member name KorisnikCollection</summary>
 			public static readonly string KorisnikCollection = "KorisnikCollection";
 		}
+
+        /// <summary>
+		/// Returns number of entities after filterBucket is applied.
+		/// If you need number of all entities send null as filterBucket.
+        /// </summary>
+		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
+			IRelationPredicateBucket filterBucket)
+		{
+			EntityCollection entityCollection = new EntityCollection(new RoleRoEntityFactory());
+			return adapter.GetDbCount(entityCollection, filterBucket);
+		}
+		
+		/// <summary>
+        /// Efficient pageing for grid.
+        /// </summary>
+        /// <param name="pageNumber">Must be greater than zero.</param>
+        /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
+        public static EntityCollection<RoleRoEntity> FetchRoleRoCollectionForPaging(DataAccessAdapterBase adapter,
+			RelationPredicateBucket bucket,
+			PrefetchPath2 prefetchPath,
+            int pageNumber,
+            int pageSize,
+            string sortField,
+            string sortDirection)
+        {
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(RoleRoFields));
+
+            EntityCollection<RoleRoEntity> toReturn = new EntityCollection<RoleRoEntity>(new RoleRoEntityFactory());
+            adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
+
+            return toReturn;
+        }
+		
+		public static EntityCollection<RoleRoEntity> FetchRoleRoCollection(DataAccessAdapterBase adapter,
+			IRelationPredicateBucket filterBucket,
+			PrefetchPath2 prefetchPath)
+		{
+			EntityCollection<RoleRoEntity> toReturn = new EntityCollection<RoleRoEntity>(new RoleRoEntityFactory());
+			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
+			return toReturn;
+		}
+		
+		public static RoleRoEntity FetchRoleRo(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long RoleRoId)
+		{
+			RoleRoEntity _RoleRoEntity = new RoleRoEntity(RoleRoId);
+			adapter.FetchEntity(_RoleRoEntity, prefetchPath);
+			return _RoleRoEntity;
+		}
+
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
@@ -112,7 +158,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 
 
@@ -242,7 +287,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 
@@ -322,7 +366,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -355,7 +398,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 
@@ -379,7 +421,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
 		public static IPrefetchPathElement2 PrefetchPathKorisnikCollection
 		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<KorisnikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(KorisnikEntityFactory))), (IEntityRelation)GetRelationsForField("KorisnikCollection")[0], (int)NinjaSoftware.Enio.EntityType.RoleRoEntity, (int)NinjaSoftware.Enio.EntityType.KorisnikEntity, 0, null, null, null, null, "KorisnikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+			get	{ return new PrefetchPathElement2( new EntityCollection<KorisnikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(KorisnikEntityFactory))), (IEntityRelation)GetRelationsForField("KorisnikCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity, 0, null, null, null, null, "KorisnikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
 
@@ -408,7 +450,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Code property of the Entity RoleRo<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RoleRo"."Code"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Code
 		{
@@ -418,7 +460,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The Name property of the Entity RoleRo<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RoleRo"."Name"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Varchar, 0, 0, 50<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.String Name
 		{
@@ -428,7 +470,7 @@ namespace NinjaSoftware.Enio.EntityClasses
 
 		/// <summary> The RoleId property of the Entity RoleRo<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "RoleRo"."RoleId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Bigint, 19, 0, 0<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
 		public virtual System.Int64 RoleId
 		{
@@ -455,11 +497,11 @@ namespace NinjaSoftware.Enio.EntityClasses
 			get { return false;}
 		}
 		
-		/// <summary>Returns the NinjaSoftware.Enio.EntityType enum value for this entity.</summary>
+		/// <summary>Returns the NinjaSoftware.Enio.CoolJ.EntityType enum value for this entity.</summary>
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.EntityType.RoleRoEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity; }
 		}
 
 		#endregion
@@ -469,7 +511,6 @@ namespace NinjaSoftware.Enio.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

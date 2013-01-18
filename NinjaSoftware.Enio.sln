@@ -3,6 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio", "NinjaSoftware.Enio\NinjaSoftware.Enio.csproj", "{B18A529C-15F0-4AB0-AD2A-D2F0040BD358}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio.CoolJ", "CoolJ\NinjaSoftware.Enio.CoolJ.csproj", "{D5AAA9F8-1125-434D-AAFF-647C57CB07BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio.CoolJ.PostgreSqlDBSpecific", "CoolJ\PostgreSql (Npgsql)\NinjaSoftware.Enio.CoolJ.PostgreSqlDBSpecific.csproj", "{3F06414C-EBDD-463D-9AFB-55C2FE0E5FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio.CoolJ.SqlServerDBSpecific", "CoolJ\SQL Server (SqlClient)\NinjaSoftware.Enio.CoolJ.SqlServerDBSpecific.csproj", "{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Api.CoolJ", "..\NinjaSoftware.Helpers\NinjaSoftware.Api.CoolJ\NinjaSoftware.Api.CoolJ.csproj", "{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +21,22 @@ Global
 		{B18A529C-15F0-4AB0-AD2A-D2F0040BD358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B18A529C-15F0-4AB0-AD2A-D2F0040BD358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B18A529C-15F0-4AB0-AD2A-D2F0040BD358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AAA9F8-1125-434D-AAFF-647C57CB07BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AAA9F8-1125-434D-AAFF-647C57CB07BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AAA9F8-1125-434D-AAFF-647C57CB07BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AAA9F8-1125-434D-AAFF-647C57CB07BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F06414C-EBDD-463D-9AFB-55C2FE0E5FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F06414C-EBDD-463D-9AFB-55C2FE0E5FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F06414C-EBDD-463D-9AFB-55C2FE0E5FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F06414C-EBDD-463D-9AFB-55C2FE0E5FFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EBB83A9-705B-41E6-A3BD-AD6D5DC66B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

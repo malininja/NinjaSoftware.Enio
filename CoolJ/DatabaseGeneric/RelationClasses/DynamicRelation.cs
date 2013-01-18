@@ -2,17 +2,16 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:11
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 //////////////////////////////////////////////////////////////
 using System;
-using NinjaSoftware.Enio;
-using NinjaSoftware.Enio.FactoryClasses;
-using NinjaSoftware.Enio.HelperClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.FactoryClasses;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.RelationClasses
+namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 {
 
 	/// <summary>Class to define dynamic relations for queries.</summary>
@@ -45,7 +44,7 @@ namespace NinjaSoftware.Enio.RelationClasses
 		/// <param name="rightOperand">The right operand which is an entity type.</param>
 		/// <param name="aliasRightOperand">The alias of the right operand. If you don't want to / need to alias the right operand (only alias if you have to), specify string.Empty.</param>
 		/// <param name="onClause">The on clause for the join.</param>
-		public DynamicRelation(DerivedTableDefinition leftOperand, JoinHint joinType, NinjaSoftware.Enio.EntityType rightOperand, string aliasRightOperand, IPredicate onClause)
+		public DynamicRelation(DerivedTableDefinition leftOperand, JoinHint joinType, NinjaSoftware.Enio.CoolJ.EntityType rightOperand, string aliasRightOperand, IPredicate onClause)
 		{
 			this.InitClass(joinType, string.Empty, aliasRightOperand, onClause, leftOperand, GeneralEntityFactory.Create(rightOperand));
 		}
@@ -57,7 +56,7 @@ namespace NinjaSoftware.Enio.RelationClasses
 		/// <param name="aliasLeftOperand">The alias of the left operand. If you don't want to / need to alias the left operand (only alias if you have to), specify string.Empty.</param>
 		/// <param name="aliasRightOperand">The alias of the right operand. If you don't want to / need to alias the right operand (only alias if you have to), specify string.Empty.</param>
 		/// <param name="onClause">The on clause for the join.</param>
-		public DynamicRelation(NinjaSoftware.Enio.EntityType leftOperand, JoinHint joinType, NinjaSoftware.Enio.EntityType rightOperand, string aliasLeftOperand, string aliasRightOperand, IPredicate onClause)
+		public DynamicRelation(NinjaSoftware.Enio.CoolJ.EntityType leftOperand, JoinHint joinType, NinjaSoftware.Enio.CoolJ.EntityType rightOperand, string aliasLeftOperand, string aliasRightOperand, IPredicate onClause)
 		{
 			this.InitClass(joinType, aliasLeftOperand, aliasRightOperand, onClause, GeneralEntityFactory.Create(leftOperand), GeneralEntityFactory.Create(rightOperand));
 		}

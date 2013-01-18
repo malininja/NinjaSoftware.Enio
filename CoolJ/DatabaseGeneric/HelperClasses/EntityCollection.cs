@@ -2,7 +2,6 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 17. siječanj 2013. 16:50:10
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET20
 // Templates vendor: Solutions Design.
 // Templates version: 
@@ -17,14 +16,13 @@ using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using System.Xml;
 using System.Xml.Schema;
-using NinjaSoftware.Enio.EntityClasses;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace NinjaSoftware.Enio.HelperClasses
+namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 
 	/// <summary>EntityCollection implementation which is used for backwards compatibility and for design time databinding. This EntityCollection is an EntityCollection(Of EntityBase2)
 	/// </summary>
@@ -53,7 +51,6 @@ namespace NinjaSoftware.Enio.HelperClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCollectionCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code
@@ -97,7 +94,6 @@ namespace NinjaSoftware.Enio.HelperClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCollectionCodeGeneric
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 		
 		#region Included Code
