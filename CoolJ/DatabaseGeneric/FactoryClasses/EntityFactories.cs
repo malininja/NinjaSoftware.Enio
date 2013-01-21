@@ -118,6 +118,48 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		#endregion
 	}
 
+	/// <summary>Factory to create new, empty AuditInfoEntity objects.</summary>
+	[Serializable]
+	public partial class AuditInfoEntityFactory : EntityFactoryBase2<AuditInfoEntity> {
+		/// <summary>CTor</summary>
+		public AuditInfoEntityFactory() : base("AuditInfoEntity", NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoEntity, false) { }
+		
+		/// <summary>Creates a new AuditInfoEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
+		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
+		public override IEntity2 Create(IEntityFields2 fields) {
+			IEntity2 toReturn = new AuditInfoEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAuditInfoUsingFields
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+		#region Included Code
+
+		#endregion
+	}
+
+	/// <summary>Factory to create new, empty AuditInfoActionTypeRoEntity objects.</summary>
+	[Serializable]
+	public partial class AuditInfoActionTypeRoEntityFactory : EntityFactoryBase2<AuditInfoActionTypeRoEntity> {
+		/// <summary>CTor</summary>
+		public AuditInfoActionTypeRoEntityFactory() : base("AuditInfoActionTypeRoEntity", NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoActionTypeRoEntity, false) { }
+		
+		/// <summary>Creates a new AuditInfoActionTypeRoEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
+		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
+		public override IEntity2 Create(IEntityFields2 fields) {
+			IEntity2 toReturn = new AuditInfoActionTypeRoEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAuditInfoActionTypeRoUsingFields
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+		#region Included Code
+
+		#endregion
+	}
+
 	/// <summary>Factory to create new, empty BrojacEntity objects.</summary>
 	[Serializable]
 	public partial class BrojacEntityFactory : EntityFactoryBase2<BrojacEntity> {
@@ -178,19 +220,20 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		#endregion
 	}
 
-	/// <summary>Factory to create new, empty KorisnikEntity objects.</summary>
+	/// <summary>Factory to create new, empty EntityRoEntity objects.</summary>
 	[Serializable]
-	public partial class KorisnikEntityFactory : EntityFactoryBase2<KorisnikEntity> {
+	public partial class EntityRoEntityFactory : EntityFactoryBase2<EntityRoEntity> {
 		/// <summary>CTor</summary>
-		public KorisnikEntityFactory() : base("KorisnikEntity", NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity, false) { }
+		public EntityRoEntityFactory() : base("EntityRoEntity", NinjaSoftware.Enio.CoolJ.EntityType.EntityRoEntity, false) { }
 		
-		/// <summary>Creates a new KorisnikEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <summary>Creates a new EntityRoEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
 		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
 		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
 		public override IEntity2 Create(IEntityFields2 fields) {
-			IEntity2 toReturn = new KorisnikEntity(fields);
-			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewKorisnikUsingFields
+			IEntity2 toReturn = new EntityRoEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewEntityRoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			return toReturn;
 		}
 		#region Included Code
@@ -318,6 +361,27 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		#endregion
 	}
 
+	/// <summary>Factory to create new, empty UserEntity objects.</summary>
+	[Serializable]
+	public partial class UserEntityFactory : EntityFactoryBase2<UserEntity> {
+		/// <summary>CTor</summary>
+		public UserEntityFactory() : base("UserEntity", NinjaSoftware.Enio.CoolJ.EntityType.UserEntity, false) { }
+		
+		/// <summary>Creates a new UserEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
+		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
+		public override IEntity2 Create(IEntityFields2 fields) {
+			IEntity2 toReturn = new UserEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewUserUsingFields
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			
+			return toReturn;
+		}
+		#region Included Code
+
+		#endregion
+	}
+
 	/// <summary>Factory to create new, empty Entity objects based on the entity type specified. Uses  entity specific factory objects</summary>
 	[Serializable]
 	public partial class GeneralEntityFactory
@@ -333,6 +397,12 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 				case NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity:
 					factoryToUse = new ArtiklEntityFactory();
 					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoEntity:
+					factoryToUse = new AuditInfoEntityFactory();
+					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoActionTypeRoEntity:
+					factoryToUse = new AuditInfoActionTypeRoEntityFactory();
+					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity:
 					factoryToUse = new BrojacEntityFactory();
 					break;
@@ -342,8 +412,8 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 				case NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity:
 					factoryToUse = new ConfigEntityFactory();
 					break;
-				case NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity:
-					factoryToUse = new KorisnikEntityFactory();
+				case NinjaSoftware.Enio.CoolJ.EntityType.EntityRoEntity:
+					factoryToUse = new EntityRoEntityFactory();
 					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					factoryToUse = new PartnerEntityFactory();
@@ -362,6 +432,9 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.TarifaEntity:
 					factoryToUse = new TarifaEntityFactory();
+					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.UserEntity:
+					factoryToUse = new UserEntityFactory();
 					break;
 			}
 			IEntity2 toReturn = null;

@@ -25,17 +25,21 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	/// <summary>Entity class which represents the entity 'RoleRo'.<br/><br/></summary>
+	
+	/// <summary>Entity class which represents the entity 'User'.<br/><br/></summary>
 	[Serializable]
-	public partial class RoleRoEntity : CommonEntityBase
+	public partial class UserEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END	
+		// __LLBLGENPRO_USER_CODE_REGION_END
+			
 	{
 		#region Class Member Declarations
-		private EntityCollection<UserEntity> _korisnikCollection;
+		private EntityCollection<AuditInfoEntity> _auditInfoCollection;
+		private RoleRoEntity _role;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Statics
@@ -45,8 +49,10 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name KorisnikCollection</summary>
-			public static readonly string KorisnikCollection = "KorisnikCollection";
+			/// <summary>Member name Role</summary>
+			public static readonly string Role = "Role";
+			/// <summary>Member name AuditInfoCollection</summary>
+			public static readonly string AuditInfoCollection = "AuditInfoCollection";
 		}
 
         /// <summary>
@@ -56,7 +62,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
 			IRelationPredicateBucket filterBucket)
 		{
-			EntityCollection entityCollection = new EntityCollection(new RoleRoEntityFactory());
+			EntityCollection entityCollection = new EntityCollection(new UserEntityFactory());
 			return adapter.GetDbCount(entityCollection, filterBucket);
 		}
 		
@@ -65,7 +71,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
         /// </summary>
         /// <param name="pageNumber">Must be greater than zero.</param>
         /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
-        public static EntityCollection<RoleRoEntity> FetchRoleRoCollectionForPaging(DataAccessAdapterBase adapter,
+        public static EntityCollection<UserEntity> FetchUserCollectionForPaging(DataAccessAdapterBase adapter,
 			RelationPredicateBucket bucket,
 			PrefetchPath2 prefetchPath,
             int pageNumber,
@@ -73,40 +79,40 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             string sortField,
             string sortDirection)
         {
-            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(RoleRoFields));
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(UserFields));
 
-            EntityCollection<RoleRoEntity> toReturn = new EntityCollection<RoleRoEntity>(new RoleRoEntityFactory());
+            EntityCollection<UserEntity> toReturn = new EntityCollection<UserEntity>(new UserEntityFactory());
             adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
 
             return toReturn;
         }
 		
-		public static EntityCollection<RoleRoEntity> FetchRoleRoCollection(DataAccessAdapterBase adapter,
+		public static EntityCollection<UserEntity> FetchUserCollection(DataAccessAdapterBase adapter,
 			IRelationPredicateBucket filterBucket,
 			PrefetchPath2 prefetchPath)
 		{
-			EntityCollection<RoleRoEntity> toReturn = new EntityCollection<RoleRoEntity>(new RoleRoEntityFactory());
+			EntityCollection<UserEntity> toReturn = new EntityCollection<UserEntity>(new UserEntityFactory());
 			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
 			return toReturn;
 		}
 		
-		public static RoleRoEntity FetchRoleRo(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long RoleRoId)
+		public static UserEntity FetchUser(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long UserId)
 		{
-			RoleRoEntity _RoleRoEntity = new RoleRoEntity(RoleRoId);
-			adapter.FetchEntity(_RoleRoEntity, prefetchPath);
-			return _RoleRoEntity;
+			UserEntity _UserEntity = new UserEntity(UserId);
+			adapter.FetchEntity(_UserEntity, prefetchPath);
+			return _UserEntity;
 		}
 
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static RoleRoEntity()
+		static UserEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 		
 		/// <summary> CTor</summary>
-		public RoleRoEntity():base("RoleRoEntity")
+		public UserEntity():base("UserEntity")
 		{
 			InitClassEmpty(null, null);
 		}
@@ -114,52 +120,73 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary> CTor</summary>
 		/// <remarks>For framework usage.</remarks>
 		/// <param name="fields">Fields object to set as the fields for this entity.</param>
-		public RoleRoEntity(IEntityFields2 fields):base("RoleRoEntity")
+		public UserEntity(IEntityFields2 fields):base("UserEntity")
 		{
 			InitClassEmpty(null, fields);
 		}
 
 		/// <summary> CTor</summary>
-		/// <param name="validator">The custom validator object for this RoleRoEntity</param>
-		public RoleRoEntity(IValidator validator):base("RoleRoEntity")
+		/// <param name="validator">The custom validator object for this UserEntity</param>
+		public UserEntity(IValidator validator):base("UserEntity")
 		{
 			InitClassEmpty(validator, null);
 		}
 				
 		/// <summary> CTor</summary>
-		/// <param name="roleId">PK value for RoleRo which data should be fetched into this RoleRo object</param>
+		/// <param name="userId">PK value for User which data should be fetched into this User object</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public RoleRoEntity(System.Int64 roleId):base("RoleRoEntity")
+		public UserEntity(System.Int64 userId):base("UserEntity")
 		{
 			InitClassEmpty(null, null);
-			this.RoleId = roleId;
+			this.UserId = userId;
 		}
 
 		/// <summary> CTor</summary>
-		/// <param name="roleId">PK value for RoleRo which data should be fetched into this RoleRo object</param>
-		/// <param name="validator">The custom validator object for this RoleRoEntity</param>
+		/// <param name="userId">PK value for User which data should be fetched into this User object</param>
+		/// <param name="validator">The custom validator object for this UserEntity</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public RoleRoEntity(System.Int64 roleId, IValidator validator):base("RoleRoEntity")
+		public UserEntity(System.Int64 userId, IValidator validator):base("UserEntity")
 		{
 			InitClassEmpty(validator, null);
-			this.RoleId = roleId;
+			this.UserId = userId;
 		}
 
 		/// <summary> Protected CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		protected RoleRoEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected UserEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			if(SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				_korisnikCollection = (EntityCollection<UserEntity>)info.GetValue("_korisnikCollection", typeof(EntityCollection<UserEntity>));
+				_auditInfoCollection = (EntityCollection<AuditInfoEntity>)info.GetValue("_auditInfoCollection", typeof(EntityCollection<AuditInfoEntity>));
+				_role = (RoleRoEntity)info.GetValue("_role", typeof(RoleRoEntity));
+				if(_role!=null)
+				{
+					_role.AfterSave+=new EventHandler(OnEntityAfterSave);
+				}
 				this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance());
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 		}
 
+		
+		/// <summary>Performs the desync setup when an FK field has been changed. The entity referenced based on the FK field will be dereferenced and sync info will be removed.</summary>
+		/// <param name="fieldIndex">The fieldindex.</param>
+		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
+		{
+			switch((UserFieldIndex)fieldIndex)
+			{
+				case UserFieldIndex.RoleId:
+					DesetupSyncRole(true, false);
+					break;
+				default:
+					base.PerformDesyncSetupFKFieldChange(fieldIndex);
+					break;
+			}
+		}
 
 		/// <summary> Sets the related entity property to the entity specified. If the property is a collection, it will add the entity specified to that collection.</summary>
 		/// <param name="propertyName">Name of the property.</param>
@@ -169,8 +196,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "KorisnikCollection":
-					this.KorisnikCollection.Add((UserEntity)entity);
+				case "Role":
+					this.Role = (RoleRoEntity)entity;
+					break;
+				case "AuditInfoCollection":
+					this.AuditInfoCollection.Add((AuditInfoEntity)entity);
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -194,8 +224,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "KorisnikCollection":
-					toReturn.Add(Relations.UserEntityUsingRoleId);
+				case "Role":
+					toReturn.Add(Relations.RoleRoEntityUsingRoleId);
+					break;
+				case "AuditInfoCollection":
+					toReturn.Add(Relations.AuditInfoEntityUsingUserId);
 					break;
 				default:
 					break;				
@@ -225,8 +258,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "KorisnikCollection":
-					this.KorisnikCollection.Add((UserEntity)relatedEntity);
+				case "Role":
+					SetupSyncRole(relatedEntity);
+					break;
+				case "AuditInfoCollection":
+					this.AuditInfoCollection.Add((AuditInfoEntity)relatedEntity);
 					break;
 				default:
 					break;
@@ -241,8 +277,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "KorisnikCollection":
-					this.PerformRelatedEntityRemoval(this.KorisnikCollection, relatedEntity, signalRelatedEntityManyToOne);
+				case "Role":
+					DesetupSyncRole(false, true);
+					break;
+				case "AuditInfoCollection":
+					this.PerformRelatedEntityRemoval(this.AuditInfoCollection, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				default:
 					break;
@@ -263,6 +302,10 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntity2> GetDependentRelatedEntities()
 		{
 			List<IEntity2> toReturn = new List<IEntity2>();
+			if(_role!=null)
+			{
+				toReturn.Add(_role);
+			}
 			return toReturn;
 		}
 		
@@ -271,7 +314,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntityCollection2> GetMemberEntityCollections()
 		{
 			List<IEntityCollection2> toReturn = new List<IEntityCollection2>();
-			toReturn.Add(this.KorisnikCollection);
+			toReturn.Add(this.AuditInfoCollection);
 			return toReturn;
 		}
 
@@ -283,10 +326,12 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			if (SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				info.AddValue("_korisnikCollection", ((_korisnikCollection!=null) && (_korisnikCollection.Count>0) && !this.MarkedForDeletion)?_korisnikCollection:null);
+				info.AddValue("_auditInfoCollection", ((_auditInfoCollection!=null) && (_auditInfoCollection.Count>0) && !this.MarkedForDeletion)?_auditInfoCollection:null);
+				info.AddValue("_role", (!this.MarkedForDeletion?_role:null));
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			base.GetObjectData(info, context);
 		}
 
@@ -296,15 +341,24 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new RoleRoRelations().GetAllRelations();
+			return new UserRelations().GetAllRelations();
 		}
 
-		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'User' to this entity.</summary>
+		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'AuditInfo' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoKorisnikCollection()
+		public virtual IRelationPredicateBucket GetRelationInfoAuditInfoCollection()
 		{
 			IRelationPredicateBucket bucket = new RelationPredicateBucket();
-			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(UserFields.RoleId, null, ComparisonOperator.Equal, this.RoleId));
+			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(AuditInfoFields.UserId, null, ComparisonOperator.Equal, this.UserId));
+			return bucket;
+		}
+
+		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'RoleRo' to this entity.</summary>
+		/// <returns></returns>
+		public virtual IRelationPredicateBucket GetRelationInfoRole()
+		{
+			IRelationPredicateBucket bucket = new RelationPredicateBucket();
+			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(RoleRoFields.RoleId, null, ComparisonOperator.Equal, this.RoleId));
 			return bucket;
 		}
 		
@@ -312,7 +366,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>Creates a new instance of the factory related to this entity</summary>
 		protected override IEntityFactory2 CreateEntityFactory()
 		{
-			return EntityFactoryCache2.GetEntityFactory(typeof(RoleRoEntityFactory));
+			return EntityFactoryCache2.GetEntityFactory(typeof(UserEntityFactory));
 		}
 #if !CF
 		/// <summary>Adds the member collections to the collections queue (base first)</summary>
@@ -320,7 +374,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void AddToMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue) 
 		{
 			base.AddToMemberEntityCollectionsQueue(collectionsQueue);
-			collectionsQueue.Enqueue(this._korisnikCollection);
+			collectionsQueue.Enqueue(this._auditInfoCollection);
 		}
 		
 		/// <summary>Gets the member collections queue from the queue (base first)</summary>
@@ -328,7 +382,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void GetFromMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue)
 		{
 			base.GetFromMemberEntityCollectionsQueue(collectionsQueue);
-			this._korisnikCollection = (EntityCollection<UserEntity>) collectionsQueue.Dequeue();
+			this._auditInfoCollection = (EntityCollection<AuditInfoEntity>) collectionsQueue.Dequeue();
 
 		}
 		
@@ -337,7 +391,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override bool HasPopulatedMemberEntityCollections()
 		{
 			bool toReturn = false;
-			toReturn |=(this._korisnikCollection != null);
+			toReturn |=(this._auditInfoCollection != null);
 			return toReturn ? true : base.HasPopulatedMemberEntityCollections();
 		}
 		
@@ -347,7 +401,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void CreateMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue, Queue<bool> requiredQueue) 
 		{
 			base.CreateMemberEntityCollectionsQueue(collectionsQueue, requiredQueue);
-			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<UserEntity>(EntityFactoryCache2.GetEntityFactory(typeof(UserEntityFactory))) : null);
+			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<AuditInfoEntity>(EntityFactoryCache2.GetEntityFactory(typeof(AuditInfoEntityFactory))) : null);
 		}
 #endif
 		/// <summary>Gets all related data objects, stored by name. The name is the field name mapped onto the relation for that particular data element.</summary>
@@ -355,7 +409,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("KorisnikCollection", _korisnikCollection);
+			toReturn.Add("Role", _role);
+			toReturn.Add("AuditInfoCollection", _auditInfoCollection);
 			return toReturn;
 		}
 
@@ -366,6 +421,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 			OnInitClassMembersComplete();
 		}
 
@@ -378,16 +434,53 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Code", fieldHashtable);
+			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Name", fieldHashtable);
+			_fieldsCustomProperties.Add("Password", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("RoleId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("UserId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("Username", fieldHashtable);
 		}
 		#endregion
 
+		/// <summary> Removes the sync logic for member _role</summary>
+		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
+		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
+		private void DesetupSyncRole(bool signalRelatedEntity, bool resetFKFields)
+		{
+			this.PerformDesetupSyncRelatedEntity( _role, new PropertyChangedEventHandler( OnRolePropertyChanged ), "Role", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticUserRelations.RoleRoEntityUsingRoleIdStatic, true, signalRelatedEntity, "KorisnikCollection", resetFKFields, new int[] { (int)UserFieldIndex.RoleId } );
+			_role = null;
+		}
+
+		/// <summary> setups the sync logic for member _role</summary>
+		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
+		private void SetupSyncRole(IEntityCore relatedEntity)
+		{
+			if(_role!=relatedEntity)
+			{
+				DesetupSyncRole(true, true);
+				_role = (RoleRoEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _role, new PropertyChangedEventHandler( OnRolePropertyChanged ), "Role", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticUserRelations.RoleRoEntityUsingRoleIdStatic, true, new string[] {  } );
+			}
+		}
+		
+		/// <summary>Handles property change events of properties in a related entity.</summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnRolePropertyChanged( object sender, PropertyChangedEventArgs e )
+		{
+			switch( e.PropertyName )
+			{
+				default:
+					break;
+			}
+		}
+
 		/// <summary> Initializes the class with empty data, as if it is a new Entity.</summary>
-		/// <param name="validator">The validator object for this RoleRoEntity</param>
+		/// <param name="validator">The validator object for this UserEntity</param>
 		/// <param name="fields">Fields of this entity</param>
 		private void InitClassEmpty(IValidator validator, IEntityFields2 fields)
 		{
@@ -398,6 +491,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
+			
 
 			OnInitialized();
 
@@ -405,9 +499,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static RoleRoRelations Relations
+		public  static UserRelations Relations
 		{
-			get	{ return new RoleRoRelations(); }
+			get	{ return new UserRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -417,11 +511,18 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'User' for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'AuditInfo' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathKorisnikCollection
+		public static IPrefetchPathElement2 PrefetchPathAuditInfoCollection
 		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<UserEntity>(EntityFactoryCache2.GetEntityFactory(typeof(UserEntityFactory))), (IEntityRelation)GetRelationsForField("KorisnikCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.UserEntity, 0, null, null, null, null, "KorisnikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+			get	{ return new PrefetchPathElement2( new EntityCollection<AuditInfoEntity>(EntityFactoryCache2.GetEntityFactory(typeof(AuditInfoEntityFactory))), (IEntityRelation)GetRelationsForField("AuditInfoCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.UserEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoEntity, 0, null, null, null, null, "AuditInfoCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+		}
+
+		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RoleRo' for this entity.</summary>
+		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
+		public static IPrefetchPathElement2 PrefetchPathRole
+		{
+			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(RoleRoEntityFactory))),	(IEntityRelation)GetRelationsForField("Role")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.UserEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity, 0, null, null, null, null, "Role", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -448,41 +549,79 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The Code property of the Entity RoleRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "RoleRo"."Code"<br/>
+		/// <summary> The ConcurrencyGuid property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.String Code
+		public virtual System.String ConcurrencyGuid
 		{
-			get { return (System.String)GetValue((int)RoleRoFieldIndex.Code, true); }
-			set	{ SetValue((int)RoleRoFieldIndex.Code, value); }
+			get { return (System.String)GetValue((int)UserFieldIndex.ConcurrencyGuid, true); }
+			set	{ SetValue((int)UserFieldIndex.ConcurrencyGuid, value); }
 		}
 
-		/// <summary> The Name property of the Entity RoleRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "RoleRo"."Name"<br/>
+		/// <summary> The Password property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."Password"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		public virtual System.String Name
+		public virtual System.String Password
 		{
-			get { return (System.String)GetValue((int)RoleRoFieldIndex.Name, true); }
-			set	{ SetValue((int)RoleRoFieldIndex.Name, value); }
+			get { return (System.String)GetValue((int)UserFieldIndex.Password, true); }
+			set	{ SetValue((int)UserFieldIndex.Password, value); }
 		}
 
-		/// <summary> The RoleId property of the Entity RoleRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "RoleRo"."RoleId"<br/>
+		/// <summary> The RoleId property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."RoleId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		public virtual System.Int64 RoleId
 		{
-			get { return (System.Int64)GetValue((int)RoleRoFieldIndex.RoleId, true); }
-			set	{ SetValue((int)RoleRoFieldIndex.RoleId, value); }
+			get { return (System.Int64)GetValue((int)UserFieldIndex.RoleId, true); }
+			set	{ SetValue((int)UserFieldIndex.RoleId, value); }
 		}
 
-		/// <summary> Gets the EntityCollection with the related entities of type 'UserEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
-		[TypeContainedAttribute(typeof(UserEntity))]
-		public virtual EntityCollection<UserEntity> KorisnikCollection
+		/// <summary> The UserId property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."UserId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		public virtual System.Int64 UserId
 		{
-			get { return GetOrCreateEntityCollection<UserEntity, UserEntityFactory>("Role", true, false, ref _korisnikCollection);	}
+			get { return (System.Int64)GetValue((int)UserFieldIndex.UserId, true); }
+			set	{ SetValue((int)UserFieldIndex.UserId, value); }
+		}
+
+		/// <summary> The Username property of the Entity User<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "User"."Username"<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 20<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		public virtual System.String Username
+		{
+			get { return (System.String)GetValue((int)UserFieldIndex.Username, true); }
+			set	{ SetValue((int)UserFieldIndex.Username, value); }
+		}
+
+		/// <summary> Gets the EntityCollection with the related entities of type 'AuditInfoEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
+		[TypeContainedAttribute(typeof(AuditInfoEntity))]
+		public virtual EntityCollection<AuditInfoEntity> AuditInfoCollection
+		{
+			get { return GetOrCreateEntityCollection<AuditInfoEntity, AuditInfoEntityFactory>("User", true, false, ref _auditInfoCollection);	}
+		}
+
+		/// <summary> Gets / sets related entity of type 'RoleRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
+		[Browsable(false)]
+		public virtual RoleRoEntity Role
+		{
+			get	{ return _role; }
+			set
+			{
+				if(this.IsDeserializing)
+				{
+					SetupSyncRole(value);
+				}
+				else
+				{
+					SetSingleRelatedEntityNavigator(value, "KorisnikCollection", "Role", _role, true); 
+				}
+			}
 		}
 	
 		/// <summary> Gets the type of the hierarchy this entity is in. </summary>
@@ -501,7 +640,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.RoleRoEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.UserEntity; }
 		}
 
 		#endregion
@@ -511,6 +650,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+		
 		#endregion
 
 		#region Included code

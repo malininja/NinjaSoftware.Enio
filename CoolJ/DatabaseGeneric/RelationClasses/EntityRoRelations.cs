@@ -16,36 +16,36 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: RoleRo. </summary>
-	public partial class RoleRoRelations
+	/// <summary>Implements the relations factory for the entity: EntityRo. </summary>
+	public partial class EntityRoRelations
 	{
 		/// <summary>CTor</summary>
-		public RoleRoRelations()
+		public EntityRoRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the RoleRoEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the EntityRoEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.UserEntityUsingRoleId);
+			toReturn.Add(this.AuditInfoEntityUsingEntityId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between RoleRoEntity and UserEntity over the 1:n relation they have, using the relation between the fields:
-		/// RoleRo.RoleId - User.RoleId
+		/// <summary>Returns a new IEntityRelation object, between EntityRoEntity and AuditInfoEntity over the 1:n relation they have, using the relation between the fields:
+		/// EntityRo.EntityId - AuditInfo.EntityId
 		/// </summary>
-		public virtual IEntityRelation UserEntityUsingRoleId
+		public virtual IEntityRelation AuditInfoEntityUsingEntityId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "KorisnikCollection" , true);
-				relation.AddEntityFieldPair(RoleRoFields.RoleId, UserFields.RoleId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("RoleRoEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("UserEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "AuditInfoCollection" , true);
+				relation.AddEntityFieldPair(EntityRoFields.EntityId, AuditInfoFields.EntityId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("EntityRoEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("AuditInfoEntity", false);
 				return relation;
 			}
 		}
@@ -63,12 +63,12 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticRoleRoRelations
+	internal static class StaticEntityRoRelations
 	{
-		internal static readonly IEntityRelation UserEntityUsingRoleIdStatic = new RoleRoRelations().UserEntityUsingRoleId;
+		internal static readonly IEntityRelation AuditInfoEntityUsingEntityIdStatic = new EntityRoRelations().AuditInfoEntityUsingEntityId;
 
 		/// <summary>CTor</summary>
-		static StaticRoleRoRelations()
+		static StaticEntityRoRelations()
 		{
 		}
 	}

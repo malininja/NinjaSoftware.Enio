@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
 
 namespace NinjaSoftware.Enio.Models
 {
@@ -22,7 +24,21 @@ namespace NinjaSoftware.Enio.Models
 
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(username);
+
+                string oldPasswordHash = NinjaSoftware.Api.Core.Security.GetPasswordHash(oldPassword);
+                string newPasswordHash = NinjaSoftware.Api.Core.Security.GetPasswordHash(newPassword);
+
+                UserEntity.ChangePassword(adapter, username, oldPassword, newPassword);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)
@@ -161,8 +177,11 @@ namespace NinjaSoftware.Enio.Models
 
         public override bool ValidateUser(string username, string password)
         {
-            if (username == "ninja1" &&
-                password == System.Configuration.ConfigurationManager.AppSettings["password"])
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory();
+
+            string hash = NinjaSoftware.Api.Core.Security.GetPasswordHash(password);
+
+            if (null == UserEntity.FetchUser(adapter, username, hash))
             {
                 return true;
             }

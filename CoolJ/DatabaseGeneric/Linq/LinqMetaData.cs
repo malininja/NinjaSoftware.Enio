@@ -63,6 +63,12 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 				case NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity:
 					toReturn = this.Artikl;
 					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoEntity:
+					toReturn = this.AuditInfo;
+					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.AuditInfoActionTypeRoEntity:
+					toReturn = this.AuditInfoActionTypeRo;
+					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity:
 					toReturn = this.Brojac;
 					break;
@@ -72,8 +78,8 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 				case NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity:
 					toReturn = this.Config;
 					break;
-				case NinjaSoftware.Enio.CoolJ.EntityType.KorisnikEntity:
-					toReturn = this.Korisnik;
+				case NinjaSoftware.Enio.CoolJ.EntityType.EntityRoEntity:
+					toReturn = this.EntityRo;
 					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					toReturn = this.Partner;
@@ -93,6 +99,9 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 				case NinjaSoftware.Enio.CoolJ.EntityType.TarifaEntity:
 					toReturn = this.Tarifa;
 					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.UserEntity:
+					toReturn = this.User;
+					break;
 				default:
 					toReturn = null;
 					break;
@@ -104,6 +113,18 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 		public DataSource2<ArtiklEntity> Artikl
 		{
 			get { return new DataSource2<ArtiklEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting AuditInfoEntity instances in the database.</summary>
+		public DataSource2<AuditInfoEntity> AuditInfo
+		{
+			get { return new DataSource2<AuditInfoEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting AuditInfoActionTypeRoEntity instances in the database.</summary>
+		public DataSource2<AuditInfoActionTypeRoEntity> AuditInfoActionTypeRo
+		{
+			get { return new DataSource2<AuditInfoActionTypeRoEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting BrojacEntity instances in the database.</summary>
@@ -124,10 +145,10 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 			get { return new DataSource2<ConfigEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
-		/// <summary>returns the datasource to use in a Linq query when targeting KorisnikEntity instances in the database.</summary>
-		public DataSource2<KorisnikEntity> Korisnik
+		/// <summary>returns the datasource to use in a Linq query when targeting EntityRoEntity instances in the database.</summary>
+		public DataSource2<EntityRoEntity> EntityRo
 		{
-			get { return new DataSource2<KorisnikEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+			get { return new DataSource2<EntityRoEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting PartnerEntity instances in the database.</summary>
@@ -164,6 +185,12 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 		public DataSource2<TarifaEntity> Tarifa
 		{
 			get { return new DataSource2<TarifaEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting UserEntity instances in the database.</summary>
+		public DataSource2<UserEntity> User
+		{
+			get { return new DataSource2<UserEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
 		

@@ -48,6 +48,71 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		}
 	}
 
+	/// <summary>Field Creation Class for entity AuditInfoEntity</summary>
+	public partial class AuditInfoFields
+	{
+		/// <summary>Creates a new AuditInfoEntity.ActionDateTime field instance</summary>
+		public static EntityField2 ActionDateTime
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.ActionDateTime);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.AuditInfoActionTypeId field instance</summary>
+		public static EntityField2 AuditInfoActionTypeId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.AuditInfoActionTypeId);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.AuditInfoId field instance</summary>
+		public static EntityField2 AuditInfoId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.AuditInfoId);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.ConcurrencyGuid field instance</summary>
+		public static EntityField2 ConcurrencyGuid
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.ConcurrencyGuid);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.EntityId field instance</summary>
+		public static EntityField2 EntityId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.EntityId);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.JsonData field instance</summary>
+		public static EntityField2 JsonData
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.JsonData);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.PrimaryKeyValue field instance</summary>
+		public static EntityField2 PrimaryKeyValue
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.PrimaryKeyValue);}
+		}
+		/// <summary>Creates a new AuditInfoEntity.UserId field instance</summary>
+		public static EntityField2 UserId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoFieldIndex.UserId);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity AuditInfoActionTypeRoEntity</summary>
+	public partial class AuditInfoActionTypeRoFields
+	{
+		/// <summary>Creates a new AuditInfoActionTypeRoEntity.AuditInfoActionTypeId field instance</summary>
+		public static EntityField2 AuditInfoActionTypeId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoActionTypeRoFieldIndex.AuditInfoActionTypeId);}
+		}
+		/// <summary>Creates a new AuditInfoActionTypeRoEntity.Code field instance</summary>
+		public static EntityField2 Code
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoActionTypeRoFieldIndex.Code);}
+		}
+		/// <summary>Creates a new AuditInfoActionTypeRoEntity.Name field instance</summary>
+		public static EntityField2 Name
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(AuditInfoActionTypeRoFieldIndex.Name);}
+		}
+	}
+
 	/// <summary>Field Creation Class for entity BrojacEntity</summary>
 	public partial class BrojacFields
 	{
@@ -148,33 +213,23 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		}
 	}
 
-	/// <summary>Field Creation Class for entity KorisnikEntity</summary>
-	public partial class KorisnikFields
+	/// <summary>Field Creation Class for entity EntityRoEntity</summary>
+	public partial class EntityRoFields
 	{
-		/// <summary>Creates a new KorisnikEntity.ConcurrencyGuid field instance</summary>
-		public static EntityField2 ConcurrencyGuid
+		/// <summary>Creates a new EntityRoEntity.Code field instance</summary>
+		public static EntityField2 Code
 		{
-			get { return (EntityField2)EntityFieldFactory.Create(KorisnikFieldIndex.ConcurrencyGuid);}
+			get { return (EntityField2)EntityFieldFactory.Create(EntityRoFieldIndex.Code);}
 		}
-		/// <summary>Creates a new KorisnikEntity.KorisnikId field instance</summary>
-		public static EntityField2 KorisnikId
+		/// <summary>Creates a new EntityRoEntity.EntityId field instance</summary>
+		public static EntityField2 EntityId
 		{
-			get { return (EntityField2)EntityFieldFactory.Create(KorisnikFieldIndex.KorisnikId);}
+			get { return (EntityField2)EntityFieldFactory.Create(EntityRoFieldIndex.EntityId);}
 		}
-		/// <summary>Creates a new KorisnikEntity.Password field instance</summary>
-		public static EntityField2 Password
+		/// <summary>Creates a new EntityRoEntity.Name field instance</summary>
+		public static EntityField2 Name
 		{
-			get { return (EntityField2)EntityFieldFactory.Create(KorisnikFieldIndex.Password);}
-		}
-		/// <summary>Creates a new KorisnikEntity.RoleId field instance</summary>
-		public static EntityField2 RoleId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(KorisnikFieldIndex.RoleId);}
-		}
-		/// <summary>Creates a new KorisnikEntity.Username field instance</summary>
-		public static EntityField2 Username
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(KorisnikFieldIndex.Username);}
+			get { return (EntityField2)EntityFieldFactory.Create(EntityRoFieldIndex.Name);}
 		}
 	}
 
@@ -415,6 +470,36 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		public static EntityField2 TarifaId
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(TarifaFieldIndex.TarifaId);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity UserEntity</summary>
+	public partial class UserFields
+	{
+		/// <summary>Creates a new UserEntity.ConcurrencyGuid field instance</summary>
+		public static EntityField2 ConcurrencyGuid
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(UserFieldIndex.ConcurrencyGuid);}
+		}
+		/// <summary>Creates a new UserEntity.Password field instance</summary>
+		public static EntityField2 Password
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(UserFieldIndex.Password);}
+		}
+		/// <summary>Creates a new UserEntity.RoleId field instance</summary>
+		public static EntityField2 RoleId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(UserFieldIndex.RoleId);}
+		}
+		/// <summary>Creates a new UserEntity.UserId field instance</summary>
+		public static EntityField2 UserId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(UserFieldIndex.UserId);}
+		}
+		/// <summary>Creates a new UserEntity.Username field instance</summary>
+		public static EntityField2 Username
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(UserFieldIndex.Username);}
 		}
 	}
 	

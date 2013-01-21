@@ -48,18 +48,21 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (11 + 0));
+			this.InitClass( (14 + 0));
 			InitArtiklEntityInfos();
+			InitAuditInfoEntityInfos();
+			InitAuditInfoActionTypeRoEntityInfos();
 			InitBrojacEntityInfos();
 			InitCjenikEntityInfos();
 			InitConfigEntityInfos();
-			InitKorisnikEntityInfos();
+			InitEntityRoEntityInfos();
 			InitPartnerEntityInfos();
 			InitRacunGlavaEntityInfos();
 			InitRacunStavkaEntityInfos();
 			InitRoleRoEntityInfos();
 			InitStatusRoEntityInfos();
 			InitTarifaEntityInfos();
+			InitUserEntityInfos();
 
 			this.ConstructElementFieldStructures(InheritanceInfoProviderSingleton.GetInstance());
 		}
@@ -74,6 +77,27 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("ArtiklEntity", "Naziv", typeof(System.String), false, false, false, false,  (int)ArtiklFieldIndex.Naziv, 100, 0, 0);
 			this.AddElementFieldInfo("ArtiklEntity", "Pdv", typeof(System.Decimal), false, false, false, false,  (int)ArtiklFieldIndex.Pdv, 0, 2, 4);
 			this.AddElementFieldInfo("ArtiklEntity", "StatusId", typeof(System.Int64), false, true, false, false,  (int)ArtiklFieldIndex.StatusId, 0, 0, 19);
+		}
+		/// <summary>Inits AuditInfoEntity's FieldInfo objects</summary>
+		private void InitAuditInfoEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(AuditInfoFieldIndex), "AuditInfoEntity");
+			this.AddElementFieldInfo("AuditInfoEntity", "ActionDateTime", typeof(System.DateTime), false, false, false, false,  (int)AuditInfoFieldIndex.ActionDateTime, 0, 0, 0);
+			this.AddElementFieldInfo("AuditInfoEntity", "AuditInfoActionTypeId", typeof(System.Int64), false, true, false, false,  (int)AuditInfoFieldIndex.AuditInfoActionTypeId, 0, 0, 19);
+			this.AddElementFieldInfo("AuditInfoEntity", "AuditInfoId", typeof(System.Int64), true, false, false, false,  (int)AuditInfoFieldIndex.AuditInfoId, 0, 0, 19);
+			this.AddElementFieldInfo("AuditInfoEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)AuditInfoFieldIndex.ConcurrencyGuid, 50, 0, 0);
+			this.AddElementFieldInfo("AuditInfoEntity", "EntityId", typeof(System.Int64), false, true, false, false,  (int)AuditInfoFieldIndex.EntityId, 0, 0, 19);
+			this.AddElementFieldInfo("AuditInfoEntity", "JsonData", typeof(System.String), false, false, false, false,  (int)AuditInfoFieldIndex.JsonData, 2147483647, 0, 0);
+			this.AddElementFieldInfo("AuditInfoEntity", "PrimaryKeyValue", typeof(System.Int64), false, false, false, false,  (int)AuditInfoFieldIndex.PrimaryKeyValue, 0, 0, 19);
+			this.AddElementFieldInfo("AuditInfoEntity", "UserId", typeof(System.Int64), false, true, false, false,  (int)AuditInfoFieldIndex.UserId, 0, 0, 19);
+		}
+		/// <summary>Inits AuditInfoActionTypeRoEntity's FieldInfo objects</summary>
+		private void InitAuditInfoActionTypeRoEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(AuditInfoActionTypeRoFieldIndex), "AuditInfoActionTypeRoEntity");
+			this.AddElementFieldInfo("AuditInfoActionTypeRoEntity", "AuditInfoActionTypeId", typeof(System.Int64), true, false, false, false,  (int)AuditInfoActionTypeRoFieldIndex.AuditInfoActionTypeId, 0, 0, 19);
+			this.AddElementFieldInfo("AuditInfoActionTypeRoEntity", "Code", typeof(System.String), false, false, false, false,  (int)AuditInfoActionTypeRoFieldIndex.Code, 128, 0, 0);
+			this.AddElementFieldInfo("AuditInfoActionTypeRoEntity", "Name", typeof(System.String), false, false, false, false,  (int)AuditInfoActionTypeRoFieldIndex.Name, 256, 0, 0);
 		}
 		/// <summary>Inits BrojacEntity's FieldInfo objects</summary>
 		private void InitBrojacEntityInfos()
@@ -107,15 +131,13 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("ConfigEntity", "Oib", typeof(System.String), true, false, false, false,  (int)ConfigFieldIndex.Oib, 11, 0, 0);
 			this.AddElementFieldInfo("ConfigEntity", "Zr", typeof(System.String), false, false, false, true,  (int)ConfigFieldIndex.Zr, 50, 0, 0);
 		}
-		/// <summary>Inits KorisnikEntity's FieldInfo objects</summary>
-		private void InitKorisnikEntityInfos()
+		/// <summary>Inits EntityRoEntity's FieldInfo objects</summary>
+		private void InitEntityRoEntityInfos()
 		{
-			this.AddFieldIndexEnumForElementName(typeof(KorisnikFieldIndex), "KorisnikEntity");
-			this.AddElementFieldInfo("KorisnikEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)KorisnikFieldIndex.ConcurrencyGuid, 50, 0, 0);
-			this.AddElementFieldInfo("KorisnikEntity", "KorisnikId", typeof(System.Int64), true, false, false, false,  (int)KorisnikFieldIndex.KorisnikId, 0, 0, 19);
-			this.AddElementFieldInfo("KorisnikEntity", "Password", typeof(System.String), false, false, false, false,  (int)KorisnikFieldIndex.Password, 50, 0, 0);
-			this.AddElementFieldInfo("KorisnikEntity", "RoleId", typeof(System.Int64), false, true, false, false,  (int)KorisnikFieldIndex.RoleId, 0, 0, 19);
-			this.AddElementFieldInfo("KorisnikEntity", "Username", typeof(System.String), false, false, false, false,  (int)KorisnikFieldIndex.Username, 20, 0, 0);
+			this.AddFieldIndexEnumForElementName(typeof(EntityRoFieldIndex), "EntityRoEntity");
+			this.AddElementFieldInfo("EntityRoEntity", "Code", typeof(System.String), false, false, false, false,  (int)EntityRoFieldIndex.Code, 128, 0, 0);
+			this.AddElementFieldInfo("EntityRoEntity", "EntityId", typeof(System.Int64), true, false, false, false,  (int)EntityRoFieldIndex.EntityId, 0, 0, 19);
+			this.AddElementFieldInfo("EntityRoEntity", "Name", typeof(System.String), false, false, false, false,  (int)EntityRoFieldIndex.Name, 256, 0, 0);
 		}
 		/// <summary>Inits PartnerEntity's FieldInfo objects</summary>
 		private void InitPartnerEntityInfos()
@@ -188,6 +210,16 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("TarifaEntity", "StatusId", typeof(System.Int64), false, false, false, false,  (int)TarifaFieldIndex.StatusId, 0, 0, 19);
 			this.AddElementFieldInfo("TarifaEntity", "Stopa", typeof(System.Decimal), false, false, false, false,  (int)TarifaFieldIndex.Stopa, 0, 2, 5);
 			this.AddElementFieldInfo("TarifaEntity", "TarifaId", typeof(System.Int64), true, false, false, false,  (int)TarifaFieldIndex.TarifaId, 0, 0, 19);
+		}
+		/// <summary>Inits UserEntity's FieldInfo objects</summary>
+		private void InitUserEntityInfos()
+		{
+			this.AddFieldIndexEnumForElementName(typeof(UserFieldIndex), "UserEntity");
+			this.AddElementFieldInfo("UserEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.ConcurrencyGuid, 50, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "Password", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Password, 50, 0, 0);
+			this.AddElementFieldInfo("UserEntity", "RoleId", typeof(System.Int64), false, true, false, false,  (int)UserFieldIndex.RoleId, 0, 0, 19);
+			this.AddElementFieldInfo("UserEntity", "UserId", typeof(System.Int64), true, false, false, false,  (int)UserFieldIndex.UserId, 0, 0, 19);
+			this.AddElementFieldInfo("UserEntity", "Username", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Username, 20, 0, 0);
 		}
 		
 	}

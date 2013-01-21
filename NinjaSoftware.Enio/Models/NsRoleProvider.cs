@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
+using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
 
 namespace NinjaSoftware.Enio.Models
 {
@@ -47,12 +50,15 @@ namespace NinjaSoftware.Enio.Models
 
         public override string[] GetRolesForUser(string username)
         {
+            PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.UserEntity);
+            prefetchPath.Add(UserEntity.PrefetchPathRole);
+
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory();
+            UserEntity user = UserEntity.FetchUser(adapter, username, prefetchPath);
+
             List<string> roleList = new List<string>();
 
-            if ("ninja1" == username)
-            {
-                roleList.Add("User");
-            }
+            roleList.Add(user.Role.Name);
 
             return roleList.ToArray();
         }

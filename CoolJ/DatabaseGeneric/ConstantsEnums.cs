@@ -28,6 +28,40 @@ namespace NinjaSoftware.Enio.CoolJ
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: AuditInfo.</summary>
+	public enum AuditInfoFieldIndex
+	{
+		///<summary>ActionDateTime. </summary>
+		ActionDateTime,
+		///<summary>AuditInfoActionTypeId. </summary>
+		AuditInfoActionTypeId,
+		///<summary>AuditInfoId. </summary>
+		AuditInfoId,
+		///<summary>ConcurrencyGuid. </summary>
+		ConcurrencyGuid,
+		///<summary>EntityId. </summary>
+		EntityId,
+		///<summary>JsonData. </summary>
+		JsonData,
+		///<summary>PrimaryKeyValue. </summary>
+		PrimaryKeyValue,
+		///<summary>UserId. </summary>
+		UserId,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: AuditInfoActionTypeRo.</summary>
+	public enum AuditInfoActionTypeRoFieldIndex
+	{
+		///<summary>AuditInfoActionTypeId. </summary>
+		AuditInfoActionTypeId,
+		///<summary>Code. </summary>
+		Code,
+		///<summary>Name. </summary>
+		Name,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Brojac.</summary>
 	public enum BrojacFieldIndex
 	{
@@ -80,19 +114,15 @@ namespace NinjaSoftware.Enio.CoolJ
 		/// <summary></summary>
 		AmountOfFields
 	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Korisnik.</summary>
-	public enum KorisnikFieldIndex
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: EntityRo.</summary>
+	public enum EntityRoFieldIndex
 	{
-		///<summary>ConcurrencyGuid. </summary>
-		ConcurrencyGuid,
-		///<summary>KorisnikId. </summary>
-		KorisnikId,
-		///<summary>Password. </summary>
-		Password,
-		///<summary>RoleId. </summary>
-		RoleId,
-		///<summary>Username. </summary>
-		Username,
+		///<summary>Code. </summary>
+		Code,
+		///<summary>EntityId. </summary>
+		EntityId,
+		///<summary>Name. </summary>
+		Name,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -216,6 +246,22 @@ namespace NinjaSoftware.Enio.CoolJ
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: User.</summary>
+	public enum UserFieldIndex
+	{
+		///<summary>ConcurrencyGuid. </summary>
+		ConcurrencyGuid,
+		///<summary>Password. </summary>
+		Password,
+		///<summary>RoleId. </summary>
+		RoleId,
+		///<summary>UserId. </summary>
+		UserId,
+		///<summary>Username. </summary>
+		Username,
+		/// <summary></summary>
+		AmountOfFields
+	}
 
 
 
@@ -224,14 +270,18 @@ namespace NinjaSoftware.Enio.CoolJ
 	{
 		///<summary>Artikl</summary>
 		ArtiklEntity,
+		///<summary>AuditInfo</summary>
+		AuditInfoEntity,
+		///<summary>AuditInfoActionTypeRo</summary>
+		AuditInfoActionTypeRoEntity,
 		///<summary>Brojac</summary>
 		BrojacEntity,
 		///<summary>Cjenik</summary>
 		CjenikEntity,
 		///<summary>Config</summary>
 		ConfigEntity,
-		///<summary>Korisnik</summary>
-		KorisnikEntity,
+		///<summary>EntityRo</summary>
+		EntityRoEntity,
 		///<summary>Partner</summary>
 		PartnerEntity,
 		///<summary>RacunGlava</summary>
@@ -243,7 +293,9 @@ namespace NinjaSoftware.Enio.CoolJ
 		///<summary>StatusRo</summary>
 		StatusRoEntity,
 		///<summary>Tarifa</summary>
-		TarifaEntity
+		TarifaEntity,
+		///<summary>User</summary>
+		UserEntity
 	}
 
 

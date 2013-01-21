@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio.CoolJ.Sq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Api.CoolJ", "..\NinjaSoftware.Helpers\NinjaSoftware.Api.CoolJ\NinjaSoftware.Api.CoolJ.csproj", "{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Api.Core", "..\NinjaSoftware.Helpers\NinjaSoftware.Api.Core\NinjaSoftware.Api.Core.csproj", "{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

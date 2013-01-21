@@ -2,7 +2,7 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 18. siječanj 2013. 16:33:23
+// Code is generated on: 21. siječanj 2013. 16:30:16
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET35
 // Templates vendor: Solutions Design.
 ////////////////////////////////////////////////////////////// 
@@ -101,6 +101,18 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			get { return Create<ArtiklEntity>(); }
 		}
 
+		/// <summary>Creates and returns a new EntityQuery for the AuditInfo entity</summary>
+		public EntityQuery<AuditInfoEntity> AuditInfo
+		{
+			get { return Create<AuditInfoEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the AuditInfoActionTypeRo entity</summary>
+		public EntityQuery<AuditInfoActionTypeRoEntity> AuditInfoActionTypeRo
+		{
+			get { return Create<AuditInfoActionTypeRoEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the Brojac entity</summary>
 		public EntityQuery<BrojacEntity> Brojac
 		{
@@ -119,10 +131,10 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			get { return Create<ConfigEntity>(); }
 		}
 
-		/// <summary>Creates and returns a new EntityQuery for the Korisnik entity</summary>
-		public EntityQuery<KorisnikEntity> Korisnik
+		/// <summary>Creates and returns a new EntityQuery for the EntityRo entity</summary>
+		public EntityQuery<EntityRoEntity> EntityRo
 		{
-			get { return Create<KorisnikEntity>(); }
+			get { return Create<EntityRoEntity>(); }
 		}
 
 		/// <summary>Creates and returns a new EntityQuery for the Partner entity</summary>
@@ -159,6 +171,12 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		public EntityQuery<TarifaEntity> Tarifa
 		{
 			get { return Create<TarifaEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the User entity</summary>
+		public EntityQuery<UserEntity> User
+		{
+			get { return Create<UserEntity>(); }
 		}
 
 	}
