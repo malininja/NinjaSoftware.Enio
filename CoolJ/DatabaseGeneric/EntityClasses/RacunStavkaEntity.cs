@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'RacunStavka'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class RacunStavkaEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -597,6 +599,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."ArtiklId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 ArtiklId
 		{
 			get { return (System.Int64)GetValue((int)RacunStavkaFieldIndex.ArtiklId, true); }
@@ -607,6 +610,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."Cijena"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal Cijena
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.Cijena, true); }
@@ -617,6 +621,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)RacunStavkaFieldIndex.ConcurrencyGuid, true); }
@@ -627,6 +632,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."Iznos"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal Iznos
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.Iznos, true); }
@@ -637,6 +643,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."Kolicina"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 8, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal Kolicina
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.Kolicina, true); }
@@ -647,6 +654,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."PdvIznos"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal PdvIznos
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.PdvIznos, true); }
@@ -657,6 +665,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."PdvPosto"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 4, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal PdvPosto
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.PdvPosto, true); }
@@ -667,6 +676,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."Pozicija"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int16 Pozicija
 		{
 			get { return (System.Int16)GetValue((int)RacunStavkaFieldIndex.Pozicija, true); }
@@ -677,6 +687,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."RacunGlavaId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 RacunGlavaId
 		{
 			get { return (System.Int64)GetValue((int)RacunStavkaFieldIndex.RacunGlavaId, true); }
@@ -687,6 +698,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."RacunStavkaId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 RacunStavkaId
 		{
 			get { return (System.Int64)GetValue((int)RacunStavkaFieldIndex.RacunStavkaId, true); }
@@ -697,6 +709,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunStavka"."TarifaIznos"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 10, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal TarifaIznos
 		{
 			get { return (System.Decimal)GetValue((int)RacunStavkaFieldIndex.TarifaIznos, true); }
@@ -705,6 +718,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'ArtiklEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual ArtiklEntity Artikl
 		{
 			get	{ return _artikl; }
@@ -723,6 +737,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'RacunGlavaEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual RacunGlavaEntity RacunGlava
 		{
 			get	{ return _racunGlava; }

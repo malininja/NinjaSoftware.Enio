@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'RacunGlava'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class RacunGlavaEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -714,6 +716,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)RacunGlavaFieldIndex.ConcurrencyGuid, true); }
@@ -724,6 +727,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."Datum"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.DateTime Datum
 		{
 			get { return (System.DateTime)GetValue((int)RacunGlavaFieldIndex.Datum, true); }
@@ -734,6 +738,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."Godina"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int16 Godina
 		{
 			get { return (System.Int16)GetValue((int)RacunGlavaFieldIndex.Godina, true); }
@@ -744,6 +749,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."MjestoRadaAdresa"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String MjestoRadaAdresa
 		{
 			get { return (System.String)GetValue((int)RacunGlavaFieldIndex.MjestoRadaAdresa, true); }
@@ -754,6 +760,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."MjestoRadaNaziv"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String MjestoRadaNaziv
 		{
 			get { return (System.String)GetValue((int)RacunGlavaFieldIndex.MjestoRadaNaziv, true); }
@@ -764,6 +771,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."PartnerId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 PartnerId
 		{
 			get { return (System.Int64)GetValue((int)RacunGlavaFieldIndex.PartnerId, true); }
@@ -774,6 +782,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."RacunGlavaId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 RacunGlavaId
 		{
 			get { return (System.Int64)GetValue((int)RacunGlavaFieldIndex.RacunGlavaId, true); }
@@ -784,6 +793,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."StatusId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 StatusId
 		{
 			get { return (System.Int64)GetValue((int)RacunGlavaFieldIndex.StatusId, true); }
@@ -794,6 +804,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."TarifaId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 TarifaId
 		{
 			get { return (System.Int64)GetValue((int)RacunGlavaFieldIndex.TarifaId, true); }
@@ -804,6 +815,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."TarifaStopa"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 5, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal TarifaStopa
 		{
 			get { return (System.Decimal)GetValue((int)RacunGlavaFieldIndex.TarifaStopa, true); }
@@ -814,6 +826,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RacunGlava"."Valuta"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int16 Valuta
 		{
 			get { return (System.Int16)GetValue((int)RacunGlavaFieldIndex.Valuta, true); }
@@ -829,6 +842,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'PartnerEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual PartnerEntity Partner
 		{
 			get	{ return _partner; }
@@ -847,6 +861,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'StatusRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual StatusRoEntity Status
 		{
 			get	{ return _status; }
@@ -865,6 +880,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'TarifaEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual TarifaEntity Tarifa
 		{
 			get	{ return _tarifa; }

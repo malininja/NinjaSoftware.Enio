@@ -200,6 +200,16 @@
           <Field Name="Name" Type="string" MaxLength="256" />
         </Fields>
       </EntityDefinition>
+      <EntityDefinition Name="Error">
+        <Fields>
+          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
+          <Field Name="ErrorDateTime" Type="datetime" />
+          <Field Name="ErrorId" Type="long" IsPrimaryKey="true" />
+          <Field Name="Message" Type="string" />
+          <Field Name="ParentErrorId" Type="long" IsOptional="true" />
+          <Field Name="StackTrace" Type="string" IsOptional="true" />
+        </Fields>
+      </EntityDefinition>
       <EntityDefinition Name="Partner">
         <Fields>
           <Field Name="Adresa" Type="string" IsOptional="true" MaxLength="100" />
@@ -305,6 +315,11 @@
       <NormalRelationship Name="Cjenik.Partner-Partner.CjenikCollection" Start=":Cjenik" End=":Partner" StartNavigator="Partner" EndNavigator="CjenikCollection" Type="4">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PartnerId" PkField="PartnerId" />
+        </FieldRelationships>
+      </NormalRelationship>
+      <NormalRelationship Name="Error.ParentError-Error.ChildErrorCollection" Start=":Error" End=":Error" StartNavigator="ParentError" EndNavigator="ChildErrorCollection" Type="4" EndIsOptional="true">
+        <FieldRelationships>
+          <FieldFieldRelationship FkField="ParentErrorId" PkField="ErrorId" />
         </FieldRelationships>
       </NormalRelationship>
       <NormalRelationship Name="Partner.Status-StatusRo.PartnerCollection" Start=":Partner" End=":StatusRo" StartNavigator="Status" EndNavigator="PartnerCollection" Type="4">

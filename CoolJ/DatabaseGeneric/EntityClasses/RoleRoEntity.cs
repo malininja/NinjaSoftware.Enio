@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'RoleRo'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class RoleRoEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -452,6 +454,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RoleRo"."Code"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Code
 		{
 			get { return (System.String)GetValue((int)RoleRoFieldIndex.Code, true); }
@@ -462,6 +465,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RoleRo"."Name"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Name
 		{
 			get { return (System.String)GetValue((int)RoleRoFieldIndex.Name, true); }
@@ -472,6 +476,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "RoleRo"."RoleId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 RoleId
 		{
 			get { return (System.Int64)GetValue((int)RoleRoFieldIndex.RoleId, true); }

@@ -19,19 +19,19 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	
 	/// <summary>Entity class which represents the entity 'AuditInfo'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class AuditInfoEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
-		// __LLBLGENPRO_USER_CODE_REGION_END
-			
+		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
 		private AuditInfoActionTypeRoEntity _auditInfoActionType;
@@ -40,7 +40,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Statics
@@ -181,7 +180,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 		}
 
 		
@@ -369,7 +367,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			base.GetObjectData(info, context);
 		}
 
@@ -465,7 +462,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassMembers
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			OnInitClassMembersComplete();
 		}
 
@@ -607,7 +603,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 			// __LLBLGENPRO_USER_CODE_REGION_START InitClassEmpty
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 
 			OnInitialized();
 
@@ -676,6 +671,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."ActionDateTime"<br/>
 		/// Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.DateTime ActionDateTime
 		{
 			get { return (System.DateTime)GetValue((int)AuditInfoFieldIndex.ActionDateTime, true); }
@@ -686,6 +682,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."AuditInfoActionTypeId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 AuditInfoActionTypeId
 		{
 			get { return (System.Int64)GetValue((int)AuditInfoFieldIndex.AuditInfoActionTypeId, true); }
@@ -696,6 +693,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."AuditInfoId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 AuditInfoId
 		{
 			get { return (System.Int64)GetValue((int)AuditInfoFieldIndex.AuditInfoId, true); }
@@ -706,6 +704,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)AuditInfoFieldIndex.ConcurrencyGuid, true); }
@@ -716,6 +715,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."EntityId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 EntityId
 		{
 			get { return (System.Int64)GetValue((int)AuditInfoFieldIndex.EntityId, true); }
@@ -726,6 +726,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."JsonData"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 2147483647<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String JsonData
 		{
 			get { return (System.String)GetValue((int)AuditInfoFieldIndex.JsonData, true); }
@@ -736,6 +737,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."PrimaryKeyValue"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 PrimaryKeyValue
 		{
 			get { return (System.Int64)GetValue((int)AuditInfoFieldIndex.PrimaryKeyValue, true); }
@@ -746,6 +748,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "AuditInfo"."UserId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 UserId
 		{
 			get { return (System.Int64)GetValue((int)AuditInfoFieldIndex.UserId, true); }
@@ -754,6 +757,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'AuditInfoActionTypeRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual AuditInfoActionTypeRoEntity AuditInfoActionType
 		{
 			get	{ return _auditInfoActionType; }
@@ -772,6 +776,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'EntityRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual EntityRoEntity Entity
 		{
 			get	{ return _entity; }
@@ -790,6 +795,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'UserEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual UserEntity User
 		{
 			get	{ return _user; }
@@ -832,7 +838,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-		
 		#endregion
 
 		#region Included code

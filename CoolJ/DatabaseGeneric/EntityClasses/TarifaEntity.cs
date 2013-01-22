@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'Tarifa'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class TarifaEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -456,6 +458,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Tarifa"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)TarifaFieldIndex.ConcurrencyGuid, true); }
@@ -466,6 +469,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Tarifa"."Naziv"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Naziv
 		{
 			get { return (System.String)GetValue((int)TarifaFieldIndex.Naziv, true); }
@@ -476,6 +480,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Tarifa"."StatusId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 StatusId
 		{
 			get { return (System.Int64)GetValue((int)TarifaFieldIndex.StatusId, true); }
@@ -486,6 +491,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Tarifa"."Stopa"<br/>
 		/// Table field type characteristics (type, precision, scale, length): Decimal, 5, 2, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Decimal Stopa
 		{
 			get { return (System.Decimal)GetValue((int)TarifaFieldIndex.Stopa, true); }
@@ -496,6 +502,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Tarifa"."TarifaId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 TarifaId
 		{
 			get { return (System.Int64)GetValue((int)TarifaFieldIndex.TarifaId, true); }

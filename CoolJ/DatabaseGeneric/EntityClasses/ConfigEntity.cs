@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'Config'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class ConfigEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -414,6 +416,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."Adresa"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Adresa
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.Adresa, true); }
@@ -424,6 +427,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."AktivnaGodina"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int16 AktivnaGodina
 		{
 			get { return (System.Int16)GetValue((int)ConfigFieldIndex.AktivnaGodina, true); }
@@ -434,6 +438,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.ConcurrencyGuid, true); }
@@ -444,6 +449,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."Mjesto"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Mjesto
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.Mjesto, true); }
@@ -454,6 +460,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."Naziv"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Naziv
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.Naziv, true); }
@@ -464,6 +471,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."Oib"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 11<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Oib
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.Oib, true); }
@@ -474,6 +482,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Config"."Zr"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Zr
 		{
 			get { return (System.String)GetValue((int)ConfigFieldIndex.Zr, true); }

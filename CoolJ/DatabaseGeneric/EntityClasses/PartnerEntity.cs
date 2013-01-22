@@ -19,6 +19,7 @@ using NinjaSoftware.Enio.CoolJ.FactoryClasses;
 using NinjaSoftware.Enio.CoolJ.RelationClasses;
 
 using SD.LLBLGen.Pro.ORMSupportClasses;
+using Newtonsoft.Json;
 using NinjaSoftware.Api.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.EntityClasses
@@ -27,6 +28,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 	// __LLBLGENPRO_USER_CODE_REGION_END
 	/// <summary>Entity class which represents the entity 'Partner'.<br/><br/></summary>
 	[Serializable]
+	[JsonObject(MemberSerialization.OptIn)]	
 	public partial class PartnerEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
@@ -593,6 +595,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Adresa"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Adresa
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.Adresa, true); }
@@ -603,6 +606,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String ConcurrencyGuid
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.ConcurrencyGuid, true); }
@@ -613,6 +617,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Mjesto"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 20<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Mjesto
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.Mjesto, true); }
@@ -623,6 +628,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Naziv"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Naziv
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.Naziv, true); }
@@ -633,6 +639,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Oib"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 11<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Oib
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.Oib, true); }
@@ -643,6 +650,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."PartnerId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 PartnerId
 		{
 			get { return (System.Int64)GetValue((int)PartnerFieldIndex.PartnerId, true); }
@@ -653,6 +661,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Posta"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 10<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.String Posta
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.Posta, true); }
@@ -663,6 +672,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."StatusId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int64 StatusId
 		{
 			get { return (System.Int64)GetValue((int)PartnerFieldIndex.StatusId, true); }
@@ -673,6 +683,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <remarks>Mapped on  table field: "Partner"."Valuta"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
 		public virtual System.Int16 Valuta
 		{
 			get { return (System.Int16)GetValue((int)PartnerFieldIndex.Valuta, true); }
@@ -695,6 +706,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		/// <summary> Gets / sets related entity of type 'StatusRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
+		[JsonProperty]
 		public virtual StatusRoEntity Status
 		{
 			get	{ return _status; }

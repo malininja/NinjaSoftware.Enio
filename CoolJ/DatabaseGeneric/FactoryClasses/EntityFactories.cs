@@ -131,7 +131,6 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			IEntity2 toReturn = new AuditInfoEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAuditInfoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -152,7 +151,6 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			IEntity2 toReturn = new AuditInfoActionTypeRoEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewAuditInfoActionTypeRoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -233,7 +231,6 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			IEntity2 toReturn = new EntityRoEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewEntityRoUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code
@@ -374,7 +371,6 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			IEntity2 toReturn = new UserEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewUserUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
-			
 			return toReturn;
 		}
 		#region Included Code

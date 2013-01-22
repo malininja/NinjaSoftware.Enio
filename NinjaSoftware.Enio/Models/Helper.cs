@@ -33,7 +33,7 @@ namespace NinjaSoftware.Enio.Models
         {
             DataAccessAdapterBase adapter = GetDataAccessAdapterFactory();
 
-            ((INsDataAccessAdapter)adapter).UserId = UserEntity.FetchUser(adapter, userName).UserId;
+            ((INsDataAccessAdapter)adapter).UserId = UserEntity.FetchUser(userName, null, adapter).UserId;
 
             return adapter;
         }

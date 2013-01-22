@@ -13,6 +13,7 @@ using System.Data.Common;
 using System.Configuration;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using SD.LLBLGen.Pro.DQE.PostgreSql;
+using NinjaSoftware.CoolJ;
 
 namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 {
@@ -23,7 +24,7 @@ namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 	/// <remarks>Use a DataAccessAdapter object solely per thread, and per connection. A DataAccessAdapter object contains 1 active connection 
 	/// and no thread-access scheduling code. This means that you need to create a new DataAccessAdapter object if you want to utilize
 	/// in another thread a new connection and a new transaction or want to open a new connection.</remarks>
-	public partial class DataAccessAdapter : DataAccessAdapterBase
+    public partial class DataAccessAdapter : DataAccessAdapterBase, INsDataAccessAdapter
 	{
 		#region Public static members
 		/// <summary>The name of the key in the *.config file of the executing application which contains the connection string.</summary>
@@ -106,8 +107,104 @@ namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 
 
 		#region Custom DataAccessAdapter code.
-		
+
+        public long? UserId { get; set; }
+
+        protected override void OnBeforeEntitySave(IEntity2 entitySaved, bool insertAction)
+        {
+            if (entitySaved.IsDirty)
+            {
+                string concurrencyFieldName = ConfigurationManager.AppSettings["ConcurrencyFieldName"];
+                entitySaved.Fields[concurrencyFieldName].CurrentValue = System.Guid.NewGuid().ToString();
+            }
+
+            base.OnBeforeEntitySave(entitySaved, insertAction);
+        }
+
+        protected override void OnSaveEntityComplete(IActionQuery saveQuery, IEntity2 entityToSave)
+        {
+            if (!(entityToSave is NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity) &&
+                !(entityToSave is NinjaSoftware.Enio.CoolJ.EntityClasses.ErrorEntity))
+            {
+                if (entityToSave.IsNew)
+                {
+                    AuditInfo(entityToSave, NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum.Insert);
+                }
+                else
+                {
+                    AuditInfo(entityToSave, NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum.Update);
+                }
+            }
+
+            base.OnSaveEntityComplete(saveQuery, entityToSave);
+        }
+
+        protected override void OnDeleteEntityComplete(IActionQuery deleteQuery, IEntity2 entityToDelete)
+        {
+            AuditInfo(entityToDelete, NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum.Delete);
+            base.OnDeleteEntityComplete(deleteQuery, entityToDelete);
+        }
+
+        /// <summary>
+        /// Throws exception 'cos AuditInfo can't be implemented this way.
+        /// </summary>
+        protected override void OnDeleteEntitiesDirectly(IActionQuery deleteQuery)
+        {
+            throw new NotImplementedException("Audit info se ne može implementirati ovim načinom (ne prosljeđuje se entitet).");
+            //base.OnDeleteEntitiesDirectly(deleteQuery);
+        }
+
+        /// <summary>
+        /// Throws exception 'cos AuditInfo can't be implemented this way.
+        /// </summary>
+        protected override void OnUpdateEntitiesDirectly(IActionQuery updateQuery)
+        {
+            throw new NotImplementedException("Audit info se ne može implementirati ovim načinom (ne prosljeđuje se entitet).");
+            //base.OnUpdateEntitiesDirectly(updateQuery);
+        }
+
+        /// <summary>
+        /// Saves data from changed fields in JSON.
+        /// Enables to track entity history.
+        /// </summary>
+        private void AuditInfo(IEntity2 entity, NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum auditInfoActionTypeEnum)
+        {
+            NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity auditInfo = new NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity();
+            auditInfo.ActionDateTime = DateTime.Now;
+            auditInfo.AuditInfoActionTypeId = (long)auditInfoActionTypeEnum;
+            auditInfo.EntityId = (long)(NinjaSoftware.Enio.CoolJ.DatabaseGeneric.EntityEnum)Enum.Parse(typeof(NinjaSoftware.Enio.CoolJ.DatabaseGeneric.EntityEnum), entity.LLBLGenProEntityName.Replace("Entity", ""));
+            auditInfo.UserId = this.UserId.Value;
+
+            System.Collections.Generic.Dictionary<string, object> fieldsDictionary = new System.Collections.Generic.Dictionary<string, object>();
+
+            foreach (IEntityField2 field in entity.Fields)
+            {
+                string concurrencyFieldName = ConfigurationManager.AppSettings["ConcurrencyFieldName"];
+                // Saves all fields if is not update.
+                // If it is update, saves only changed fileds.
+                if (field.IsPrimaryKey)
+                {
+                    // primary key is saved in separately
+                    auditInfo.PrimaryKeyValue = (long)field.CurrentValue;
+                }
+                else if (NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum.Delete == auditInfoActionTypeEnum)
+                {
+                    // nothing, you can recreate entity from other audit infos for this entity
+                }
+                else if ((auditInfoActionTypeEnum != NinjaSoftware.Enio.CoolJ.DatabaseGeneric.AuditInfoActionTypeEnum.Update || field.IsChanged) &&
+                    !field.IsPrimaryKey &&
+                    field.Name != concurrencyFieldName)
+                {
+                    fieldsDictionary.Add(field.Name, field.CurrentValue);
+                }
+            }
+
+            auditInfo.JsonData = Newtonsoft.Json.JsonConvert.SerializeObject(fieldsDictionary);
+
+            this.SaveEntity(auditInfo, false, false);
+        }
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDataAccessAdapterCode
+
 		// __LLBLGENPRO_USER_CODE_REGION_END
 		#endregion
 		

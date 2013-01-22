@@ -54,7 +54,7 @@ namespace NinjaSoftware.Enio.Models
             prefetchPath.Add(UserEntity.PrefetchPathRole);
 
             DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory();
-            UserEntity user = UserEntity.FetchUser(adapter, username, prefetchPath);
+            UserEntity user = UserEntity.FetchUser(username, prefetchPath, adapter);
 
             List<string> roleList = new List<string>();
 

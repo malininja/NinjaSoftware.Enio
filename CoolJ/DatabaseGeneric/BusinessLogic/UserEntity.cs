@@ -9,7 +9,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
     public partial class UserEntity
     {
-        public static UserEntity FetchUser(DataAccessAdapterBase adapter, string userName, PrefetchPath2 prefetchPath)
+        public static UserEntity FetchUser(string userName, PrefetchPath2 prefetchPath, DataAccessAdapterBase adapter)
         {
             RelationPredicateBucket bucket = new RelationPredicateBucket(UserFields.Username == userName);
             return FetchUserCollection(adapter, bucket, prefetchPath).SingleOrDefault();
