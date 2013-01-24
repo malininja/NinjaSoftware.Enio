@@ -183,11 +183,11 @@ namespace NinjaSoftware.Enio.Models
 
             if (null == UserEntity.FetchUser(adapter, username, hash))
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
     }

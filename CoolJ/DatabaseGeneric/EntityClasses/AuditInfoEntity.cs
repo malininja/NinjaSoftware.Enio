@@ -692,7 +692,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary> The AuditInfoId property of the Entity AuditInfo<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "AuditInfo"."AuditInfoId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
 		[JsonProperty]		
 		public virtual System.Int64 AuditInfoId
 		{

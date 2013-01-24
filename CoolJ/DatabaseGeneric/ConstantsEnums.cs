@@ -17,12 +17,14 @@ namespace NinjaSoftware.Enio.CoolJ
 		ArtiklId,
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
+		///<summary>IsActive. </summary>
+		IsActive,
 		///<summary>Jm. </summary>
 		Jm,
 		///<summary>Naziv. </summary>
 		Naziv,
-		///<summary>Pdv. </summary>
-		Pdv,
+		///<summary>PdvId. </summary>
+		PdvId,
 		///<summary>StatusId. </summary>
 		StatusId,
 		/// <summary></summary>
@@ -103,6 +105,8 @@ namespace NinjaSoftware.Enio.CoolJ
 		AktivnaGodina,
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
+		///<summary>ConfigId. </summary>
+		ConfigId,
 		///<summary>Mjesto. </summary>
 		Mjesto,
 		///<summary>Naziv. </summary>
@@ -126,6 +130,24 @@ namespace NinjaSoftware.Enio.CoolJ
 		/// <summary></summary>
 		AmountOfFields
 	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Error.</summary>
+	public enum ErrorFieldIndex
+	{
+		///<summary>ConcurrencyGuid. </summary>
+		ConcurrencyGuid,
+		///<summary>ErrorDateTime. </summary>
+		ErrorDateTime,
+		///<summary>ErrorId. </summary>
+		ErrorId,
+		///<summary>Message. </summary>
+		Message,
+		///<summary>ParentErrorId. </summary>
+		ParentErrorId,
+		///<summary>StackTrace. </summary>
+		StackTrace,
+		/// <summary></summary>
+		AmountOfFields
+	}
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Partner.</summary>
 	public enum PartnerFieldIndex
 	{
@@ -133,6 +155,8 @@ namespace NinjaSoftware.Enio.CoolJ
 		Adresa,
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
+		///<summary>IsActive. </summary>
+		IsActive,
 		///<summary>Mjesto. </summary>
 		Mjesto,
 		///<summary>Naziv. </summary>
@@ -143,10 +167,22 @@ namespace NinjaSoftware.Enio.CoolJ
 		PartnerId,
 		///<summary>Posta. </summary>
 		Posta,
-		///<summary>StatusId. </summary>
-		StatusId,
 		///<summary>Valuta. </summary>
 		Valuta,
+		/// <summary></summary>
+		AmountOfFields
+	}
+	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Pdv.</summary>
+	public enum PdvFieldIndex
+	{
+		///<summary>ConcurrencyGuid. </summary>
+		ConcurrencyGuid,
+		///<summary>Naziv. </summary>
+		Naziv,
+		///<summary>PdvId. </summary>
+		PdvId,
+		///<summary>Stopa. </summary>
+		Stopa,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -235,10 +271,10 @@ namespace NinjaSoftware.Enio.CoolJ
 	{
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
+		///<summary>IsActive. </summary>
+		IsActive,
 		///<summary>Naziv. </summary>
 		Naziv,
-		///<summary>StatusId. </summary>
-		StatusId,
 		///<summary>Stopa. </summary>
 		Stopa,
 		///<summary>TarifaId. </summary>
@@ -282,8 +318,12 @@ namespace NinjaSoftware.Enio.CoolJ
 		ConfigEntity,
 		///<summary>EntityRo</summary>
 		EntityRoEntity,
+		///<summary>Error</summary>
+		ErrorEntity,
 		///<summary>Partner</summary>
 		PartnerEntity,
+		///<summary>Pdv</summary>
+		PdvEntity,
 		///<summary>RacunGlava</summary>
 		RacunGlavaEntity,
 		///<summary>RacunStavka</summary>

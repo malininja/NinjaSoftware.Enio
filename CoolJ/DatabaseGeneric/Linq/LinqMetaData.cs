@@ -81,8 +81,14 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 				case NinjaSoftware.Enio.CoolJ.EntityType.EntityRoEntity:
 					toReturn = this.EntityRo;
 					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.ErrorEntity:
+					toReturn = this.Error;
+					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					toReturn = this.Partner;
+					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity:
+					toReturn = this.Pdv;
 					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity:
 					toReturn = this.RacunGlava;
@@ -151,10 +157,22 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 			get { return new DataSource2<EntityRoEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
+		/// <summary>returns the datasource to use in a Linq query when targeting ErrorEntity instances in the database.</summary>
+		public DataSource2<ErrorEntity> Error
+		{
+			get { return new DataSource2<ErrorEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		
 		/// <summary>returns the datasource to use in a Linq query when targeting PartnerEntity instances in the database.</summary>
 		public DataSource2<PartnerEntity> Partner
 		{
 			get { return new DataSource2<PartnerEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
+		}
+		
+		/// <summary>returns the datasource to use in a Linq query when targeting PdvEntity instances in the database.</summary>
+		public DataSource2<PdvEntity> Pdv
+		{
+			get { return new DataSource2<PdvEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting RacunGlavaEntity instances in the database.</summary>

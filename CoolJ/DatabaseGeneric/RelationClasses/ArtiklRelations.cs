@@ -31,7 +31,7 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.CjenikEntityUsingArtiklId);
 			toReturn.Add(this.RacunStavkaEntityUsingArtiklId);
-			toReturn.Add(this.StatusRoEntityUsingStatusId);
+			toReturn.Add(this.PdvEntityUsingPdvId);
 			return toReturn;
 		}
 
@@ -68,16 +68,16 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 		}
 
 
-		/// <summary>Returns a new IEntityRelation object, between ArtiklEntity and StatusRoEntity over the m:1 relation they have, using the relation between the fields:
-		/// Artikl.StatusId - StatusRo.StatusId
+		/// <summary>Returns a new IEntityRelation object, between ArtiklEntity and PdvEntity over the m:1 relation they have, using the relation between the fields:
+		/// Artikl.PdvId - Pdv.PdvId
 		/// </summary>
-		public virtual IEntityRelation StatusRoEntityUsingStatusId
+		public virtual IEntityRelation PdvEntityUsingPdvId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Status", false);
-				relation.AddEntityFieldPair(StatusRoFields.StatusId, ArtiklFields.StatusId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("StatusRoEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Pdv", false);
+				relation.AddEntityFieldPair(PdvFields.PdvId, ArtiklFields.PdvId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PdvEntity", false);
 				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ArtiklEntity", true);
 				return relation;
 			}
@@ -98,7 +98,7 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	{
 		internal static readonly IEntityRelation CjenikEntityUsingArtiklIdStatic = new ArtiklRelations().CjenikEntityUsingArtiklId;
 		internal static readonly IEntityRelation RacunStavkaEntityUsingArtiklIdStatic = new ArtiklRelations().RacunStavkaEntityUsingArtiklId;
-		internal static readonly IEntityRelation StatusRoEntityUsingStatusIdStatic = new ArtiklRelations().StatusRoEntityUsingStatusId;
+		internal static readonly IEntityRelation PdvEntityUsingPdvIdStatic = new ArtiklRelations().PdvEntityUsingPdvId;
 
 		/// <summary>CTor</summary>
 		static StaticArtiklRelations()

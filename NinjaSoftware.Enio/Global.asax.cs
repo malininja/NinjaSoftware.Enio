@@ -6,6 +6,13 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using SD.LLBLGen.Pro.ORMSupportClasses;
+using NinjaSoftware.Enio.Models;
+using NinjaSoftware.Enio.CoolJ.EntityClasses;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text;
+using System.Configuration;
 
 namespace NinjaSoftware.Enio
 {
@@ -22,7 +29,57 @@ namespace NinjaSoftware.Enio
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
+        }
+
+        protected void Application_Error()
+        {
+            Exception exception = Server.GetLastError();
+
+            try
+            {
+                DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+                ErrorEntity.LogException(adapter, exception);
+            }
+            catch (Exception)
+            {
+                ErrorEntity error = new ErrorEntity(exception);
+                StringWriter stringWriter = new StringWriter();
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(ErrorEntity));
+                xmlSerializer.Serialize(stringWriter, error);
+                stringWriter.Close();
+
+                StringBuilder xmlFilePath = new StringBuilder(HttpContext.Current.Request.MapPath(HttpContext.Current.Request.ApplicationPath));
+
+                if (xmlFilePath.Length > 0 && xmlFilePath.ToString().Substring(xmlFilePath.Length - 1, 1) != @"\")
+                {
+                    xmlFilePath.Append(@"\");
+                }
+
+                xmlFilePath.Append("Errors.xml");
+
+                File.AppendAllText(xmlFilePath.ToString(), stringWriter.ToString());
+            }
+
+            try
+            {
+                string emailFrom = ConfigurationManager.AppSettings["ErrorMailFrom"];
+                string emailTo = ConfigurationManager.AppSettings["ErrorMailTo"];
+                string subject = string.Format("Application {0} error", ConfigurationManager.AppSettings["ApplicationName"]);
+                string body = string.Format("<strong>Username:</strong> {0} <br /><br /><strong>Exception:</strong> <br /><br /> {1}",
+                    User.Identity.Name,
+                    exception.ToString());
+
+                System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage("noreply@acrobyte.hr", emailTo, subject, body);
+                mail.IsBodyHtml = true;
+
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+            }
+            catch (Exception)
+            {
+                // Silent fail
+            }
         }
     }
 }

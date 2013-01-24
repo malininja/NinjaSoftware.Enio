@@ -238,6 +238,26 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		#endregion
 	}
 
+	/// <summary>Factory to create new, empty ErrorEntity objects.</summary>
+	[Serializable]
+	public partial class ErrorEntityFactory : EntityFactoryBase2<ErrorEntity> {
+		/// <summary>CTor</summary>
+		public ErrorEntityFactory() : base("ErrorEntity", NinjaSoftware.Enio.CoolJ.EntityType.ErrorEntity, false) { }
+		
+		/// <summary>Creates a new ErrorEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
+		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
+		public override IEntity2 Create(IEntityFields2 fields) {
+			IEntity2 toReturn = new ErrorEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewErrorUsingFields
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+		#region Included Code
+
+		#endregion
+	}
+
 	/// <summary>Factory to create new, empty PartnerEntity objects.</summary>
 	[Serializable]
 	public partial class PartnerEntityFactory : EntityFactoryBase2<PartnerEntity> {
@@ -250,6 +270,26 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 		public override IEntity2 Create(IEntityFields2 fields) {
 			IEntity2 toReturn = new PartnerEntity(fields);
 			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewPartnerUsingFields
+			// __LLBLGENPRO_USER_CODE_REGION_END
+			return toReturn;
+		}
+		#region Included Code
+
+		#endregion
+	}
+
+	/// <summary>Factory to create new, empty PdvEntity objects.</summary>
+	[Serializable]
+	public partial class PdvEntityFactory : EntityFactoryBase2<PdvEntity> {
+		/// <summary>CTor</summary>
+		public PdvEntityFactory() : base("PdvEntity", NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity, false) { }
+		
+		/// <summary>Creates a new PdvEntity instance but uses a special constructor which will set the Fields object of the new IEntity2 instance to the passed in fields object.</summary>
+		/// <param name="fields">Populated IEntityFields2 object for the new IEntity2 to create</param>
+		/// <returns>Fully created and populated (due to the IEntityFields2 object) IEntity2 object</returns>
+		public override IEntity2 Create(IEntityFields2 fields) {
+			IEntity2 toReturn = new PdvEntity(fields);
+			// __LLBLGENPRO_USER_CODE_REGION_START CreateNewPdvUsingFields
 			// __LLBLGENPRO_USER_CODE_REGION_END
 			return toReturn;
 		}
@@ -411,8 +451,14 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 				case NinjaSoftware.Enio.CoolJ.EntityType.EntityRoEntity:
 					factoryToUse = new EntityRoEntityFactory();
 					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.ErrorEntity:
+					factoryToUse = new ErrorEntityFactory();
+					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity:
 					factoryToUse = new PartnerEntityFactory();
+					break;
+				case NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity:
+					factoryToUse = new PdvEntityFactory();
 					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity:
 					factoryToUse = new RacunGlavaEntityFactory();

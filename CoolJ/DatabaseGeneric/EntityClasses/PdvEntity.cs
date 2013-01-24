@@ -26,15 +26,15 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
-	/// <summary>Entity class which represents the entity 'StatusRo'.<br/><br/></summary>
+	/// <summary>Entity class which represents the entity 'Pdv'.<br/><br/></summary>
 	[Serializable]
 	[JsonObject(MemberSerialization.OptIn)]	
-	public partial class StatusRoEntity : CommonEntityBase
+	public partial class PdvEntity : CommonEntityBase
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private EntityCollection<RacunGlavaEntity> _racunGlavaCollection;
+		private EntityCollection<ArtiklEntity> _artiklCollection;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -47,8 +47,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name RacunGlavaCollection</summary>
-			public static readonly string RacunGlavaCollection = "RacunGlavaCollection";
+			/// <summary>Member name ArtiklCollection</summary>
+			public static readonly string ArtiklCollection = "ArtiklCollection";
 		}
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		public static int GetNumberOfEntities(DataAccessAdapterBase adapter, 
 			IRelationPredicateBucket filterBucket)
 		{
-			EntityCollection entityCollection = new EntityCollection(new StatusRoEntityFactory());
+			EntityCollection entityCollection = new EntityCollection(new PdvEntityFactory());
 			return adapter.GetDbCount(entityCollection, filterBucket);
 		}
 		
@@ -67,7 +67,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
         /// </summary>
         /// <param name="pageNumber">Must be greater than zero.</param>
         /// <param name="sortDirection">Validne vrijednosti su 'asc' i 'desc'.</param>
-        public static EntityCollection<StatusRoEntity> FetchStatusRoCollectionForPaging(DataAccessAdapterBase adapter,
+        public static EntityCollection<PdvEntity> FetchPdvCollectionForPaging(DataAccessAdapterBase adapter,
 			RelationPredicateBucket bucket,
 			PrefetchPath2 prefetchPath,
             int pageNumber,
@@ -75,40 +75,40 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             string sortField,
             string sortDirection)
         {
-            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(StatusRoFields));
+            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(PdvFields));
 
-            EntityCollection<StatusRoEntity> toReturn = new EntityCollection<StatusRoEntity>(new StatusRoEntityFactory());
+            EntityCollection<PdvEntity> toReturn = new EntityCollection<PdvEntity>(new PdvEntityFactory());
             adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
 
             return toReturn;
         }
 		
-		public static EntityCollection<StatusRoEntity> FetchStatusRoCollection(DataAccessAdapterBase adapter,
+		public static EntityCollection<PdvEntity> FetchPdvCollection(DataAccessAdapterBase adapter,
 			IRelationPredicateBucket filterBucket,
 			PrefetchPath2 prefetchPath)
 		{
-			EntityCollection<StatusRoEntity> toReturn = new EntityCollection<StatusRoEntity>(new StatusRoEntityFactory());
+			EntityCollection<PdvEntity> toReturn = new EntityCollection<PdvEntity>(new PdvEntityFactory());
 			adapter.FetchEntityCollection(toReturn, filterBucket, prefetchPath);
 			return toReturn;
 		}
 		
-		public static StatusRoEntity FetchStatusRo(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long StatusRoId)
+		public static PdvEntity FetchPdv(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long PdvId)
 		{
-			StatusRoEntity _StatusRoEntity = new StatusRoEntity(StatusRoId);
-			adapter.FetchEntity(_StatusRoEntity, prefetchPath);
-			return _StatusRoEntity;
+			PdvEntity _PdvEntity = new PdvEntity(PdvId);
+			adapter.FetchEntity(_PdvEntity, prefetchPath);
+			return _PdvEntity;
 		}
 
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
-		static StatusRoEntity()
+		static PdvEntity()
 		{
 			SetupCustomPropertyHashtables();
 		}
 		
 		/// <summary> CTor</summary>
-		public StatusRoEntity():base("StatusRoEntity")
+		public PdvEntity():base("PdvEntity")
 		{
 			InitClassEmpty(null, null);
 		}
@@ -116,46 +116,46 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary> CTor</summary>
 		/// <remarks>For framework usage.</remarks>
 		/// <param name="fields">Fields object to set as the fields for this entity.</param>
-		public StatusRoEntity(IEntityFields2 fields):base("StatusRoEntity")
+		public PdvEntity(IEntityFields2 fields):base("PdvEntity")
 		{
 			InitClassEmpty(null, fields);
 		}
 
 		/// <summary> CTor</summary>
-		/// <param name="validator">The custom validator object for this StatusRoEntity</param>
-		public StatusRoEntity(IValidator validator):base("StatusRoEntity")
+		/// <param name="validator">The custom validator object for this PdvEntity</param>
+		public PdvEntity(IValidator validator):base("PdvEntity")
 		{
 			InitClassEmpty(validator, null);
 		}
 				
 		/// <summary> CTor</summary>
-		/// <param name="statusId">PK value for StatusRo which data should be fetched into this StatusRo object</param>
+		/// <param name="pdvId">PK value for Pdv which data should be fetched into this Pdv object</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public StatusRoEntity(System.Int64 statusId):base("StatusRoEntity")
+		public PdvEntity(System.Int64 pdvId):base("PdvEntity")
 		{
 			InitClassEmpty(null, null);
-			this.StatusId = statusId;
+			this.PdvId = pdvId;
 		}
 
 		/// <summary> CTor</summary>
-		/// <param name="statusId">PK value for StatusRo which data should be fetched into this StatusRo object</param>
-		/// <param name="validator">The custom validator object for this StatusRoEntity</param>
+		/// <param name="pdvId">PK value for Pdv which data should be fetched into this Pdv object</param>
+		/// <param name="validator">The custom validator object for this PdvEntity</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public StatusRoEntity(System.Int64 statusId, IValidator validator):base("StatusRoEntity")
+		public PdvEntity(System.Int64 pdvId, IValidator validator):base("PdvEntity")
 		{
 			InitClassEmpty(validator, null);
-			this.StatusId = statusId;
+			this.PdvId = pdvId;
 		}
 
 		/// <summary> Protected CTor for deserialization</summary>
 		/// <param name="info"></param>
 		/// <param name="context"></param>
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		protected StatusRoEntity(SerializationInfo info, StreamingContext context) : base(info, context)
+		protected PdvEntity(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 			if(SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				_racunGlavaCollection = (EntityCollection<RacunGlavaEntity>)info.GetValue("_racunGlavaCollection", typeof(EntityCollection<RacunGlavaEntity>));
+				_artiklCollection = (EntityCollection<ArtiklEntity>)info.GetValue("_artiklCollection", typeof(EntityCollection<ArtiklEntity>));
 				this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance());
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
@@ -171,8 +171,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "RacunGlavaCollection":
-					this.RacunGlavaCollection.Add((RacunGlavaEntity)entity);
+				case "ArtiklCollection":
+					this.ArtiklCollection.Add((ArtiklEntity)entity);
 					break;
 				default:
 					this.OnSetRelatedEntityProperty(propertyName, entity);
@@ -196,8 +196,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "RacunGlavaCollection":
-					toReturn.Add(Relations.RacunGlavaEntityUsingStatusId);
+				case "ArtiklCollection":
+					toReturn.Add(Relations.ArtiklEntityUsingPdvId);
 					break;
 				default:
 					break;				
@@ -227,8 +227,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "RacunGlavaCollection":
-					this.RacunGlavaCollection.Add((RacunGlavaEntity)relatedEntity);
+				case "ArtiklCollection":
+					this.ArtiklCollection.Add((ArtiklEntity)relatedEntity);
 					break;
 				default:
 					break;
@@ -243,8 +243,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "RacunGlavaCollection":
-					this.PerformRelatedEntityRemoval(this.RacunGlavaCollection, relatedEntity, signalRelatedEntityManyToOne);
+				case "ArtiklCollection":
+					this.PerformRelatedEntityRemoval(this.ArtiklCollection, relatedEntity, signalRelatedEntityManyToOne);
 					break;
 				default:
 					break;
@@ -273,7 +273,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntityCollection2> GetMemberEntityCollections()
 		{
 			List<IEntityCollection2> toReturn = new List<IEntityCollection2>();
-			toReturn.Add(this.RacunGlavaCollection);
+			toReturn.Add(this.ArtiklCollection);
 			return toReturn;
 		}
 
@@ -285,7 +285,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			if (SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				info.AddValue("_racunGlavaCollection", ((_racunGlavaCollection!=null) && (_racunGlavaCollection.Count>0) && !this.MarkedForDeletion)?_racunGlavaCollection:null);
+				info.AddValue("_artiklCollection", ((_artiklCollection!=null) && (_artiklCollection.Count>0) && !this.MarkedForDeletion)?_artiklCollection:null);
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -298,15 +298,15 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <returns>A list of all the EntityRelation objects the type of this instance has. Hierarchy relations are excluded.</returns>
 		protected override List<IEntityRelation> GetAllRelations()
 		{
-			return new StatusRoRelations().GetAllRelations();
+			return new PdvRelations().GetAllRelations();
 		}
 
-		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'RacunGlava' to this entity.</summary>
+		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'Artikl' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoRacunGlavaCollection()
+		public virtual IRelationPredicateBucket GetRelationInfoArtiklCollection()
 		{
 			IRelationPredicateBucket bucket = new RelationPredicateBucket();
-			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(RacunGlavaFields.StatusId, null, ComparisonOperator.Equal, this.StatusId));
+			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(ArtiklFields.PdvId, null, ComparisonOperator.Equal, this.PdvId));
 			return bucket;
 		}
 		
@@ -314,7 +314,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>Creates a new instance of the factory related to this entity</summary>
 		protected override IEntityFactory2 CreateEntityFactory()
 		{
-			return EntityFactoryCache2.GetEntityFactory(typeof(StatusRoEntityFactory));
+			return EntityFactoryCache2.GetEntityFactory(typeof(PdvEntityFactory));
 		}
 #if !CF
 		/// <summary>Adds the member collections to the collections queue (base first)</summary>
@@ -322,7 +322,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void AddToMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue) 
 		{
 			base.AddToMemberEntityCollectionsQueue(collectionsQueue);
-			collectionsQueue.Enqueue(this._racunGlavaCollection);
+			collectionsQueue.Enqueue(this._artiklCollection);
 		}
 		
 		/// <summary>Gets the member collections queue from the queue (base first)</summary>
@@ -330,7 +330,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void GetFromMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue)
 		{
 			base.GetFromMemberEntityCollectionsQueue(collectionsQueue);
-			this._racunGlavaCollection = (EntityCollection<RacunGlavaEntity>) collectionsQueue.Dequeue();
+			this._artiklCollection = (EntityCollection<ArtiklEntity>) collectionsQueue.Dequeue();
 
 		}
 		
@@ -339,7 +339,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override bool HasPopulatedMemberEntityCollections()
 		{
 			bool toReturn = false;
-			toReturn |=(this._racunGlavaCollection != null);
+			toReturn |=(this._artiklCollection != null);
 			return toReturn ? true : base.HasPopulatedMemberEntityCollections();
 		}
 		
@@ -349,7 +349,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void CreateMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue, Queue<bool> requiredQueue) 
 		{
 			base.CreateMemberEntityCollectionsQueue(collectionsQueue, requiredQueue);
-			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<RacunGlavaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))) : null);
+			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<ArtiklEntity>(EntityFactoryCache2.GetEntityFactory(typeof(ArtiklEntityFactory))) : null);
 		}
 #endif
 		/// <summary>Gets all related data objects, stored by name. The name is the field name mapped onto the relation for that particular data element.</summary>
@@ -357,7 +357,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("RacunGlavaCollection", _racunGlavaCollection);
+			toReturn.Add("ArtiklCollection", _artiklCollection);
 			return toReturn;
 		}
 
@@ -380,16 +380,18 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Code", fieldHashtable);
+			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Name", fieldHashtable);
+			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("StatusId", fieldHashtable);
+			_fieldsCustomProperties.Add("PdvId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("Stopa", fieldHashtable);
 		}
 		#endregion
 
 		/// <summary> Initializes the class with empty data, as if it is a new Entity.</summary>
-		/// <param name="validator">The validator object for this StatusRoEntity</param>
+		/// <param name="validator">The validator object for this PdvEntity</param>
 		/// <param name="fields">Fields of this entity</param>
 		private void InitClassEmpty(IValidator validator, IEntityFields2 fields)
 		{
@@ -407,9 +409,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
 		#region Class Property Declarations
 		/// <summary> The relations object holding all relations of this entity with other entity classes.</summary>
-		public  static StatusRoRelations Relations
+		public  static PdvRelations Relations
 		{
-			get	{ return new StatusRoRelations(); }
+			get	{ return new PdvRelations(); }
 		}
 		
 		/// <summary> The custom properties for this entity type.</summary>
@@ -419,11 +421,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get { return _customProperties;}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RacunGlava' for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'Artikl' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathRacunGlavaCollection
+		public static IPrefetchPathElement2 PrefetchPathArtiklCollection
 		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<RacunGlavaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))), (IEntityRelation)GetRelationsForField("RacunGlavaCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity, 0, null, null, null, null, "RacunGlavaCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
+			get	{ return new PrefetchPathElement2( new EntityCollection<ArtiklEntity>(EntityFactoryCache2.GetEntityFactory(typeof(ArtiklEntityFactory))), (IEntityRelation)GetRelationsForField("ArtiklCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, 0, null, null, null, null, "ArtiklCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
 
@@ -450,44 +452,55 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get { return FieldsCustomProperties;}
 		}
 
-		/// <summary> The Code property of the Entity StatusRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "StatusRo"."Code"<br/>
+		/// <summary> The ConcurrencyGuid property of the Entity Pdv<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Pdv"."ConcurrencyGuid"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		[JsonProperty]		
-		public virtual System.String Code
+		public virtual System.String ConcurrencyGuid
 		{
-			get { return (System.String)GetValue((int)StatusRoFieldIndex.Code, true); }
-			set	{ SetValue((int)StatusRoFieldIndex.Code, value); }
+			get { return (System.String)GetValue((int)PdvFieldIndex.ConcurrencyGuid, true); }
+			set	{ SetValue((int)PdvFieldIndex.ConcurrencyGuid, value); }
 		}
 
-		/// <summary> The Name property of the Entity StatusRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "StatusRo"."Name"<br/>
-		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 50<br/>
+		/// <summary> The Naziv property of the Entity Pdv<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Pdv"."Naziv"<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 128<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		[JsonProperty]		
-		public virtual System.String Name
+		public virtual System.String Naziv
 		{
-			get { return (System.String)GetValue((int)StatusRoFieldIndex.Name, true); }
-			set	{ SetValue((int)StatusRoFieldIndex.Name, value); }
+			get { return (System.String)GetValue((int)PdvFieldIndex.Naziv, true); }
+			set	{ SetValue((int)PdvFieldIndex.Naziv, value); }
 		}
 
-		/// <summary> The StatusId property of the Entity StatusRo<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "StatusRo"."StatusId"<br/>
+		/// <summary> The PdvId property of the Entity Pdv<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Pdv"."PdvId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, true</remarks>
 		[JsonProperty]		
-		public virtual System.Int64 StatusId
+		public virtual System.Int64 PdvId
 		{
-			get { return (System.Int64)GetValue((int)StatusRoFieldIndex.StatusId, true); }
-			set	{ SetValue((int)StatusRoFieldIndex.StatusId, value); }
+			get { return (System.Int64)GetValue((int)PdvFieldIndex.PdvId, true); }
+			set	{ SetValue((int)PdvFieldIndex.PdvId, value); }
 		}
 
-		/// <summary> Gets the EntityCollection with the related entities of type 'RacunGlavaEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
-		[TypeContainedAttribute(typeof(RacunGlavaEntity))]
-		public virtual EntityCollection<RacunGlavaEntity> RacunGlavaCollection
+		/// <summary> The Stopa property of the Entity Pdv<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Pdv"."Stopa"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Decimal, 4, 2, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.Decimal Stopa
 		{
-			get { return GetOrCreateEntityCollection<RacunGlavaEntity, RacunGlavaEntityFactory>("Status", true, false, ref _racunGlavaCollection);	}
+			get { return (System.Decimal)GetValue((int)PdvFieldIndex.Stopa, true); }
+			set	{ SetValue((int)PdvFieldIndex.Stopa, value); }
+		}
+
+		/// <summary> Gets the EntityCollection with the related entities of type 'ArtiklEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
+		[TypeContainedAttribute(typeof(ArtiklEntity))]
+		public virtual EntityCollection<ArtiklEntity> ArtiklCollection
+		{
+			get { return GetOrCreateEntityCollection<ArtiklEntity, ArtiklEntityFactory>("Pdv", true, false, ref _artiklCollection);	}
 		}
 	
 		/// <summary> Gets the type of the hierarchy this entity is in. </summary>
@@ -506,7 +519,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		[Browsable(false), XmlIgnore]
 		protected override int LLBLGenProEntityTypeValue 
 		{ 
-			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity; }
+			get { return (int)NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity; }
 		}
 
 		#endregion

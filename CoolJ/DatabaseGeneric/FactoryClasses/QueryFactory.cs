@@ -2,7 +2,7 @@
 // This is generated code. 
 //////////////////////////////////////////////////////////////
 // Code is generated using LLBLGen Pro version: 3.5
-// Code is generated on: 22. siječanj 2013. 13:55:11
+// Code is generated on: 24. siječanj 2013. 17:07:37
 // Code is generated using templates: SD.TemplateBindings.SharedTemplates.NET35
 // Templates vendor: Solutions Design.
 ////////////////////////////////////////////////////////////// 
@@ -137,10 +137,22 @@ namespace NinjaSoftware.Enio.CoolJ.FactoryClasses
 			get { return Create<EntityRoEntity>(); }
 		}
 
+		/// <summary>Creates and returns a new EntityQuery for the Error entity</summary>
+		public EntityQuery<ErrorEntity> Error
+		{
+			get { return Create<ErrorEntity>(); }
+		}
+
 		/// <summary>Creates and returns a new EntityQuery for the Partner entity</summary>
 		public EntityQuery<PartnerEntity> Partner
 		{
 			get { return Create<PartnerEntity>(); }
+		}
+
+		/// <summary>Creates and returns a new EntityQuery for the Pdv entity</summary>
+		public EntityQuery<PdvEntity> Pdv
+		{
+			get { return Create<PdvEntity>(); }
 		}
 
 		/// <summary>Creates and returns a new EntityQuery for the RacunGlava entity</summary>

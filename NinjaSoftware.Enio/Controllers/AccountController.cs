@@ -25,17 +25,22 @@ namespace NinjaSoftware.Enio.Controllers
         // POST: /Account/Login
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            //if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
-            //{
-            //    return RedirectToLocal(returnUrl);
-            //}
+            if (ModelState.IsValid)
+            {
+                NsMembershipProvider membershipProvider = new NsMembershipProvider();
+                if (membershipProvider.ValidateUser(model.UserName, model.Password))
+                {
+                    FormsAuthentication.RedirectFromLoginPage(model.UserName, false);
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                }
+            }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
 
@@ -43,7 +48,6 @@ namespace NinjaSoftware.Enio.Controllers
         // POST: /Account/LogOff
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

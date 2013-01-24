@@ -382,9 +382,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
+			_fieldsCustomProperties.Add("IsActive", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("StatusId", fieldHashtable);
+			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Stopa", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
@@ -465,6 +465,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			set	{ SetValue((int)TarifaFieldIndex.ConcurrencyGuid, value); }
 		}
 
+		/// <summary> The IsActive property of the Entity Tarifa<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Tarifa"."IsActive"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.Boolean IsActive
+		{
+			get { return (System.Boolean)GetValue((int)TarifaFieldIndex.IsActive, true); }
+			set	{ SetValue((int)TarifaFieldIndex.IsActive, value); }
+		}
+
 		/// <summary> The Naziv property of the Entity Tarifa<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Tarifa"."Naziv"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
@@ -474,17 +485,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			get { return (System.String)GetValue((int)TarifaFieldIndex.Naziv, true); }
 			set	{ SetValue((int)TarifaFieldIndex.Naziv, value); }
-		}
-
-		/// <summary> The StatusId property of the Entity Tarifa<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Tarifa"."StatusId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		[JsonProperty]		
-		public virtual System.Int64 StatusId
-		{
-			get { return (System.Int64)GetValue((int)TarifaFieldIndex.StatusId, true); }
-			set	{ SetValue((int)TarifaFieldIndex.StatusId, value); }
 		}
 
 		/// <summary> The Stopa property of the Entity Tarifa<br/><br/></summary>

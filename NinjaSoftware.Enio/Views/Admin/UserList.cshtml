@@ -1,0 +1,27 @@
+﻿@using NinjaSoftware.Enio.CoolJ.Enums
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+@model IEnumerable<UserEntity>
+@{
+    ViewBag.Title = "User list";
+}
+
+<h2>Korisnici</h2>
+
+<br />
+@Html.ActionLink("Dodaj novi", "UserEdit")
+<br />
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th></th>
+    </tr>
+    @foreach (UserEntity user in Model)
+    { 
+    <tr>
+        <td>@user.Username</td>
+        <td>@((RoleEnum)user.RoleId)</td>
+        <td>@Html.ActionLink("Uredi", "UserEdit", new { userId = user.UserId })</td>
+    </tr>
+    }
+</table>

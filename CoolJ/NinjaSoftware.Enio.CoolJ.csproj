@@ -58,6 +58,7 @@
   <ItemGroup>
     <AppDesigner Include="Properties\" />
     <Compile Include="DatabaseGeneric\BusinessLogic\Enums.cs" />
+    <Compile Include="DatabaseGeneric\BusinessLogic\ErrorEntity.cs" />
     <Compile Include="DatabaseGeneric\BusinessLogic\UserEntity.cs" />
     <Compile Include="DatabaseGeneric\AssemblyInfo.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
@@ -89,7 +90,13 @@
     <Compile Include="DatabaseGeneric\EntityClasses\EntityRoEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DatabaseGeneric\EntityClasses\ErrorEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DatabaseGeneric\EntityClasses\PartnerEntity.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DatabaseGeneric\EntityClasses\PdvEntity.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DatabaseGeneric\EntityClasses\RacunGlavaEntity.cs">
@@ -167,7 +174,13 @@
     <Compile Include="DatabaseGeneric\RelationClasses\EntityRoRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
+    <Compile Include="DatabaseGeneric\RelationClasses\ErrorRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
     <Compile Include="DatabaseGeneric\RelationClasses\PartnerRelations.cs">
+      <GeneratedBy>LLBLGen Pro</GeneratedBy>
+    </Compile>
+    <Compile Include="DatabaseGeneric\RelationClasses\PdvRelations.cs">
       <GeneratedBy>LLBLGen Pro</GeneratedBy>
     </Compile>
     <Compile Include="DatabaseGeneric\RelationClasses\RacunGlavaRelations.cs">
@@ -196,6 +209,10 @@
     <ProjectReference Include="..\..\NinjaSoftware.Helpers\NinjaSoftware.Api.CoolJ\NinjaSoftware.Api.CoolJ.csproj">
       <Project>{0BCADAF3-9BE9-4C51-BDE6-47137B343A0E}</Project>
       <Name>NinjaSoftware.Api.CoolJ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\NinjaSoftware.Helpers\NinjaSoftware.Api.Core\NinjaSoftware.Api.Core.csproj">
+      <Project>{DE4AA8E8-AFA5-42B7-9BD8-B75BA7F9BDA3}</Project>
+      <Name>NinjaSoftware.Api.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

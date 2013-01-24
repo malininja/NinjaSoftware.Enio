@@ -31,7 +31,6 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
 			toReturn.Add(this.CjenikEntityUsingPartnerId);
 			toReturn.Add(this.RacunGlavaEntityUsingPartnerId);
-			toReturn.Add(this.StatusRoEntityUsingStatusId);
 			return toReturn;
 		}
 
@@ -68,20 +67,6 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 		}
 
 
-		/// <summary>Returns a new IEntityRelation object, between PartnerEntity and StatusRoEntity over the m:1 relation they have, using the relation between the fields:
-		/// Partner.StatusId - StatusRo.StatusId
-		/// </summary>
-		public virtual IEntityRelation StatusRoEntityUsingStatusId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne, "Status", false);
-				relation.AddEntityFieldPair(StatusRoFields.StatusId, PartnerFields.StatusId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("StatusRoEntity", false);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PartnerEntity", true);
-				return relation;
-			}
-		}
 		/// <summary>stub, not used in this entity, only for TargetPerEntity entities.</summary>
 		public virtual IEntityRelation GetSubTypeRelation(string subTypeEntityName) { return null; }
 		/// <summary>stub, not used in this entity, only for TargetPerEntity entities.</summary>
@@ -98,7 +83,6 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	{
 		internal static readonly IEntityRelation CjenikEntityUsingPartnerIdStatic = new PartnerRelations().CjenikEntityUsingPartnerId;
 		internal static readonly IEntityRelation RacunGlavaEntityUsingPartnerIdStatic = new PartnerRelations().RacunGlavaEntityUsingPartnerId;
-		internal static readonly IEntityRelation StatusRoEntityUsingStatusIdStatic = new PartnerRelations().StatusRoEntityUsingStatusId;
 
 		/// <summary>CTor</summary>
 		static StaticPartnerRelations()

@@ -36,7 +36,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		#region Class Member Declarations
 		private EntityCollection<CjenikEntity> _cjenikCollection;
 		private EntityCollection<RacunStavkaEntity> _racunStavkaCollection;
-		private StatusRoEntity _status;
+		private PdvEntity _pdv;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -49,8 +49,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Status</summary>
-			public static readonly string Status = "Status";
+			/// <summary>Member name Pdv</summary>
+			public static readonly string Pdv = "Pdv";
 			/// <summary>Member name CjenikCollection</summary>
 			public static readonly string CjenikCollection = "CjenikCollection";
 			/// <summary>Member name RacunStavkaCollection</summary>
@@ -163,10 +163,10 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			{
 				_cjenikCollection = (EntityCollection<CjenikEntity>)info.GetValue("_cjenikCollection", typeof(EntityCollection<CjenikEntity>));
 				_racunStavkaCollection = (EntityCollection<RacunStavkaEntity>)info.GetValue("_racunStavkaCollection", typeof(EntityCollection<RacunStavkaEntity>));
-				_status = (StatusRoEntity)info.GetValue("_status", typeof(StatusRoEntity));
-				if(_status!=null)
+				_pdv = (PdvEntity)info.GetValue("_pdv", typeof(PdvEntity));
+				if(_pdv!=null)
 				{
-					_status.AfterSave+=new EventHandler(OnEntityAfterSave);
+					_pdv.AfterSave+=new EventHandler(OnEntityAfterSave);
 				}
 				this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance());
 			}
@@ -181,8 +181,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch((ArtiklFieldIndex)fieldIndex)
 			{
-				case ArtiklFieldIndex.StatusId:
-					DesetupSyncStatus(true, false);
+				case ArtiklFieldIndex.PdvId:
+					DesetupSyncPdv(true, false);
 					break;
 				default:
 					base.PerformDesyncSetupFKFieldChange(fieldIndex);
@@ -198,8 +198,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Status":
-					this.Status = (StatusRoEntity)entity;
+				case "Pdv":
+					this.Pdv = (PdvEntity)entity;
 					break;
 				case "CjenikCollection":
 					this.CjenikCollection.Add((CjenikEntity)entity);
@@ -229,8 +229,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Status":
-					toReturn.Add(Relations.StatusRoEntityUsingStatusId);
+				case "Pdv":
+					toReturn.Add(Relations.PdvEntityUsingPdvId);
 					break;
 				case "CjenikCollection":
 					toReturn.Add(Relations.CjenikEntityUsingArtiklId);
@@ -266,8 +266,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Status":
-					SetupSyncStatus(relatedEntity);
+				case "Pdv":
+					SetupSyncPdv(relatedEntity);
 					break;
 				case "CjenikCollection":
 					this.CjenikCollection.Add((CjenikEntity)relatedEntity);
@@ -288,8 +288,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Status":
-					DesetupSyncStatus(false, true);
+				case "Pdv":
+					DesetupSyncPdv(false, true);
 					break;
 				case "CjenikCollection":
 					this.PerformRelatedEntityRemoval(this.CjenikCollection, relatedEntity, signalRelatedEntityManyToOne);
@@ -316,9 +316,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntity2> GetDependentRelatedEntities()
 		{
 			List<IEntity2> toReturn = new List<IEntity2>();
-			if(_status!=null)
+			if(_pdv!=null)
 			{
-				toReturn.Add(_status);
+				toReturn.Add(_pdv);
 			}
 			return toReturn;
 		}
@@ -343,7 +343,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			{
 				info.AddValue("_cjenikCollection", ((_cjenikCollection!=null) && (_cjenikCollection.Count>0) && !this.MarkedForDeletion)?_cjenikCollection:null);
 				info.AddValue("_racunStavkaCollection", ((_racunStavkaCollection!=null) && (_racunStavkaCollection.Count>0) && !this.MarkedForDeletion)?_racunStavkaCollection:null);
-				info.AddValue("_status", (!this.MarkedForDeletion?_status:null));
+				info.AddValue("_pdv", (!this.MarkedForDeletion?_pdv:null));
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -377,12 +377,12 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			return bucket;
 		}
 
-		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'StatusRo' to this entity.</summary>
+		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'Pdv' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoStatus()
+		public virtual IRelationPredicateBucket GetRelationInfoPdv()
 		{
 			IRelationPredicateBucket bucket = new RelationPredicateBucket();
-			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(StatusRoFields.StatusId, null, ComparisonOperator.Equal, this.StatusId));
+			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(PdvFields.PdvId, null, ComparisonOperator.Equal, this.PdvId));
 			return bucket;
 		}
 		
@@ -437,7 +437,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Status", _status);
+			toReturn.Add("Pdv", _pdv);
 			toReturn.Add("CjenikCollection", _cjenikCollection);
 			toReturn.Add("RacunStavkaCollection", _racunStavkaCollection);
 			return toReturn;
@@ -466,41 +466,43 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("IsActive", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Jm", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("Pdv", fieldHashtable);
+			_fieldsCustomProperties.Add("PdvId", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("StatusId", fieldHashtable);
 		}
 		#endregion
 
-		/// <summary> Removes the sync logic for member _status</summary>
+		/// <summary> Removes the sync logic for member _pdv</summary>
 		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
 		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncStatus(bool signalRelatedEntity, bool resetFKFields)
+		private void DesetupSyncPdv(bool signalRelatedEntity, bool resetFKFields)
 		{
-			this.PerformDesetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, signalRelatedEntity, "ArtiklCollection", resetFKFields, new int[] { (int)ArtiklFieldIndex.StatusId } );
-			_status = null;
+			this.PerformDesetupSyncRelatedEntity( _pdv, new PropertyChangedEventHandler( OnPdvPropertyChanged ), "Pdv", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.PdvEntityUsingPdvIdStatic, true, signalRelatedEntity, "ArtiklCollection", resetFKFields, new int[] { (int)ArtiklFieldIndex.PdvId } );
+			_pdv = null;
 		}
 
-		/// <summary> setups the sync logic for member _status</summary>
+		/// <summary> setups the sync logic for member _pdv</summary>
 		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncStatus(IEntityCore relatedEntity)
+		private void SetupSyncPdv(IEntityCore relatedEntity)
 		{
-			if(_status!=relatedEntity)
+			if(_pdv!=relatedEntity)
 			{
-				DesetupSyncStatus(true, true);
-				_status = (StatusRoEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.StatusRoEntityUsingStatusIdStatic, true, new string[] {  } );
+				DesetupSyncPdv(true, true);
+				_pdv = (PdvEntity)relatedEntity;
+				this.PerformSetupSyncRelatedEntity( _pdv, new PropertyChangedEventHandler( OnPdvPropertyChanged ), "Pdv", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticArtiklRelations.PdvEntityUsingPdvIdStatic, true, new string[] {  } );
 			}
 		}
 		
 		/// <summary>Handles property change events of properties in a related entity.</summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void OnStatusPropertyChanged( object sender, PropertyChangedEventArgs e )
+		private void OnPdvPropertyChanged( object sender, PropertyChangedEventArgs e )
 		{
 			switch( e.PropertyName )
 			{
@@ -554,11 +556,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get	{ return new PrefetchPathElement2( new EntityCollection<RacunStavkaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunStavkaEntityFactory))), (IEntityRelation)GetRelationsForField("RacunStavkaCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunStavkaEntity, 0, null, null, null, null, "RacunStavkaCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'StatusRo' for this entity.</summary>
+		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'Pdv' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathStatus
+		public static IPrefetchPathElement2 PrefetchPathPdv
 		{
-			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(StatusRoEntityFactory))),	(IEntityRelation)GetRelationsForField("Status")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity, 0, null, null, null, null, "Status", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
+			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(PdvEntityFactory))),	(IEntityRelation)GetRelationsForField("Pdv")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.ArtiklEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.PdvEntity, 0, null, null, null, null, "Pdv", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
 		}
 
 
@@ -607,6 +609,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			set	{ SetValue((int)ArtiklFieldIndex.ConcurrencyGuid, value); }
 		}
 
+		/// <summary> The IsActive property of the Entity Artikl<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Artikl"."IsActive"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.Boolean IsActive
+		{
+			get { return (System.Boolean)GetValue((int)ArtiklFieldIndex.IsActive, true); }
+			set	{ SetValue((int)ArtiklFieldIndex.IsActive, value); }
+		}
+
 		/// <summary> The Jm property of the Entity Artikl<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Artikl"."Jm"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 10<br/>
@@ -629,15 +642,15 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			set	{ SetValue((int)ArtiklFieldIndex.Naziv, value); }
 		}
 
-		/// <summary> The Pdv property of the Entity Artikl<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Artikl"."Pdv"<br/>
-		/// Table field type characteristics (type, precision, scale, length): Decimal, 4, 2, 0<br/>
+		/// <summary> The PdvId property of the Entity Artikl<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Artikl"."PdvId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
 		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		[JsonProperty]		
-		public virtual System.Decimal Pdv
+		public virtual System.Int64 PdvId
 		{
-			get { return (System.Decimal)GetValue((int)ArtiklFieldIndex.Pdv, true); }
-			set	{ SetValue((int)ArtiklFieldIndex.Pdv, value); }
+			get { return (System.Int64)GetValue((int)ArtiklFieldIndex.PdvId, true); }
+			set	{ SetValue((int)ArtiklFieldIndex.PdvId, value); }
 		}
 
 		/// <summary> The StatusId property of the Entity Artikl<br/><br/></summary>
@@ -665,21 +678,21 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get { return GetOrCreateEntityCollection<RacunStavkaEntity, RacunStavkaEntityFactory>("Artikl", true, false, ref _racunStavkaCollection);	}
 		}
 
-		/// <summary> Gets / sets related entity of type 'StatusRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
+		/// <summary> Gets / sets related entity of type 'PdvEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
 		[JsonProperty]
-		public virtual StatusRoEntity Status
+		public virtual PdvEntity Pdv
 		{
-			get	{ return _status; }
+			get	{ return _pdv; }
 			set
 			{
 				if(this.IsDeserializing)
 				{
-					SetupSyncStatus(value);
+					SetupSyncPdv(value);
 				}
 				else
 				{
-					SetSingleRelatedEntityNavigator(value, "ArtiklCollection", "Status", _status, true); 
+					SetSingleRelatedEntityNavigator(value, "ArtiklCollection", "Pdv", _pdv, true); 
 				}
 			}
 		}

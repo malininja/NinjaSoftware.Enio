@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System.Configuration;
-using NinjaSoftware.CoolJ;
+using NinjaSoftware.Api.CoolJ;
 using NinjaSoftware.Enio.CoolJ.EntityClasses;
 
 namespace NinjaSoftware.Enio.Models

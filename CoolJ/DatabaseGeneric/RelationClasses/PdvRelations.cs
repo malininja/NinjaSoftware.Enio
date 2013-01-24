@@ -16,36 +16,36 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 
 namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 {
-	/// <summary>Implements the relations factory for the entity: StatusRo. </summary>
-	public partial class StatusRoRelations
+	/// <summary>Implements the relations factory for the entity: Pdv. </summary>
+	public partial class PdvRelations
 	{
 		/// <summary>CTor</summary>
-		public StatusRoRelations()
+		public PdvRelations()
 		{
 		}
 
-		/// <summary>Gets all relations of the StatusRoEntity as a list of IEntityRelation objects.</summary>
+		/// <summary>Gets all relations of the PdvEntity as a list of IEntityRelation objects.</summary>
 		/// <returns>a list of IEntityRelation objects</returns>
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.RacunGlavaEntityUsingStatusId);
+			toReturn.Add(this.ArtiklEntityUsingPdvId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
 
-		/// <summary>Returns a new IEntityRelation object, between StatusRoEntity and RacunGlavaEntity over the 1:n relation they have, using the relation between the fields:
-		/// StatusRo.StatusId - RacunGlava.StatusId
+		/// <summary>Returns a new IEntityRelation object, between PdvEntity and ArtiklEntity over the 1:n relation they have, using the relation between the fields:
+		/// Pdv.PdvId - Artikl.PdvId
 		/// </summary>
-		public virtual IEntityRelation RacunGlavaEntityUsingStatusId
+		public virtual IEntityRelation ArtiklEntityUsingPdvId
 		{
 			get
 			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "RacunGlavaCollection" , true);
-				relation.AddEntityFieldPair(StatusRoFields.StatusId, RacunGlavaFields.StatusId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("StatusRoEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("RacunGlavaEntity", false);
+				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "ArtiklCollection" , true);
+				relation.AddEntityFieldPair(PdvFields.PdvId, ArtiklFields.PdvId);
+				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PdvEntity", true);
+				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ArtiklEntity", false);
 				return relation;
 			}
 		}
@@ -63,12 +63,12 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	}
 	
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
-	internal static class StaticStatusRoRelations
+	internal static class StaticPdvRelations
 	{
-		internal static readonly IEntityRelation RacunGlavaEntityUsingStatusIdStatic = new StatusRoRelations().RacunGlavaEntityUsingStatusId;
+		internal static readonly IEntityRelation ArtiklEntityUsingPdvIdStatic = new PdvRelations().ArtiklEntityUsingPdvId;
 
 		/// <summary>CTor</summary>
-		static StaticStatusRoRelations()
+		static StaticPdvRelations()
 		{
 		}
 	}

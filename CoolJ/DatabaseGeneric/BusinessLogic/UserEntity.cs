@@ -43,5 +43,21 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
                 return true;
             }
         }
+
+        public override void Save(DataAccessAdapterBase adapter, bool refetchAfterSave, bool recurse)
+        {
+            if (!this.IsNew &&
+                this.Fields[UserFields.Username.Name].IsChanged)
+            {
+                throw new Exception("Username change is not allowed.");
+            }
+
+            if (this.Fields[UserFields.Password.Name].IsChanged)
+            {
+                this.Password = NinjaSoftware.Api.Core.Security.GetPasswordHash("");
+            }
+
+            base.Save(adapter, refetchAfterSave, recurse);
+        }
     }
 }

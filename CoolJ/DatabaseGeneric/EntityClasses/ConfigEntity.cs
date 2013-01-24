@@ -89,6 +89,13 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			return toReturn;
 		}
 		
+		public static ConfigEntity FetchConfig(DataAccessAdapterBase adapter, PrefetchPath2 prefetchPath, long ConfigId)
+		{
+			ConfigEntity _ConfigEntity = new ConfigEntity(ConfigId);
+			adapter.FetchEntity(_ConfigEntity, prefetchPath);
+			return _ConfigEntity;
+		}
+
 		#endregion
 		
 		/// <summary> Static CTor for setting up custom property hashtables. Is executed before the first instance of this entity class or derived classes is constructed. </summary>
@@ -119,22 +126,22 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		}
 				
 		/// <summary> CTor</summary>
-		/// <param name="oib">PK value for Config which data should be fetched into this Config object</param>
+		/// <param name="configId">PK value for Config which data should be fetched into this Config object</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public ConfigEntity(System.String oib):base("ConfigEntity")
+		public ConfigEntity(System.Int64 configId):base("ConfigEntity")
 		{
 			InitClassEmpty(null, null);
-			this.Oib = oib;
+			this.ConfigId = configId;
 		}
 
 		/// <summary> CTor</summary>
-		/// <param name="oib">PK value for Config which data should be fetched into this Config object</param>
+		/// <param name="configId">PK value for Config which data should be fetched into this Config object</param>
 		/// <param name="validator">The custom validator object for this ConfigEntity</param>
 		/// <remarks>The entity is not fetched by this constructor. Use a DataAccessAdapter for that.</remarks>
-		public ConfigEntity(System.String oib, IValidator validator):base("ConfigEntity")
+		public ConfigEntity(System.Int64 configId, IValidator validator):base("ConfigEntity")
 		{
 			InitClassEmpty(validator, null);
-			this.Oib = oib;
+			this.ConfigId = configId;
 		}
 
 		/// <summary> Protected CTor for deserialization</summary>
@@ -347,6 +354,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("ConfigId", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Mjesto", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
@@ -445,6 +454,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			set	{ SetValue((int)ConfigFieldIndex.ConcurrencyGuid, value); }
 		}
 
+		/// <summary> The ConfigId property of the Entity Config<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Config"."ConfigId"<br/>
+		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		[JsonProperty]		
+		public virtual System.Int64 ConfigId
+		{
+			get { return (System.Int64)GetValue((int)ConfigFieldIndex.ConfigId, true); }
+			set	{ SetValue((int)ConfigFieldIndex.ConfigId, value); }
+		}
+
 		/// <summary> The Mjesto property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Mjesto"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 100<br/>
@@ -470,7 +490,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary> The Oib property of the Entity Config<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Config"."Oib"<br/>
 		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 11<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, true, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
 		[JsonProperty]		
 		public virtual System.String Oib
 		{

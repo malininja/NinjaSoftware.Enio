@@ -26,6 +26,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.ConcurrencyGuid);}
 		}
+		/// <summary>Creates a new ArtiklEntity.IsActive field instance</summary>
+		public static EntityField2 IsActive
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.IsActive);}
+		}
 		/// <summary>Creates a new ArtiklEntity.Jm field instance</summary>
 		public static EntityField2 Jm
 		{
@@ -36,10 +41,10 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.Naziv);}
 		}
-		/// <summary>Creates a new ArtiklEntity.Pdv field instance</summary>
-		public static EntityField2 Pdv
+		/// <summary>Creates a new ArtiklEntity.PdvId field instance</summary>
+		public static EntityField2 PdvId
 		{
-			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.Pdv);}
+			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.PdvId);}
 		}
 		/// <summary>Creates a new ArtiklEntity.StatusId field instance</summary>
 		public static EntityField2 StatusId
@@ -191,6 +196,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(ConfigFieldIndex.ConcurrencyGuid);}
 		}
+		/// <summary>Creates a new ConfigEntity.ConfigId field instance</summary>
+		public static EntityField2 ConfigId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ConfigFieldIndex.ConfigId);}
+		}
 		/// <summary>Creates a new ConfigEntity.Mjesto field instance</summary>
 		public static EntityField2 Mjesto
 		{
@@ -233,6 +243,41 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		}
 	}
 
+	/// <summary>Field Creation Class for entity ErrorEntity</summary>
+	public partial class ErrorFields
+	{
+		/// <summary>Creates a new ErrorEntity.ConcurrencyGuid field instance</summary>
+		public static EntityField2 ConcurrencyGuid
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.ConcurrencyGuid);}
+		}
+		/// <summary>Creates a new ErrorEntity.ErrorDateTime field instance</summary>
+		public static EntityField2 ErrorDateTime
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.ErrorDateTime);}
+		}
+		/// <summary>Creates a new ErrorEntity.ErrorId field instance</summary>
+		public static EntityField2 ErrorId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.ErrorId);}
+		}
+		/// <summary>Creates a new ErrorEntity.Message field instance</summary>
+		public static EntityField2 Message
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.Message);}
+		}
+		/// <summary>Creates a new ErrorEntity.ParentErrorId field instance</summary>
+		public static EntityField2 ParentErrorId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.ParentErrorId);}
+		}
+		/// <summary>Creates a new ErrorEntity.StackTrace field instance</summary>
+		public static EntityField2 StackTrace
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ErrorFieldIndex.StackTrace);}
+		}
+	}
+
 	/// <summary>Field Creation Class for entity PartnerEntity</summary>
 	public partial class PartnerFields
 	{
@@ -245,6 +290,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		public static EntityField2 ConcurrencyGuid
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(PartnerFieldIndex.ConcurrencyGuid);}
+		}
+		/// <summary>Creates a new PartnerEntity.IsActive field instance</summary>
+		public static EntityField2 IsActive
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(PartnerFieldIndex.IsActive);}
 		}
 		/// <summary>Creates a new PartnerEntity.Mjesto field instance</summary>
 		public static EntityField2 Mjesto
@@ -271,15 +321,35 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(PartnerFieldIndex.Posta);}
 		}
-		/// <summary>Creates a new PartnerEntity.StatusId field instance</summary>
-		public static EntityField2 StatusId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(PartnerFieldIndex.StatusId);}
-		}
 		/// <summary>Creates a new PartnerEntity.Valuta field instance</summary>
 		public static EntityField2 Valuta
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(PartnerFieldIndex.Valuta);}
+		}
+	}
+
+	/// <summary>Field Creation Class for entity PdvEntity</summary>
+	public partial class PdvFields
+	{
+		/// <summary>Creates a new PdvEntity.ConcurrencyGuid field instance</summary>
+		public static EntityField2 ConcurrencyGuid
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(PdvFieldIndex.ConcurrencyGuid);}
+		}
+		/// <summary>Creates a new PdvEntity.Naziv field instance</summary>
+		public static EntityField2 Naziv
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(PdvFieldIndex.Naziv);}
+		}
+		/// <summary>Creates a new PdvEntity.PdvId field instance</summary>
+		public static EntityField2 PdvId
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(PdvFieldIndex.PdvId);}
+		}
+		/// <summary>Creates a new PdvEntity.Stopa field instance</summary>
+		public static EntityField2 Stopa
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(PdvFieldIndex.Stopa);}
 		}
 	}
 
@@ -451,15 +521,15 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(TarifaFieldIndex.ConcurrencyGuid);}
 		}
+		/// <summary>Creates a new TarifaEntity.IsActive field instance</summary>
+		public static EntityField2 IsActive
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(TarifaFieldIndex.IsActive);}
+		}
 		/// <summary>Creates a new TarifaEntity.Naziv field instance</summary>
 		public static EntityField2 Naziv
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(TarifaFieldIndex.Naziv);}
-		}
-		/// <summary>Creates a new TarifaEntity.StatusId field instance</summary>
-		public static EntityField2 StatusId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(TarifaFieldIndex.StatusId);}
 		}
 		/// <summary>Creates a new TarifaEntity.Stopa field instance</summary>
 		public static EntityField2 Stopa

@@ -1,0 +1,62 @@
+﻿@model NinjaSoftware.Enio.Models.UserViewModel
+@using NinjaSoftware.Api.Mvc
+@using NinjaSoftware.Enio.CoolJ.HelperClasses
+
+@{
+    ViewBag.Title = "UserEdit";
+
+    string title;
+
+    if (Model.User.IsNew)
+    {
+        title = "Unos novog korisnika";
+    }
+    else
+    {
+        title = "Uređivanje postojećeg korisnika";
+    }
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    @nsController.ViewUserErrorMessage
+
+    <fieldset>
+        @Html.HiddenFor(model => model.User.UserId)
+        @Html.HiddenFor(model => model.User.ConcurrencyGuid)
+
+        <div>
+            Username:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.User.Username)
+            @Html.ValidationMessageFor(model => model.User.Username)
+        </div>
+
+        <div>
+            Password:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.User.Password)
+            @Html.ValidationMessageFor(model => model.User.Password)
+        </div>
+        
+        <div>
+            Role:
+        </div>
+        <div>
+            @Html.DropDownListFor(model => model.User.RoleId, ViewHelper.GenerateDropDownItemSource(Model.RoleCollection, RoleRoFields.RoleId.Name, RoleRoFields.Name.Name, Model.User.RoleId))
+            @Html.ValidationMessageFor(model => model.User.RoleId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}

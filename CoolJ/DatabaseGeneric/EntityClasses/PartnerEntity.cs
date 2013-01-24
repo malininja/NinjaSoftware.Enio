@@ -36,7 +36,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		#region Class Member Declarations
 		private EntityCollection<CjenikEntity> _cjenikCollection;
 		private EntityCollection<RacunGlavaEntity> _racunGlavaCollection;
-		private StatusRoEntity _status;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -49,8 +48,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Status</summary>
-			public static readonly string Status = "Status";
 			/// <summary>Member name CjenikCollection</summary>
 			public static readonly string CjenikCollection = "CjenikCollection";
 			/// <summary>Member name RacunGlavaCollection</summary>
@@ -163,32 +160,12 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			{
 				_cjenikCollection = (EntityCollection<CjenikEntity>)info.GetValue("_cjenikCollection", typeof(EntityCollection<CjenikEntity>));
 				_racunGlavaCollection = (EntityCollection<RacunGlavaEntity>)info.GetValue("_racunGlavaCollection", typeof(EntityCollection<RacunGlavaEntity>));
-				_status = (StatusRoEntity)info.GetValue("_status", typeof(StatusRoEntity));
-				if(_status!=null)
-				{
-					_status.AfterSave+=new EventHandler(OnEntityAfterSave);
-				}
 				this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance());
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START DeserializationConstructor
 			// __LLBLGENPRO_USER_CODE_REGION_END
 		}
 
-		
-		/// <summary>Performs the desync setup when an FK field has been changed. The entity referenced based on the FK field will be dereferenced and sync info will be removed.</summary>
-		/// <param name="fieldIndex">The fieldindex.</param>
-		protected override void PerformDesyncSetupFKFieldChange(int fieldIndex)
-		{
-			switch((PartnerFieldIndex)fieldIndex)
-			{
-				case PartnerFieldIndex.StatusId:
-					DesetupSyncStatus(true, false);
-					break;
-				default:
-					base.PerformDesyncSetupFKFieldChange(fieldIndex);
-					break;
-			}
-		}
 
 		/// <summary> Sets the related entity property to the entity specified. If the property is a collection, it will add the entity specified to that collection.</summary>
 		/// <param name="propertyName">Name of the property.</param>
@@ -198,9 +175,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "Status":
-					this.Status = (StatusRoEntity)entity;
-					break;
 				case "CjenikCollection":
 					this.CjenikCollection.Add((CjenikEntity)entity);
 					break;
@@ -229,9 +203,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "Status":
-					toReturn.Add(Relations.StatusRoEntityUsingStatusId);
-					break;
 				case "CjenikCollection":
 					toReturn.Add(Relations.CjenikEntityUsingPartnerId);
 					break;
@@ -266,9 +237,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Status":
-					SetupSyncStatus(relatedEntity);
-					break;
 				case "CjenikCollection":
 					this.CjenikCollection.Add((CjenikEntity)relatedEntity);
 					break;
@@ -288,9 +256,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "Status":
-					DesetupSyncStatus(false, true);
-					break;
 				case "CjenikCollection":
 					this.PerformRelatedEntityRemoval(this.CjenikCollection, relatedEntity, signalRelatedEntityManyToOne);
 					break;
@@ -316,10 +281,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntity2> GetDependentRelatedEntities()
 		{
 			List<IEntity2> toReturn = new List<IEntity2>();
-			if(_status!=null)
-			{
-				toReturn.Add(_status);
-			}
 			return toReturn;
 		}
 		
@@ -343,7 +304,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			{
 				info.AddValue("_cjenikCollection", ((_cjenikCollection!=null) && (_cjenikCollection.Count>0) && !this.MarkedForDeletion)?_cjenikCollection:null);
 				info.AddValue("_racunGlavaCollection", ((_racunGlavaCollection!=null) && (_racunGlavaCollection.Count>0) && !this.MarkedForDeletion)?_racunGlavaCollection:null);
-				info.AddValue("_status", (!this.MarkedForDeletion?_status:null));
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
 			// __LLBLGENPRO_USER_CODE_REGION_END
@@ -374,15 +334,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			IRelationPredicateBucket bucket = new RelationPredicateBucket();
 			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(RacunGlavaFields.PartnerId, null, ComparisonOperator.Equal, this.PartnerId));
-			return bucket;
-		}
-
-		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'StatusRo' to this entity.</summary>
-		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoStatus()
-		{
-			IRelationPredicateBucket bucket = new RelationPredicateBucket();
-			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(StatusRoFields.StatusId, null, ComparisonOperator.Equal, this.StatusId));
 			return bucket;
 		}
 		
@@ -437,7 +388,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("Status", _status);
 			toReturn.Add("CjenikCollection", _cjenikCollection);
 			toReturn.Add("RacunGlavaCollection", _racunGlavaCollection);
 			return toReturn;
@@ -466,6 +416,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("IsActive", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Mjesto", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
@@ -476,44 +428,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Posta", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("StatusId", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Valuta", fieldHashtable);
 		}
 		#endregion
-
-		/// <summary> Removes the sync logic for member _status</summary>
-		/// <param name="signalRelatedEntity">If set to true, it will call the related entity's UnsetRelatedEntity method</param>
-		/// <param name="resetFKFields">if set to true it will also reset the FK fields pointing to the related entity</param>
-		private void DesetupSyncStatus(bool signalRelatedEntity, bool resetFKFields)
-		{
-			this.PerformDesetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticPartnerRelations.StatusRoEntityUsingStatusIdStatic, true, signalRelatedEntity, "PartnerCollection", resetFKFields, new int[] { (int)PartnerFieldIndex.StatusId } );
-			_status = null;
-		}
-
-		/// <summary> setups the sync logic for member _status</summary>
-		/// <param name="relatedEntity">Instance to set as the related entity of type entityType</param>
-		private void SetupSyncStatus(IEntityCore relatedEntity)
-		{
-			if(_status!=relatedEntity)
-			{
-				DesetupSyncStatus(true, true);
-				_status = (StatusRoEntity)relatedEntity;
-				this.PerformSetupSyncRelatedEntity( _status, new PropertyChangedEventHandler( OnStatusPropertyChanged ), "Status", NinjaSoftware.Enio.CoolJ.RelationClasses.StaticPartnerRelations.StatusRoEntityUsingStatusIdStatic, true, new string[] {  } );
-			}
-		}
-		
-		/// <summary>Handles property change events of properties in a related entity.</summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void OnStatusPropertyChanged( object sender, PropertyChangedEventArgs e )
-		{
-			switch( e.PropertyName )
-			{
-				default:
-					break;
-			}
-		}
 
 		/// <summary> Initializes the class with empty data, as if it is a new Entity.</summary>
 		/// <param name="validator">The validator object for this PartnerEntity</param>
@@ -560,13 +477,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			get	{ return new PrefetchPathElement2( new EntityCollection<RacunGlavaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))), (IEntityRelation)GetRelationsForField("RacunGlavaCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.RacunGlavaEntity, 0, null, null, null, null, "RacunGlavaCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
-		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'StatusRo' for this entity.</summary>
-		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathStatus
-		{
-			get	{ return new PrefetchPathElement2(new EntityCollection(EntityFactoryCache2.GetEntityFactory(typeof(StatusRoEntityFactory))),	(IEntityRelation)GetRelationsForField("Status")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.StatusRoEntity, 0, null, null, null, null, "Status", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.ManyToOne); }
-		}
-
 
 		/// <summary> The custom properties for the type of this entity instance.</summary>
 		/// <remarks>The data returned from this property should be considered read-only: it is not thread safe to alter this data at runtime.</remarks>
@@ -611,6 +521,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			get { return (System.String)GetValue((int)PartnerFieldIndex.ConcurrencyGuid, true); }
 			set	{ SetValue((int)PartnerFieldIndex.ConcurrencyGuid, value); }
+		}
+
+		/// <summary> The IsActive property of the Entity Partner<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "Partner"."IsActive"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Bit, 0, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.Boolean IsActive
+		{
+			get { return (System.Boolean)GetValue((int)PartnerFieldIndex.IsActive, true); }
+			set	{ SetValue((int)PartnerFieldIndex.IsActive, value); }
 		}
 
 		/// <summary> The Mjesto property of the Entity Partner<br/><br/></summary>
@@ -668,17 +589,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			set	{ SetValue((int)PartnerFieldIndex.Posta, value); }
 		}
 
-		/// <summary> The StatusId property of the Entity Partner<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Partner"."StatusId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		[JsonProperty]		
-		public virtual System.Int64 StatusId
-		{
-			get { return (System.Int64)GetValue((int)PartnerFieldIndex.StatusId, true); }
-			set	{ SetValue((int)PartnerFieldIndex.StatusId, value); }
-		}
-
 		/// <summary> The Valuta property of the Entity Partner<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Partner"."Valuta"<br/>
 		/// Table field type characteristics (type, precision, scale, length): SmallInt, 5, 0, 0<br/>
@@ -702,25 +612,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		public virtual EntityCollection<RacunGlavaEntity> RacunGlavaCollection
 		{
 			get { return GetOrCreateEntityCollection<RacunGlavaEntity, RacunGlavaEntityFactory>("Partner", true, false, ref _racunGlavaCollection);	}
-		}
-
-		/// <summary> Gets / sets related entity of type 'StatusRoEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
-		[Browsable(false)]
-		[JsonProperty]
-		public virtual StatusRoEntity Status
-		{
-			get	{ return _status; }
-			set
-			{
-				if(this.IsDeserializing)
-				{
-					SetupSyncStatus(value);
-				}
-				else
-				{
-					SetSingleRelatedEntityNavigator(value, "PartnerCollection", "Status", _status, true); 
-				}
-			}
 		}
 	
 		/// <summary> Gets the type of the hierarchy this entity is in. </summary>
