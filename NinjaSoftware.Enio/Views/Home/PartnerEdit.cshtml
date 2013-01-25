@@ -1,0 +1,94 @@
+﻿@model NinjaSoftware.Enio.CoolJ.EntityClasses.PartnerEntity
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title;
+    if (Model.IsNew)
+    {
+        title = "Unos novog partnera";
+    }
+    else
+    {
+        title = "Uređivanje partnera";
+    }
+    
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+
+    <fieldset>
+        @Html.HiddenFor(model => model.PartnerId)
+        @Html.HiddenFor(model => model.ConcurrencyGuid)
+
+        <div>
+            Naziv:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Naziv)
+            @Html.ValidationMessageFor(model => model.Naziv)
+        </div>
+
+        <div>
+            OIB:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Oib)
+            @Html.ValidationMessageFor(model => model.Oib)
+        </div>
+
+        <div>
+            Adresa:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Adresa)
+            @Html.ValidationMessageFor(model => model.Adresa)
+        </div>
+
+        <div>
+            Pošta:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Posta)
+            @Html.ValidationMessageFor(model => model.Posta)
+        </div>
+
+        <div>
+            Mjesto:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Mjesto)
+            @Html.ValidationMessageFor(model => model.Mjesto)
+        </div>
+
+        <div>
+            Valuta:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Valuta)
+            @Html.ValidationMessageFor(model => model.Valuta)
+        </div>
+
+        @if (!Model.IsNew)
+        { 
+            <div>
+                Aktivan:
+            </div>
+            <div>
+                @Html.EditorFor(model => model.IsActive)
+                @Html.ValidationMessageFor(model => model.IsActive)
+            </div>
+        }
+        
+        <p>
+            <input type="submit" value="Pohrani" />
+        </p>
+    </fieldset>
+}

@@ -35,6 +35,7 @@
       <HintPath>..\Dlls\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
+    <Compile Include="DatabaseGeneric\BusinessLogic\DataAnnotationConstants.cs" />
+    <Compile Include="DatabaseGeneric\BusinessLogic\PartnerEntity.cs" />
     <Compile Include="DatabaseGeneric\BusinessLogic\Enums.cs" />
     <Compile Include="DatabaseGeneric\BusinessLogic\ErrorEntity.cs" />
     <Compile Include="DatabaseGeneric\BusinessLogic\UserEntity.cs" />

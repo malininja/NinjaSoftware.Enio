@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PartnerEntity>
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+
+@{
+    string title = "Lista partnera";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+<br />
+
+@Html.ActionLink("Dodaj novog partnera", "PartnerEdit")
+<br />
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>OIB</th>
+        <th>Adresa</th>
+        <th>Pošta</th>
+        <th>Mjesto</th>
+        <th>Valuta</th>
+        <th>Aktivan</th>
+        <th></th>
+    </tr>
+    @foreach (PartnerEntity partner in Model)
+    { 
+    <tr>
+        <td>@partner.Naziv</td>
+        <td>@partner.Oib</td>
+        <td>@partner.Adresa</td>
+        <td>@partner.Posta</td>
+        <td>@partner.Mjesto</td>
+        <td>@partner.Valuta</td>
+        <td>@partner.IsActive</td>
+        <td>@Html.ActionLink("Uredi", "PartnerEdit", new { partnerId = partner.PartnerId })</td>
+    </tr>
+    }
+</table>

@@ -394,7 +394,7 @@
                   <Fields>
                     <Field Name="ActionDateTime" Ordinal="1" DbType="4" />
                     <Field Name="AuditInfoActionTypeId" Ordinal="2" DbType="0" Precision="19" />
-                    <Field Name="AuditInfoId" Ordinal="3" IsIdentity="true" TrackedChanges="8" IsPrimaryKey="true" PkConstraintName="PK_58b99964a5998f98514f164efe9" DbType="0" Precision="19" />
+                    <Field Name="AuditInfoId" Ordinal="3" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_58b99964a5998f98514f164efe9" DbType="0" Precision="19" />
                     <Field Name="ConcurrencyGuid" Ordinal="4" DbType="12" Length="50" />
                     <Field Name="EntityId" Ordinal="5" DbType="0" Precision="19" />
                     <Field Name="JsonData" Ordinal="6" DbType="12" Length="2147483647" />

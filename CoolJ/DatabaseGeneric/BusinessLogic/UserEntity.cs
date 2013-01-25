@@ -54,7 +54,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
             if (this.Fields[UserFields.Password.Name].IsChanged)
             {
-                this.Password = NinjaSoftware.Api.Core.Security.GetPasswordHash("");
+                this.Password = NinjaSoftware.Api.Core.Security.GetPasswordHash(this.Password);
             }
 
             base.Save(adapter, refetchAfterSave, recurse);

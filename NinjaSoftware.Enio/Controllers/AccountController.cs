@@ -33,7 +33,14 @@ namespace NinjaSoftware.Enio.Controllers
                 if (membershipProvider.ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.RedirectFromLoginPage(model.UserName, false);
-                    return Redirect(returnUrl);
+                    if (string.IsNullOrWhiteSpace(returnUrl))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        return Redirect(returnUrl);
+                    }
                 }
                 else
                 {
