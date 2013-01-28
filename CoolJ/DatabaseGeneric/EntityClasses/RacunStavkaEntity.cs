@@ -76,8 +76,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             int pageNumber,
             int pageSize,
             string sortField,
-            string sortDirection)
+			bool isSortAscending)
         {
+			string sortDirection = isSortAscending ? "asc" : "desc";
             SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(RacunStavkaFields));
 
             EntityCollection<RacunStavkaEntity> toReturn = new EntityCollection<RacunStavkaEntity>(new RacunStavkaEntityFactory());

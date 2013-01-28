@@ -19,6 +19,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             [StringLength(100, ErrorMessage = "Naziv ne može imati više od 100 znakova.")]
             public object Naziv;
 
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
             [RegularExpression(@"^(\d{11})+$", ErrorMessage = "OIB mora biti broj sa 11 znamenki.")]
             public object Oib;
 

@@ -79,7 +79,6 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("ArtiklEntity", "Jm", typeof(System.String), false, false, false, false,  (int)ArtiklFieldIndex.Jm, 10, 0, 0);
 			this.AddElementFieldInfo("ArtiklEntity", "Naziv", typeof(System.String), false, false, false, false,  (int)ArtiklFieldIndex.Naziv, 100, 0, 0);
 			this.AddElementFieldInfo("ArtiklEntity", "PdvId", typeof(System.Int64), false, true, false, false,  (int)ArtiklFieldIndex.PdvId, 0, 0, 19);
-			this.AddElementFieldInfo("ArtiklEntity", "StatusId", typeof(System.Int64), false, false, false, false,  (int)ArtiklFieldIndex.StatusId, 0, 0, 19);
 		}
 		/// <summary>Inits AuditInfoEntity's FieldInfo objects</summary>
 		private void InitAuditInfoEntityInfos()

@@ -25,8 +25,6 @@ namespace NinjaSoftware.Enio.CoolJ
 		Naziv,
 		///<summary>PdvId. </summary>
 		PdvId,
-		///<summary>StatusId. </summary>
-		StatusId,
 		/// <summary></summary>
 		AmountOfFields
 	}

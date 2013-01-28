@@ -79,8 +79,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             int pageNumber,
             int pageSize,
             string sortField,
-            string sortDirection)
+			bool isSortAscending)
         {
+			string sortDirection = isSortAscending ? "asc" : "desc";
             SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(ArtiklFields));
 
             EntityCollection<ArtiklEntity> toReturn = new EntityCollection<ArtiklEntity>(new ArtiklEntityFactory());
@@ -473,8 +474,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			_fieldsCustomProperties.Add("Naziv", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("PdvId", fieldHashtable);
-			fieldHashtable = new Dictionary<string, string>();
-			_fieldsCustomProperties.Add("StatusId", fieldHashtable);
 		}
 		#endregion
 
@@ -651,17 +650,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			get { return (System.Int64)GetValue((int)ArtiklFieldIndex.PdvId, true); }
 			set	{ SetValue((int)ArtiklFieldIndex.PdvId, value); }
-		}
-
-		/// <summary> The StatusId property of the Entity Artikl<br/><br/></summary>
-		/// <remarks>Mapped on  table field: "Artikl"."StatusId"<br/>
-		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
-		[JsonProperty]		
-		public virtual System.Int64 StatusId
-		{
-			get { return (System.Int64)GetValue((int)ArtiklFieldIndex.StatusId, true); }
-			set	{ SetValue((int)ArtiklFieldIndex.StatusId, value); }
 		}
 
 		/// <summary> Gets the EntityCollection with the related entities of type 'CjenikEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>

@@ -87,8 +87,9 @@ namespace <[RootNamespace]>.EntityClasses
             int pageNumber,
             int pageSize,
             string sortField,
-            string sortDirection)
+			bool isSortAscending)
         {
+			string sortDirection = isSortAscending ? "asc" : "desc";
             SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(<[CurrentEntityName]>Fields));
 
             EntityCollection<<[CurrentEntityName]>Entity> toReturn = new EntityCollection<<[CurrentEntityName]>Entity>(new <[CurrentEntityName]>EntityFactory());

@@ -28,67 +28,93 @@
         @Html.HiddenFor(model => model.PartnerId)
         @Html.HiddenFor(model => model.ConcurrencyGuid)
 
-        <div>
-            Naziv:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Naziv)
-            @Html.ValidationMessageFor(model => model.Naziv)
-        </div>
-
-        <div>
-            OIB:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Oib)
-            @Html.ValidationMessageFor(model => model.Oib)
-        </div>
-
-        <div>
-            Adresa:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Adresa)
-            @Html.ValidationMessageFor(model => model.Adresa)
-        </div>
-
-        <div>
-            Pošta:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Posta)
-            @Html.ValidationMessageFor(model => model.Posta)
-        </div>
-
-        <div>
-            Mjesto:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Mjesto)
-            @Html.ValidationMessageFor(model => model.Mjesto)
-        </div>
-
-        <div>
-            Valuta:
-        </div>
-        <div>
-            @Html.EditorFor(model => model.Valuta)
-            @Html.ValidationMessageFor(model => model.Valuta)
-        </div>
-
-        @if (!Model.IsNew)
-        { 
-            <div>
-                Aktivan:
-            </div>
-            <div>
-                @Html.EditorFor(model => model.IsActive)
-                @Html.ValidationMessageFor(model => model.IsActive)
-            </div>
-        }
-        
-        <p>
-            <input type="submit" value="Pohrani" />
-        </p>
+        <table>
+            <tr>
+                <td>
+                    Naziv:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Naziv)
+                    @Html.ValidationMessageFor(model => model.Naziv)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    OIB:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Oib)
+                    @Html.ValidationMessageFor(model => model.Oib)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Adresa:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Adresa)
+                    @Html.ValidationMessageFor(model => model.Adresa)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Pošta:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Posta)
+                    @Html.ValidationMessageFor(model => model.Posta)
+                </td>            
+            </tr>
+            <tr>
+            
+            </tr>
+            <tr>
+                <td>
+                    Mjesto:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Mjesto)
+                    @Html.ValidationMessageFor(model => model.Mjesto)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Valuta:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Valuta)
+                    @Html.ValidationMessageFor(model => model.Valuta)
+                </td>            
+            </tr>
+            @if (!Model.IsNew)
+            { 
+            <tr>
+                <td>
+                    Aktivan:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive)
+                </td>
+            </tr>
+            }
+            <tr>
+                <td>
+                    <input type="submit" value="Pohrani" />
+                </td>
+                <td>
+                    <input id="cancel" type="submit" value="Odustani" />
+                </td>            
+            </tr>
+        </table>
     </fieldset>
 }
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cancel").click(function (e) {
+            e.preventDefault();
+            window.location.href = '@Url.Action("PartnerList")';
+        });
+    });
+</script>

@@ -46,11 +46,6 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.PdvId);}
 		}
-		/// <summary>Creates a new ArtiklEntity.StatusId field instance</summary>
-		public static EntityField2 StatusId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.StatusId);}
-		}
 	}
 
 	/// <summary>Field Creation Class for entity AuditInfoEntity</summary>

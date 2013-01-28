@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PdvEntity>
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+
+@{
+    string title = "PDV lista";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+@Html.ActionLink("Dodaj novi PDV", "PdvEdit")
+<br />
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Stopa (%)</th>
+        <th></th>
+    </tr>
+    @foreach (PdvEntity pdv in Model)
+    { 
+    <tr>
+        <td>@pdv.Naziv</td>
+        <td>@pdv.Stopa</td>
+        <td>@Html.ActionLink("Uredi", "PdvEdit", new { pdvId = pdv.PdvId })</td>
+    </tr>
+    }
+</table>

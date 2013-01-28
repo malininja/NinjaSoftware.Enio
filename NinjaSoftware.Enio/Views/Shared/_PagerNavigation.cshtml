@@ -1,0 +1,12 @@
+﻿@model NinjaSoftware.Api.Mvc.PagerBase
+
+@{
+    List<SelectListItem> pageNumberSelectList = new List<SelectListItem>();
+        
+    for (int i = 1; i <= Model.NoOfPages; i++)
+    {
+        pageNumberSelectList.Add(new SelectListItem() { Text = i.ToString(), Value = i.ToString(), Selected = (i == Model.CurrentPage) });
+    }    
+}
+
+Stranica @Html.DropDownListFor(model => model.CurrentPage, pageNumberSelectList, new { onchange = "setGridPage(this.value)" }) / @Model.NoOfPages

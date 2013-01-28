@@ -73,8 +73,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             int pageNumber,
             int pageSize,
             string sortField,
-            string sortDirection)
+			bool isSortAscending)
         {
+			string sortDirection = isSortAscending ? "asc" : "desc";
             SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(PdvFields));
 
             EntityCollection<PdvEntity> toReturn = new EntityCollection<PdvEntity>(new PdvEntityFactory());

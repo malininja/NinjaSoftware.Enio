@@ -137,7 +137,6 @@
           <Field Name="Jm" Type="string" MaxLength="10" />
           <Field Name="Naziv" Type="string" MaxLength="100" />
           <Field Name="PdvId" Type="long" />
-          <Field Name="StatusId" Type="long" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="AuditInfo">
@@ -385,7 +384,6 @@
                     <Field Name="ConcurrencyGuid" Ordinal="2" DbType="12" Length="50" />
                     <Field Name="Jm" Ordinal="3" DbType="12" Length="10" />
                     <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
-                    <Field Name="StatusId" Ordinal="6" DbType="0" Precision="19" />
                     <Field Name="PdvId" Ordinal="7" DbType="0" Precision="19" />
                     <Field Name="IsActive" Ordinal="8" DbType="2" />
                   </Fields>
@@ -637,7 +635,6 @@
                     <Field Name="ConcurrencyGuid" Ordinal="2" DbType="24" Length="50" />
                     <Field Name="Jm" Ordinal="3" DbType="24" Length="10" />
                     <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
-                    <Field Name="StatusId" Ordinal="6" DbType="10" Precision="19" />
                     <Field Name="PdvId" Ordinal="7" DbType="10" Precision="19" />
                     <Field Name="IsActive" Ordinal="8" DbType="0" />
                   </Fields>
@@ -882,7 +879,6 @@
             <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
             <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
             <FieldMapping FieldName="PdvId" TargetFieldName="PdvId" />
-            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":AuditInfo" TargetName="Enio:dbo:AuditInfo">
@@ -1049,7 +1045,6 @@
             <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
             <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
             <FieldMapping FieldName="PdvId" TargetFieldName="PdvId" />
-            <FieldMapping FieldName="StatusId" TargetFieldName="StatusId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":AuditInfo" TargetName="Default:public:AuditInfo">

@@ -1,0 +1,69 @@
+﻿@model NinjaSoftware.Enio.CoolJ.EntityClasses.PdvEntity
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title;
+    if (Model.IsNew)
+    {
+        title = "Unos novog PDV-a";
+    }
+    else
+    {
+        title = "Uređivanje PDV-a";
+    }
+    
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+
+    <fieldset>
+        @Html.HiddenFor(model => model.PdvId)
+        @Html.HiddenFor(model => model.ConcurrencyGuid)
+
+        <table>
+            <tr>
+                <td>
+                    Naziv:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Naziv)
+                    @Html.ValidationMessageFor(model => model.Naziv)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Stopa (%):
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Stopa)
+                    @Html.ValidationMessageFor(model => model.Stopa)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Pohrani" />
+                </td>
+                <td>
+                    <input id="cancel" type="submit" value="Odustani" />
+                </td>            
+            </tr>
+        </table>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cancel").click(function (e) {
+            e.preventDefault();
+            window.location.href = '@Url.Action("PdvList")';
+        });
+    });
+</script>

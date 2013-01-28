@@ -1,0 +1,91 @@
+﻿@model NinjaSoftware.Enio.Models.ArtiklViewModel
+@using NinjaSoftware.Api.Mvc
+@using NinjaSoftware.Enio.CoolJ.HelperClasses
+
+@{
+    string title;
+    if (Model.Artikl.IsNew)
+    {
+        title = "Unos novog artikla";
+    }
+    else
+    {
+        title = "Uređivanje artikla";
+    }
+
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+
+    <fieldset>
+        @Html.HiddenFor(model => model.Artikl.ArtiklId)
+        @Html.HiddenFor(model => model.Artikl.ConcurrencyGuid)
+
+        <table>
+            <tr>
+                <td>
+                    Naziv:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Artikl.Naziv)
+                    @Html.ValidationMessageFor(model => model.Artikl.Naziv)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Jedinica mjere:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Artikl.Jm)
+                    @Html.ValidationMessageFor(model => model.Artikl.Jm)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Pdv:
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => model.Artikl.PdvId, ViewHelper.GenerateDropDownItemSource(Model.PdvCollection, PdvFields.PdvId.Name, PdvFields.Naziv.Name, Model.Artikl.ArtiklId))
+                    @Html.ValidationMessageFor(model => model.Artikl.PdvId)
+                </td>            
+            </tr>
+            @if (!Model.Artikl.IsNew)
+            { 
+            <tr>
+                <td>
+                    Aktivan:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Artikl.IsActive)
+                    @Html.ValidationMessageFor(model => model.Artikl.IsActive)
+                </td>
+            </tr>
+            }
+            <tr>
+                <td>
+                    <input type="submit" value="Pohrani" />
+                </td>
+                <td>
+                    <input id="cancel" type="submit" value="Odustani" />
+                </td>            
+            </tr>
+        </table>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cancel").click(function (e) {
+            e.preventDefault();
+            window.location.href = '@Url.Action("ArtiklList")';
+        });
+    });
+</script>

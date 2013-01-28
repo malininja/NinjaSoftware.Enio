@@ -10,6 +10,8 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/custom_javascript")
+
     </head>
     <body>
         <header>
@@ -24,7 +26,9 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Artikli", "ArtiklList", "Home")</li>
                             <li>@Html.ActionLink("Partneri", "PartnerList", "Home")</li>
+                            <li>@Html.ActionLink("PDV", "PdvList", "Home")</li>
                             <li>@Html.ActionLink("Korisnici", "UserList", "Admin")</li>
                         </ul>
                     </nav>
@@ -44,5 +48,7 @@
                 </div>
             </div>
         </footer>
+
+        @RenderSection("scripts", required: false)
     </body>
 </html>

@@ -70,8 +70,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             int pageNumber,
             int pageSize,
             string sortField,
-            string sortDirection)
+			bool isSortAscending)
         {
+			string sortDirection = isSortAscending ? "asc" : "desc";
             SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(BrojacFields));
 
             EntityCollection<BrojacEntity> toReturn = new EntityCollection<BrojacEntity>(new BrojacEntityFactory());

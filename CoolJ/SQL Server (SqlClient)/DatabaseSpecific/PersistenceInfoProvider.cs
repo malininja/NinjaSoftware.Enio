@@ -70,14 +70,13 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 		/// <summary>Inits ArtiklEntity's mappings</summary>
 		private void InitArtiklEntityMappings()
 		{
-			this.AddElementMapping( "ArtiklEntity", @"Enio", @"dbo", "Artikl", 7 );
+			this.AddElementMapping( "ArtiklEntity", @"Enio", @"dbo", "Artikl", 6 );
 			this.AddElementFieldMapping( "ArtiklEntity", "ArtiklId", "ArtiklId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 0 );
 			this.AddElementFieldMapping( "ArtiklEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 1 );
 			this.AddElementFieldMapping( "ArtiklEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 2 );
 			this.AddElementFieldMapping( "ArtiklEntity", "Jm", "Jm", false, "NVarChar", 10, 0, 0, false, "", null, typeof(System.String), 3 );
 			this.AddElementFieldMapping( "ArtiklEntity", "Naziv", "Naziv", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 4 );
 			this.AddElementFieldMapping( "ArtiklEntity", "PdvId", "PdvId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 5 );
-			this.AddElementFieldMapping( "ArtiklEntity", "StatusId", "StatusId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 6 );
 		}
 		/// <summary>Inits AuditInfoEntity's mappings</summary>
 		private void InitAuditInfoEntityMappings()
