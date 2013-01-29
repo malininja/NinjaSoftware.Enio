@@ -1,5 +1,6 @@
 ﻿@model NinjaSoftware.Enio.Models.ArtiklPager
 @using NinjaSoftware.Enio.CoolJ.EntityClasses
+@using NinjaSoftware.Api.Mvc
 
 @{
     string title = "Lista artikala";
@@ -11,25 +12,35 @@
 @Html.ActionLink("Dodaj novi artikl", "ArtiklEdit")
 <br />
 
-<table>
+<table class="datatable">
+  <thead>
     <tr>
         <th>@Html.ActionLink("Naziv", "ArtiklList", new { sortField = "Naziv", isSortAscending = !Model.IsSortDirectionAscending })</th>
-        <th>Jedinica mjere</th>
-        <th>PDV</th>
-        <th>Aktivan</th>
+        <th><span>JM</span></th>
+        <th><span>PDV (%)</span></th>
+        <th><span>Aktivan</span></th>
         <th></th>
     </tr>
+  </thead>
+  <tbody>
     @foreach (ArtiklEntity artikl in Model.DataSource)
     { 
     <tr>
         <td>@artikl.Naziv</td>
-        <td>@artikl.Jm</td>
-        <td>@artikl.Pdv.Naziv</td>
-        <td>@artikl.IsActive</td>
-        <td>@Html.ActionLink("Uredi", "ArtiklEdit", new { artiklId = artikl.ArtiklId })</td>
+        <td align="center">@artikl.Jm</td>
+        <td align="right">@artikl.Pdv.Stopa</td>
+        <td align="right">@artikl.IsActive.ToLocalizedWord()</td>
+        <td align="right">@Html.ActionLink("Uredi", "ArtiklEdit", new { artiklId = artikl.ArtiklId })</td>
     </tr>
     }
+  </tbody>
+  <tfoot>
+    <tr>
+        <td colspan="5">
+            @Model.GenerateDropDownPagingHtmlElements(System.Configuration.ConfigurationManager.AppSettings["PagerPrefixText"])
+        </td>
+    </tr>
+  </tfoot>
 </table>
 
 <br />
-@Html.Partial("_PagerNavigation", Model)

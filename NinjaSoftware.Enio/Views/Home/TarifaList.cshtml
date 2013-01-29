@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TarifaEntity>
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title = "Lista tarifa";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+@Html.ActionLink("Dodaj novu tarifu", "TarifaEdit")
+<br />
+
+<table class="datatable">
+    <tr>
+        <th><span>Naziv</span></th>
+        <th><span>Stopa (%)</span></th>
+        <th><span>Aktivan</span></th>
+        <th></th>
+    </tr>
+    @foreach (TarifaEntity tarifa in Model)
+    { 
+    <tr>
+        <td>@tarifa.Naziv</td>
+        <td align="right">@tarifa.Stopa</td>
+        <td align="center">@tarifa.IsActive.ToLocalizedWord()</td>
+        <td>@Html.ActionLink("Uredi", "TarifaEdit", new { tarifaId = tarifa.TarifaId })</td>
+    </tr>
+    }
+</table>

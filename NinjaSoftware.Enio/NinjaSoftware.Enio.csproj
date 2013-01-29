@@ -131,6 +131,7 @@
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\NsMembershipProvider.cs" />
     <Compile Include="Models\NsRoleProvider.cs" />
+    <Compile Include="Models\PartnerPager.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -192,7 +193,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -209,6 +209,7 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\methods_hr.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\NinjaSoftwareLib.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -298,7 +299,10 @@
     <Content Include="Views\Home\PdvEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_PagerNavigation.cshtml" />
+    <Content Include="Views\Home\TarifaList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\TarifaEdit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

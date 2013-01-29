@@ -8,12 +8,21 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 using NinjaSoftware.Enio.CoolJ.EntityClasses;
 using NinjaSoftware.Api.Mvc;
 using NinjaSoftware.Enio.CoolJ;
+using System.Configuration;
 
 namespace NinjaSoftware.Enio.Controllers
 {
     [Authorize(Roles = "User, Admin")]
     public class HomeController : NsController
     {
+        public int PageSize
+        {
+            get
+            {
+                return Convert.ToInt32(ConfigurationManager.AppSettings["PageSize"]);
+            }
+        }
+
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
@@ -29,13 +38,8 @@ namespace NinjaSoftware.Enio.Controllers
             using (adapter)
             {
                 ArtiklPager artiklPager = new ArtiklPager();
-                artiklPager.LoadData(adapter, pageNumber, 5, sortField, isSortAscending);
+                artiklPager.LoadData(adapter, pageNumber, this.PageSize, sortField, isSortAscending);
                 return View(artiklPager);
-                //PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.ArtiklEntity);
-                //prefetchPath.Add(ArtiklEntity.PrefetchPathPdv);
-
-                //IEnumerable<ArtiklEntity> artiklCollection = ArtiklEntity.FetchArtiklCollection(adapter, null, prefetchPath);
-                //return View(artiklCollection);
             }
         }
 
@@ -74,13 +78,14 @@ namespace NinjaSoftware.Enio.Controllers
         #region Partner
 
         [HttpGet]
-        public ActionResult PartnerList()
+        public ActionResult PartnerList(int? pageNumber, string sortField, bool? isSortAscending)
         {
             DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
             using (adapter)
             {
-                IEnumerable<PartnerEntity> partnerCollection = PartnerEntity.FetchPartnerCollection(adapter, null, null).OrderBy(p => p.Naziv);
-                return View(partnerCollection);
+                PartnerPager partnerPager = new PartnerPager();
+                partnerPager.LoadData(adapter, pageNumber, this.PageSize, sortField, isSortAscending);
+                return View(partnerPager);
             }
         }
 
@@ -159,12 +164,12 @@ namespace NinjaSoftware.Enio.Controllers
         }
 
         [HttpPost]
-        public ActionResult PdvEdit(long? pdvId, FormCollection formCollection)
+        public ActionResult PdvEdit(long? tarifaId, FormCollection formCollection)
         {
             DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
             using (adapter)
             {
-                PdvEntity pdv = FetchPdv(adapter, pdvId);
+                PdvEntity pdv = FetchPdv(adapter, tarifaId);
 
                 if (TryUpdateAndSaveIEntity2(pdv, adapter, false, false))
                 {
@@ -194,5 +199,66 @@ namespace NinjaSoftware.Enio.Controllers
         }
 
         #endregion Pdv
+
+        #region Tarifa
+
+        [HttpGet]
+        public ActionResult TarifaList()
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+            using (adapter)
+            {
+                IEnumerable<TarifaEntity> tarifaCollection = TarifaEntity.FetchTarifaCollection(adapter, null, null);
+                return View(tarifaCollection);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult TarifaEdit(long? tarifaId)
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+            using (adapter)
+            {
+                TarifaEntity tarifa = FetchTarifa(adapter, tarifaId);
+                return View(tarifa);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult TarifaEdit(long? tarifaId, FormCollection formCollection)
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+            using (adapter)
+            {
+                TarifaEntity tarifa = FetchTarifa(adapter, tarifaId);
+
+                if (TryUpdateAndSaveIEntity2(tarifa, adapter, false, false))
+                {
+                    return RedirectToAction("TarifaList");
+                }
+                else
+                {
+                    return View(tarifa);
+                }
+            }
+        }
+
+        private TarifaEntity FetchTarifa(DataAccessAdapterBase adapter, long? tarifaId)
+        {
+            TarifaEntity tarifa;
+
+            if (tarifaId.HasValue && 0 != tarifaId.Value)
+            {
+                tarifa = TarifaEntity.FetchTarifa(adapter, null, tarifaId.Value);
+            }
+            else
+            {
+                tarifa = new TarifaEntity();
+            }
+
+            return tarifa;
+        }
+
+        #endregion Tarifa
     }
 }

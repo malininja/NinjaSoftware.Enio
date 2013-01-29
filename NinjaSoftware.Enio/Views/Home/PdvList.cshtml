@@ -11,17 +11,17 @@
 @Html.ActionLink("Dodaj novi PDV", "PdvEdit")
 <br />
 
-<table>
+<table class="datatable">
     <tr>
-        <th>Naziv</th>
-        <th>Stopa (%)</th>
+        <th><span>Naziv</span></th>
+        <th><span>Stopa (%)</span></th>
         <th></th>
     </tr>
     @foreach (PdvEntity pdv in Model)
     { 
     <tr>
         <td>@pdv.Naziv</td>
-        <td>@pdv.Stopa</td>
+        <td align="right">@pdv.Stopa</td>
         <td>@Html.ActionLink("Uredi", "PdvEdit", new { pdvId = pdv.PdvId })</td>
     </tr>
     }

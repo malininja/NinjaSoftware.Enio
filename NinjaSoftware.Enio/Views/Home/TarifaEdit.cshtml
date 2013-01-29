@@ -1,0 +1,76 @@
+﻿@model NinjaSoftware.Enio.CoolJ.EntityClasses.TarifaEntity
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title;
+    if (Model.IsNew)
+    {
+        title = "Unos nove tarife";
+    }
+    else
+    {
+        title = "Uređivanje tarife";
+    }
+    
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+
+    <fieldset>
+        @Html.HiddenFor(model => model.TarifaId)
+        @Html.HiddenFor(model => model.ConcurrencyGuid)
+
+        <table>
+            <tr>
+                <td>
+                    Naziv:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Naziv)
+                    @Html.ValidationMessageFor(model => model.Naziv)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    Stopa (%):
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Stopa)
+                    @Html.ValidationMessageFor(model => model.Stopa)
+                </td>            
+            </tr>
+            @if (!Model.IsActive)
+            { 
+            <tr>
+                <td>
+                    Aktivan:
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.IsActive)
+                    @Html.ValidationMessageFor(model => model.IsActive)
+                </td>            
+            </tr>
+            }
+            <tr>
+                <td>
+                    <input type="submit" value="Pohrani" />
+                </td>
+                <td>
+                    <input id="cancel" type="submit" value="Odustani" />
+                </td>            
+            </tr>
+        </table>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    ninjaSoftware.htmlInput.submitAsRedirect("cancel", '@Url.Action("TarifaList")');
+</script>

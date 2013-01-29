@@ -1,5 +1,6 @@
-﻿@model IEnumerable<PartnerEntity>
+﻿@model NinjaSoftware.Enio.Models.PartnerPager
 @using NinjaSoftware.Enio.CoolJ.EntityClasses
+@using NinjaSoftware.Api.Mvc
 
 @{
     string title = "Lista partnera";
@@ -12,28 +13,39 @@
 @Html.ActionLink("Dodaj novog partnera", "PartnerEdit")
 <br />
 
-<table>
+<table class="datatable">
+  <thead>
     <tr>
-        <th>Naziv</th>
-        <th>OIB</th>
-        <th>Adresa</th>
-        <th>Pošta</th>
-        <th>Mjesto</th>
-        <th>Valuta</th>
-        <th>Aktivan</th>
+        <th><span>Naziv</span></th>
+        <th><span>OIB</span></th>
+        <th><span>Adresa</span></th>
+        <th><span>Pošta</span></th>
+        <th><span>Mjesto</span></th>
+        <th><span>Valuta</span></th>
+        <th><span>Aktivan</span></th>
         <th></th>
     </tr>
-    @foreach (PartnerEntity partner in Model)
+  </thead>
+  <tbody>
+    @foreach (PartnerEntity partner in Model.DataSource)
     { 
     <tr>
         <td>@partner.Naziv</td>
-        <td>@partner.Oib</td>
+        <td align="center">@partner.Oib</td>
         <td>@partner.Adresa</td>
         <td>@partner.Posta</td>
         <td>@partner.Mjesto</td>
-        <td>@partner.Valuta</td>
-        <td>@partner.IsActive</td>
+        <td align="right">@partner.Valuta</td>
+        <td align="center">@partner.IsActive.ToLocalizedWord()</td>
         <td>@Html.ActionLink("Uredi", "PartnerEdit", new { partnerId = partner.PartnerId })</td>
     </tr>
     }
+  </tbody>
+  <tfoot>
+    <tr>
+        <td class="footer" colspan="8">
+            @Model.GenerateDropDownPagingHtmlElements(System.Configuration.ConfigurationManager.AppSettings["PagerPrefixText"])
+        </td>
+    </tr>
+  </tfoot>
 </table>

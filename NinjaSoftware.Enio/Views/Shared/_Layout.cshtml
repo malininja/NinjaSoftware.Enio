@@ -25,11 +25,19 @@
                     </section>
                     <nav>
                         <ul id="menu">
+                            @if (User.Identity.IsAuthenticated)
+                            {
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("Artikli", "ArtiklList", "Home")</li>
                             <li>@Html.ActionLink("Partneri", "PartnerList", "Home")</li>
+                            <li>@Html.ActionLink("Tarifa", "TarifaList", "Home")</li>
                             <li>@Html.ActionLink("PDV", "PdvList", "Home")</li>
+                            }
+                            
+                            @if (User.IsInRole("Admin"))
+                            {
                             <li>@Html.ActionLink("Korisnici", "UserList", "Admin")</li>
+                            }
                         </ul>
                     </nav>
                 </div>

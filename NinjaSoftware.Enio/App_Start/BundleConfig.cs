@@ -19,8 +19,8 @@ namespace NinjaSoftware.Enio
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom_javascript").Include(
-                "~/Scripts/methods_hr.js", 
-                "~/Scripts/Custom.js"));
+                "~/Scripts/methods_hr.js",
+                "~/Scripts/NinjaSoftwareLib.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
