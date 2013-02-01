@@ -173,7 +173,7 @@
           <Field Name="Cijena" Type="decimal" Precision="10" Scale="4" />
           <Field Name="CjenikId" Type="long" IsPrimaryKey="true" />
           <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
-          <Field Name="PartnerId" Type="long" />
+          <Field Name="PartnerId" Type="long" IsOptional="true" />
         </Fields>
         <UniqueConstraints>
           <UniqueConstraint Name="CjenikUnique">
@@ -321,7 +321,7 @@
           <FieldFieldRelationship FkField="ArtiklId" PkField="ArtiklId" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Cjenik.Partner-Partner.CjenikCollection" Start=":Cjenik" End=":Partner" StartNavigator="Partner" EndNavigator="CjenikCollection" Type="4">
+      <NormalRelationship Name="Cjenik.Partner-Partner.CjenikCollection" Start=":Cjenik" End=":Partner" StartNavigator="Partner" EndNavigator="CjenikCollection" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="PartnerId" PkField="PartnerId" />
         </FieldRelationships>
@@ -422,7 +422,7 @@
                     <Field Name="Cijena" Ordinal="2" DbType="5" Precision="10" Scale="4" />
                     <Field Name="CjenikId" Ordinal="3" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_115005a482f8b1a2a795c97ea20" DbType="0" Precision="19" />
                     <Field Name="ConcurrencyGuid" Ordinal="4" DbType="12" Length="50" />
-                    <Field Name="PartnerId" Ordinal="5" DbType="0" Precision="19" />
+                    <Field Name="PartnerId" Ordinal="5" IsOptional="true" DbType="0" Precision="19" />
                   </Fields>
                   <UniqueConstraints>
                     <UniqueConstraint Name="UC_e54ae784860b5b0411d030fdd1b">
@@ -673,7 +673,7 @@
                     <Field Name="Cijena" Ordinal="2" DbType="14" Precision="10" Scale="4" />
                     <Field Name="CjenikId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_19f7ec84559b62994314500461f" DbType="10" Precision="19" />
                     <Field Name="ConcurrencyGuid" Ordinal="4" DbType="24" Length="50" />
-                    <Field Name="PartnerId" Ordinal="5" DbType="10" Precision="19" />
+                    <Field Name="PartnerId" Ordinal="5" IsOptional="true" DbType="10" Precision="19" />
                   </Fields>
                   <UniqueConstraints>
                     <UniqueConstraint Name="UC_39d17614e3e9be4f4b04b4e8ede">

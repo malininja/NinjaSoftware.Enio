@@ -119,7 +119,7 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("CjenikEntity", "Cijena", typeof(System.Decimal), false, false, false, false,  (int)CjenikFieldIndex.Cijena, 0, 4, 10);
 			this.AddElementFieldInfo("CjenikEntity", "CjenikId", typeof(System.Int64), true, false, false, false,  (int)CjenikFieldIndex.CjenikId, 0, 0, 19);
 			this.AddElementFieldInfo("CjenikEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)CjenikFieldIndex.ConcurrencyGuid, 50, 0, 0);
-			this.AddElementFieldInfo("CjenikEntity", "PartnerId", typeof(System.Int64), false, true, false, false,  (int)CjenikFieldIndex.PartnerId, 0, 0, 19);
+			this.AddElementFieldInfo("CjenikEntity", "PartnerId", typeof(Nullable<System.Int64>), false, true, false, true,  (int)CjenikFieldIndex.PartnerId, 0, 0, 19);
 		}
 		/// <summary>Inits ConfigEntity's FieldInfo objects</summary>
 		private void InitConfigEntityInfos()

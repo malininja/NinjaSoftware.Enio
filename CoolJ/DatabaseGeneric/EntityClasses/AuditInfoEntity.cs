@@ -82,8 +82,18 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			bool isSortAscending)
         {
 			string sortDirection = isSortAscending ? "asc" : "desc";
-            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(AuditInfoFields));
 
+            Type sortEntityFieldType = typeof(AuditInfoFields);
+            string sortEntityFieldTypeName = SortHelper.GetEntityFieldTypeNameForSorting(sortField, sortEntityFieldType);
+            if (!string.IsNullOrWhiteSpace(sortEntityFieldTypeName))
+            {
+                sortEntityFieldType = Type.GetType(sortEntityFieldTypeName);
+            }
+
+            sortField = SortHelper.GetSortField(sortField);			
+
+			SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, sortEntityFieldType);
+			
             EntityCollection<AuditInfoEntity> toReturn = new EntityCollection<AuditInfoEntity>(new AuditInfoEntityFactory());
             adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
 

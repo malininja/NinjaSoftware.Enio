@@ -37,7 +37,10 @@
         <td>@partner.Mjesto</td>
         <td align="right">@partner.Valuta</td>
         <td align="center">@partner.IsActive.ToLocalizedWord()</td>
-        <td>@Html.ActionLink("Uredi", "PartnerEdit", new { partnerId = partner.PartnerId })</td>
+        <td>
+            @Html.ActionLink("Uredi", "PartnerEdit", new { partnerId = partner.PartnerId }) |
+            @Html.ActionLink("Cjenik", "CjenikList", new { partnerId = partner.PartnerId })
+        </td>
     </tr>
     }
   </tbody>

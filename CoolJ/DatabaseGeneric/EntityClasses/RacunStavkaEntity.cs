@@ -79,8 +79,18 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			bool isSortAscending)
         {
 			string sortDirection = isSortAscending ? "asc" : "desc";
-            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(RacunStavkaFields));
 
+            Type sortEntityFieldType = typeof(RacunStavkaFields);
+            string sortEntityFieldTypeName = SortHelper.GetEntityFieldTypeNameForSorting(sortField, sortEntityFieldType);
+            if (!string.IsNullOrWhiteSpace(sortEntityFieldTypeName))
+            {
+                sortEntityFieldType = Type.GetType(sortEntityFieldTypeName);
+            }
+
+            sortField = SortHelper.GetSortField(sortField);			
+
+			SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, sortEntityFieldType);
+			
             EntityCollection<RacunStavkaEntity> toReturn = new EntityCollection<RacunStavkaEntity>(new RacunStavkaEntityFactory());
             adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
 

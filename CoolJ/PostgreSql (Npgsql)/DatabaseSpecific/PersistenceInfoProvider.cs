@@ -117,7 +117,7 @@ namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 			this.AddElementFieldMapping( "CjenikEntity", "Cijena", "Cijena", false, "Numeric", 0, 4, 10, false, "", null, typeof(System.Decimal), 1 );
 			this.AddElementFieldMapping( "CjenikEntity", "CjenikId", "CjenikId", false, "Bigint", 0, 0, 19, true, "public.GenericSequence", null, typeof(System.Int64), 2 );
 			this.AddElementFieldMapping( "CjenikEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "Varchar", 50, 0, 0, false, "", null, typeof(System.String), 3 );
-			this.AddElementFieldMapping( "CjenikEntity", "PartnerId", "PartnerId", false, "Bigint", 0, 0, 19, false, "", null, typeof(System.Int64), 4 );
+			this.AddElementFieldMapping( "CjenikEntity", "PartnerId", "PartnerId", true, "Bigint", 0, 0, 19, false, "", null, typeof(System.Int64), 4 );
 		}
 		/// <summary>Inits ConfigEntity's mappings</summary>
 		private void InitConfigEntityMappings()

@@ -79,8 +79,18 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			bool isSortAscending)
         {
 			string sortDirection = isSortAscending ? "asc" : "desc";
-            SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, typeof(CjenikFields));
 
+            Type sortEntityFieldType = typeof(CjenikFields);
+            string sortEntityFieldTypeName = SortHelper.GetEntityFieldTypeNameForSorting(sortField, sortEntityFieldType);
+            if (!string.IsNullOrWhiteSpace(sortEntityFieldTypeName))
+            {
+                sortEntityFieldType = Type.GetType(sortEntityFieldTypeName);
+            }
+
+            sortField = SortHelper.GetSortField(sortField);			
+
+			SortExpression sort = SortHelper.GetSortExpression(sortField, sortDirection, sortEntityFieldType);
+			
             EntityCollection<CjenikEntity> toReturn = new EntityCollection<CjenikEntity>(new CjenikEntityFactory());
             adapter.FetchEntityCollection(toReturn, bucket, pageSize, sort, prefetchPath, pageNumber, pageSize);
 
@@ -642,11 +652,11 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary> The PartnerId property of the Entity Cjenik<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Cjenik"."PartnerId"<br/>
 		/// Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0<br/>
-		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
 		[JsonProperty]		
-		public virtual System.Int64 PartnerId
+		public virtual Nullable<System.Int64> PartnerId
 		{
-			get { return (System.Int64)GetValue((int)CjenikFieldIndex.PartnerId, true); }
+			get { return (Nullable<System.Int64>)GetValue((int)CjenikFieldIndex.PartnerId, false); }
 			set	{ SetValue((int)CjenikFieldIndex.PartnerId, value); }
 		}
 

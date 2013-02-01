@@ -128,6 +128,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ArtiklPager.cs" />
     <Compile Include="Models\ArtiklViewModel.cs" />
+    <Compile Include="Models\CjenikPager.cs" />
+    <Compile Include="Models\CjenikViewModel.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\NsMembershipProvider.cs" />
     <Compile Include="Models\NsRoleProvider.cs" />
@@ -303,6 +305,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\TarifaEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CjenikList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CjenikEdit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

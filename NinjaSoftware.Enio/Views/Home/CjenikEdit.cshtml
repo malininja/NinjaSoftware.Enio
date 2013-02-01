@@ -1,0 +1,84 @@
+﻿@model NinjaSoftware.Enio.Models.CjenikViewModel
+@using NinjaSoftware.Api.Mvc
+@using NinjaSoftware.Enio.CoolJ.HelperClasses
+
+@{
+    string title;
+    if (Model.Cjenik.PartnerId.HasValue)
+    {
+        title = string.Format("Cjenik za partnera {0}", Model.Cjenik.Partner.Naziv);
+    }
+    else
+    {
+        title = string.Format("Opći cjenik za artikl {0}.", Model.Cjenik.Artikl.Naziv);
+    }
+    
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+    
+    <fieldset>
+        @Html.HiddenFor(model => Model.Cjenik.CjenikId)
+        @Html.HiddenFor(model => Model.Cjenik.ConcurrencyGuid)
+
+        <table>
+            @if (Model.Cjenik.IsNew)
+            { 
+            <tr>
+                <td>
+                    Artikl:
+                </td>
+                <td>
+                    @Html.DropDownListFor(model => Model.Cjenik.ArtiklId, new SelectList(Model.ArtiklCollecton, ArtiklFields.ArtiklId.Name, ArtiklFields.Naziv.Name))
+                    @Html.ValidationMessageFor(model => Model.Cjenik.ArtiklId)
+                </td>            
+            </tr>            
+            }
+            else
+            {
+            <tr>
+                <td>
+                    Artikl:
+                </td>
+                <td>
+                    @Model.Cjenik.Artikl.Naziv;
+                </td>            
+            </tr>                   
+            }
+            <tr>
+                <td>
+                    Cijena:
+                </td>
+                <td>
+                    @Html.EditorFor(model => Model.Cjenik.Cijena)
+                    @Html.ValidationMessageFor(model => Model.Cjenik.Cijena)
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Pohrani" />
+                </td>
+                <td>
+                    <input id="cancel" type="submit" value="Odustani" />
+                </td>            
+            </tr>
+        </table>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cancel").click(function (e) {
+            e.preventDefault();
+            window.location.href = '@Url.Action("CjenikList", new { partnerId = Model.Cjenik.PartnerId })';
+        });
+    });
+</script>

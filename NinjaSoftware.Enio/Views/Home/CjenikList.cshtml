@@ -1,0 +1,56 @@
+﻿@model NinjaSoftware.Enio.Models.CjenikPager
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title;
+    
+    if (null == Model.Partner)
+    {
+        title = "Opći cjenik";
+    }
+    else
+    {
+        title = string.Format("Cjenik za partnera {0}", Model.Partner.Naziv);
+    }
+    
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+@Html.ActionLink("Dodaj novi cjenik", "CjenikEdit", new { partnerId = Model.PartnerId })
+<br />
+
+<table class="datatable">
+  <thead>
+    <tr>
+        <th>@Html.ActionLink("Naziv", "ArtiklList", new { sortField = "Naziv", isSortAscending = !Model.IsSortDirectionAscending })</th>
+        <th><span>Artikl</span></th>
+        <th><span>Cijena (kn)</span></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (CjenikEntity cjenik in Model.DataSource)
+    { 
+    <tr>
+        <td>@cjenik.Artikl.Naziv</td>
+        <td align="center">@cjenik.Cijena</td>
+        <td align="right">
+            @Html.ActionLink("Uredi", "CjenikEdit", new { cjenikId = cjenik.CjenikId }) |
+            @Html.ActionLink("Obriši", "CjenikDelete", new { cjenikId = cjenik.CjenikId })
+        </td>
+    </tr>
+    }
+  </tbody>
+  <tfoot>
+    <tr>
+        <td colspan="5">
+            @Model.GenerateDropDownPagingHtmlElements(System.Configuration.ConfigurationManager.AppSettings["PagerPrefixText"])
+        </td>
+    </tr>
+  </tfoot>
+</table>
+
+<br />

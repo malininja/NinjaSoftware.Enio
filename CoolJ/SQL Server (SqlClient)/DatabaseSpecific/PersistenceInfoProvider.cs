@@ -117,7 +117,7 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 			this.AddElementFieldMapping( "CjenikEntity", "Cijena", "Cijena", false, "Decimal", 0, 4, 10, false, "", null, typeof(System.Decimal), 1 );
 			this.AddElementFieldMapping( "CjenikEntity", "CjenikId", "CjenikId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 2 );
 			this.AddElementFieldMapping( "CjenikEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 3 );
-			this.AddElementFieldMapping( "CjenikEntity", "PartnerId", "PartnerId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 4 );
+			this.AddElementFieldMapping( "CjenikEntity", "PartnerId", "PartnerId", true, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 4 );
 		}
 		/// <summary>Inits ConfigEntity's mappings</summary>
 		private void InitConfigEntityMappings()
