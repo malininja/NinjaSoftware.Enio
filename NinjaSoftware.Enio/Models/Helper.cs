@@ -14,7 +14,7 @@ namespace NinjaSoftware.Enio.Models
         public static DataAccessAdapterBase GetDataAccessAdapterFactory()
         {
             DataAccessAdapterBase adapter;
-            switch (ConfigurationManager.ConnectionStrings[0].ProviderName)
+            switch (ConfigurationManager.ConnectionStrings[1].ProviderName)
             {
                 case "System.Data.SqlClient":
                     adapter = new NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific.DataAccessAdapter();
