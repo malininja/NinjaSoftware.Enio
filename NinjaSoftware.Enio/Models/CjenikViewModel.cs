@@ -46,8 +46,15 @@ namespace NinjaSoftware.Enio.Models
 
         public void LoadViewSpecificData(SD.LLBLGen.Pro.ORMSupportClasses.DataAccessAdapterBase adapter)
         {
-            RelationPredicateBucket bucket = new RelationPredicateBucket(ArtiklFields.IsActive == true);
-            this.ArtiklCollecton = ArtiklEntity.FetchArtiklCollection(adapter, bucket, null).OrderBy(a => a.Naziv);
+            RelationPredicateBucket cjenikBucket = new RelationPredicateBucket(CjenikFields.PartnerId == this.Cjenik.PartnerId);
+            EntityCollection<CjenikEntity> cjenikCollection = CjenikEntity.FetchCjenikCollection(adapter, cjenikBucket, null);
+            long[] existingArtiklIdArray = cjenikCollection.Select(c => c.ArtiklId).ToArray();
+
+            RelationPredicateBucket artiklBucket = new RelationPredicateBucket();
+            artiklBucket.PredicateExpression.Add(ArtiklFields.IsActive == true);
+            artiklBucket.PredicateExpression.Add(ArtiklFields.ArtiklId != existingArtiklIdArray);
+
+            this.ArtiklCollecton = ArtiklEntity.FetchArtiklCollection(adapter, artiklBucket, null).OrderBy(a => a.Naziv);
         }
 
         #endregion Public methods
