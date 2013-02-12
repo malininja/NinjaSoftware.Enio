@@ -41,7 +41,7 @@ namespace NinjaSoftware.Enio.Models
 
         public void Save(SD.LLBLGen.Pro.ORMSupportClasses.DataAccessAdapterBase adapter)
         {
-            this.Cjenik.Save(adapter, false, false);
+            this.Cjenik.Save(adapter, true, false);
         }
 
         public void LoadViewSpecificData(SD.LLBLGen.Pro.ORMSupportClasses.DataAccessAdapterBase adapter)

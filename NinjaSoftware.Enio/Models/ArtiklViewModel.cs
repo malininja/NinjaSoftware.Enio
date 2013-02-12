@@ -27,15 +27,19 @@ namespace NinjaSoftware.Enio.Models
 
         #endregion Constructor
 
+        #region Public methods
+
         public void Save(DataAccessAdapterBase adapter)
         {
-            this.Artikl.Save(adapter, false, false);
+            this.Artikl.Save(adapter, true, false);
         }
 
         public void LoadViewSpecificData(DataAccessAdapterBase adapter)
         {
             this.PdvCollection = PdvEntity.FetchPdvCollection(adapter, null, null).OrderBy(pdv => pdv.Naziv);
         }
+
+        #endregion Public methods
 
         #region Properties
 
