@@ -312,5 +312,22 @@ namespace NinjaSoftware.Enio.Controllers
         }
 
         #endregion
+
+        #region Racun
+
+        [HttpGet]
+        public ActionResult RacunGlavaList(int? pageNumber, string sortField, bool? isSortAscending)
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+            using (adapter)
+            {
+                RacunGlavaPager pager = new RacunGlavaPager();
+                pager.LoadData(adapter, pageNumber, this.PageSize, sortField, isSortAscending);
+
+                return View(pager);
+            }
+        }
+
+        #endregion Racun
     }
 }

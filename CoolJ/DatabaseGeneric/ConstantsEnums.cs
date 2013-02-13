@@ -187,6 +187,8 @@ namespace NinjaSoftware.Enio.CoolJ
 	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: RacunGlava.</summary>
 	public enum RacunGlavaFieldIndex
 	{
+		///<summary>BrojRacuna. </summary>
+		BrojRacuna,
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
 		///<summary>Datum. </summary>

@@ -234,6 +234,7 @@
       </EntityDefinition>
       <EntityDefinition Name="RacunGlava">
         <Fields>
+          <Field Name="BrojRacuna" Type="int" />
           <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
           <Field Name="Datum" Type="datetime" />
           <Field Name="Godina" Type="short" />
@@ -490,10 +491,11 @@
                     <Field Name="MjestoRadaNaziv" Ordinal="5" IsOptional="true" DbType="12" Length="100" />
                     <Field Name="PartnerId" Ordinal="6" DbType="0" Precision="19" />
                     <Field Name="RacunGlavaId" Ordinal="7" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_ec513c84e8aa0b477cb3ce2816d" DbType="0" Precision="19" />
-                    <Field Name="StatusId" Ordinal="8" DbType="0" Precision="19" />
                     <Field Name="TarifaId" Ordinal="9" DbType="0" Precision="19" />
                     <Field Name="TarifaStopa" Ordinal="10" DbType="5" Precision="5" Scale="2" />
                     <Field Name="Valuta" Ordinal="11" DbType="16" Precision="5" />
+                    <Field Name="StatusId" Ordinal="13" DbType="0" Precision="19" />
+                    <Field Name="BrojRacuna" Ordinal="14" DbType="8" Precision="10" />
                   </Fields>
                 </Table>
                 <Table Name="RacunStavka">
@@ -587,7 +589,7 @@
                 <FieldPair PkField="dbo:Partner:PartnerId" FkField="dbo:RacunGlava:PartnerId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="dbo:RacunGlava:FK_b3f3866433f9629df549bb2ba25">
+            <ForeignKeyConstraint Name="dbo:RacunGlava:FK_934c51f42758de9ac3b0686d460">
               <FieldPairs>
                 <FieldPair PkField="dbo:StatusRo:StatusId" FkField="dbo:RacunGlava:StatusId" />
               </FieldPairs>
@@ -741,10 +743,11 @@
                     <Field Name="MjestoRadaNaziv" Ordinal="5" IsOptional="true" DbType="24" Length="100" />
                     <Field Name="PartnerId" Ordinal="6" DbType="10" Precision="19" />
                     <Field Name="RacunGlavaId" Ordinal="7" IsPrimaryKey="true" PkConstraintName="PK_2ace6ec4137803379b7e704c868" DbType="10" Precision="19" />
-                    <Field Name="StatusId" Ordinal="8" DbType="10" Precision="19" />
                     <Field Name="TarifaId" Ordinal="9" DbType="10" Precision="19" />
                     <Field Name="TarifaStopa" Ordinal="10" DbType="14" Precision="5" Scale="2" />
                     <Field Name="Valuta" Ordinal="11" DbType="8" />
+                    <Field Name="StatusId" Ordinal="13" DbType="10" Precision="19" />
+                    <Field Name="BrojRacuna" Ordinal="14" DbType="9" />
                   </Fields>
                 </Table>
                 <Table Name="RacunStavka">
@@ -833,14 +836,14 @@
                 <FieldPair PkField="public:Error:ErrorId" FkField="public:Error:ParentErrorId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="public:RacunGlava:FK_12e16d34d84949c25167b213d97">
-              <FieldPairs>
-                <FieldPair PkField="public:StatusRo:StatusId" FkField="public:RacunGlava:StatusId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="public:RacunGlava:FK_432e8c241f98aed846b19115ec5">
               <FieldPairs>
                 <FieldPair PkField="public:Partner:PartnerId" FkField="public:RacunGlava:PartnerId" />
+              </FieldPairs>
+            </ForeignKeyConstraint>
+            <ForeignKeyConstraint Name="public:RacunGlava:FK_6e54b2d453d9c2aca491fc88eb6">
+              <FieldPairs>
+                <FieldPair PkField="public:StatusRo:StatusId" FkField="public:RacunGlava:StatusId" />
               </FieldPairs>
             </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="public:RacunGlava:FK_de4ccaf4171b10223250058c83a">
@@ -970,6 +973,7 @@
         </EntityMapping>
         <EntityMapping EntityName=":RacunGlava" TargetName="Enio:dbo:RacunGlava">
           <FieldMappings>
+            <FieldMapping FieldName="BrojRacuna" TargetFieldName="BrojRacuna" />
             <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
             <FieldMapping FieldName="Datum" TargetFieldName="Datum" />
             <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
@@ -1136,6 +1140,7 @@
         </EntityMapping>
         <EntityMapping EntityName=":RacunGlava" TargetName="Default:public:RacunGlava">
           <FieldMappings>
+            <FieldMapping FieldName="BrojRacuna" TargetFieldName="BrojRacuna" />
             <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
             <FieldMapping FieldName="Datum" TargetFieldName="Datum" />
             <FieldMapping FieldName="Godina" TargetFieldName="Godina" />

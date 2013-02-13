@@ -517,6 +517,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			_fieldsCustomProperties = new Dictionary<string, Dictionary<string, string>>();
 			Dictionary<string, string> fieldHashtable;
 			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("BrojRacuna", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("ConcurrencyGuid", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Datum", fieldHashtable);
@@ -721,6 +723,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, Dictionary<string, string>> FieldsCustomPropertiesOfType
 		{
 			get { return FieldsCustomProperties;}
+		}
+
+		/// <summary> The BrojRacuna property of the Entity RacunGlava<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "RacunGlava"."BrojRacuna"<br/>
+		/// Table field type characteristics (type, precision, scale, length): Int, 10, 0, 0<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.Int32 BrojRacuna
+		{
+			get { return (System.Int32)GetValue((int)RacunGlavaFieldIndex.BrojRacuna, true); }
+			set	{ SetValue((int)RacunGlavaFieldIndex.BrojRacuna, value); }
 		}
 
 		/// <summary> The ConcurrencyGuid property of the Entity RacunGlava<br/><br/></summary>

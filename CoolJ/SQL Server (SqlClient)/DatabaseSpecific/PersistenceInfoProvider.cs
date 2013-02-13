@@ -177,18 +177,19 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 		/// <summary>Inits RacunGlavaEntity's mappings</summary>
 		private void InitRacunGlavaEntityMappings()
 		{
-			this.AddElementMapping( "RacunGlavaEntity", @"Enio", @"dbo", "RacunGlava", 11 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 0 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "Datum", "Datum", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "Godina", "Godina", false, "SmallInt", 0, 0, 5, false, "", null, typeof(System.Int16), 2 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "MjestoRadaAdresa", "MjestoRadaAdresa", true, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 3 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "MjestoRadaNaziv", "MjestoRadaNaziv", true, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 4 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "PartnerId", "PartnerId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 5 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "RacunGlavaId", "RacunGlavaId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 6 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "StatusId", "StatusId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 7 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaId", "TarifaId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 8 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaStopa", "TarifaStopa", false, "Decimal", 0, 2, 5, false, "", null, typeof(System.Decimal), 9 );
-			this.AddElementFieldMapping( "RacunGlavaEntity", "Valuta", "Valuta", false, "SmallInt", 0, 0, 5, false, "", null, typeof(System.Int16), 10 );
+			this.AddElementMapping( "RacunGlavaEntity", @"Enio", @"dbo", "RacunGlava", 12 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "BrojRacuna", "BrojRacuna", false, "Int", 0, 0, 10, false, "", null, typeof(System.Int32), 0 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 1 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "Datum", "Datum", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 2 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "Godina", "Godina", false, "SmallInt", 0, 0, 5, false, "", null, typeof(System.Int16), 3 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "MjestoRadaAdresa", "MjestoRadaAdresa", true, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 4 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "MjestoRadaNaziv", "MjestoRadaNaziv", true, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 5 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "PartnerId", "PartnerId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 6 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "RacunGlavaId", "RacunGlavaId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 7 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "StatusId", "StatusId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 8 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaId", "TarifaId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 9 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaStopa", "TarifaStopa", false, "Decimal", 0, 2, 5, false, "", null, typeof(System.Decimal), 10 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "Valuta", "Valuta", false, "SmallInt", 0, 0, 5, false, "", null, typeof(System.Int16), 11 );
 		}
 		/// <summary>Inits RacunStavkaEntity's mappings</summary>
 		private void InitRacunStavkaEntityMappings()

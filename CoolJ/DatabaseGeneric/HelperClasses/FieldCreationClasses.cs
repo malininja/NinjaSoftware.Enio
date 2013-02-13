@@ -351,6 +351,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 	/// <summary>Field Creation Class for entity RacunGlavaEntity</summary>
 	public partial class RacunGlavaFields
 	{
+		/// <summary>Creates a new RacunGlavaEntity.BrojRacuna field instance</summary>
+		public static EntityField2 BrojRacuna
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(RacunGlavaFieldIndex.BrojRacuna);}
+		}
 		/// <summary>Creates a new RacunGlavaEntity.ConcurrencyGuid field instance</summary>
 		public static EntityField2 ConcurrencyGuid
 		{

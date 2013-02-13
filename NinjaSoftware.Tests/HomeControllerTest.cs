@@ -64,25 +64,24 @@ namespace NinjaSoftware.Tests
                 link = string.Format("{0}%3f{1}%3d{2}", link, keyValuePair.Key, keyValuePair.Value);
             }
 
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(link);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(link);
 
             //this values will change depending on the website
             string values = "UserName=ninja&Password=123456";
 
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            req.ContentLength = values.Length;
-            CookieContainer a = new CookieContainer();
-            req.CookieContainer = a;
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = values.Length;
+            request.CookieContainer = new CookieContainer();
             System.Net.ServicePointManager.Expect100Continue = false; // prevents 417 error
-            using (StreamWriter writer = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII))
+            using (StreamWriter writer = new StreamWriter(request.GetRequestStream(), System.Text.Encoding.ASCII))
             {
                 writer.Write(values);
             }
-            HttpWebResponse c = (HttpWebResponse)req.GetResponse();
-            Stream ResponseStream = c.GetResponseStream();
-            StreamReader LeerResult = new StreamReader(ResponseStream);
-            string source = LeerResult.ReadToEnd();
+            HttpWebResponse c = (HttpWebResponse)request.GetResponse();
+            Stream responseStream = c.GetResponseStream();
+            StreamReader resultStream = new StreamReader(responseStream);
+            string source = resultStream.ReadToEnd();
             
             return source;
         }

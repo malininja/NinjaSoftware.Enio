@@ -1,0 +1,42 @@
+﻿@model NinjaSoftware.Enio.Models.RacunGlavaPager
+@using NinjaSoftware.Enio.CoolJ.EntityClasses
+@using NinjaSoftware.Api.Mvc
+
+@{
+    string title = "Lista računa";
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+
+@Html.ActionLink("Dodaj novi račun", "RacunEdit")
+<br />
+
+<table>
+    <thead>
+        <tr>
+            <th>Broj</th>
+            <th>Partner</th>
+            <th>Datum</th>
+            <th>Iznos</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (RacunGlavaEntity racunGlava in Model.DataSource)
+        { 
+        <tr>
+            <td>@racunGlava.BrojRacuna</td>
+            <td>@racunGlava.Partner.Naziv</td>
+            <td>@racunGlava.Datum.ToShortDateString()</td>
+            <td>@racunGlava.Iznos</td>
+            <td>@racunGlava.Status.Name</td>
+            <td>@Html.ActionLink("Uredi", "RacunEdit", new { racunGlavaId = racunGlava.RacunGlavaId })</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+    
+    </tfoot>
+</table>

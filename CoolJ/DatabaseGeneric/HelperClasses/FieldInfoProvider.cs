@@ -180,6 +180,7 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		private void InitRacunGlavaEntityInfos()
 		{
 			this.AddFieldIndexEnumForElementName(typeof(RacunGlavaFieldIndex), "RacunGlavaEntity");
+			this.AddElementFieldInfo("RacunGlavaEntity", "BrojRacuna", typeof(System.Int32), false, false, false, false,  (int)RacunGlavaFieldIndex.BrojRacuna, 0, 0, 10);
 			this.AddElementFieldInfo("RacunGlavaEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)RacunGlavaFieldIndex.ConcurrencyGuid, 50, 0, 0);
 			this.AddElementFieldInfo("RacunGlavaEntity", "Datum", typeof(System.DateTime), false, false, false, false,  (int)RacunGlavaFieldIndex.Datum, 0, 0, 0);
 			this.AddElementFieldInfo("RacunGlavaEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)RacunGlavaFieldIndex.Godina, 0, 0, 5);

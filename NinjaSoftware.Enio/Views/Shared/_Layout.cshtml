@@ -27,7 +27,7 @@
                         <ul id="menu">
                             @if (User.Identity.IsAuthenticated)
                             {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Računi", "RacunGlavaList", "Home")</li>
                             <li>@Html.ActionLink("Artikli", "ArtiklList", "Home")</li>
                             <li>@Html.ActionLink("Partneri", "PartnerList", "Home")</li>
                             <li>@Html.ActionLink("Tarifa", "TarifaList", "Home")</li>

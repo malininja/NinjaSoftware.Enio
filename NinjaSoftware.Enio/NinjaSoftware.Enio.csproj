@@ -134,6 +134,7 @@
     <Compile Include="Models\NsMembershipProvider.cs" />
     <Compile Include="Models\NsRoleProvider.cs" />
     <Compile Include="Models\PartnerPager.cs" />
+    <Compile Include="Models\RacunGlavaPager.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -311,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\CjenikEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\RacunGlavaList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
