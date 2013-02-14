@@ -29,28 +29,12 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.CjenikEntityUsingArtiklId);
 			toReturn.Add(this.RacunStavkaEntityUsingArtiklId);
 			toReturn.Add(this.PdvEntityUsingPdvId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
-
-		/// <summary>Returns a new IEntityRelation object, between ArtiklEntity and CjenikEntity over the 1:n relation they have, using the relation between the fields:
-		/// Artikl.ArtiklId - Cjenik.ArtiklId
-		/// </summary>
-		public virtual IEntityRelation CjenikEntityUsingArtiklId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "CjenikCollection" , true);
-				relation.AddEntityFieldPair(ArtiklFields.ArtiklId, CjenikFields.ArtiklId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("ArtiklEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("CjenikEntity", false);
-				return relation;
-			}
-		}
 
 		/// <summary>Returns a new IEntityRelation object, between ArtiklEntity and RacunStavkaEntity over the 1:n relation they have, using the relation between the fields:
 		/// Artikl.ArtiklId - RacunStavka.ArtiklId
@@ -96,7 +80,6 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticArtiklRelations
 	{
-		internal static readonly IEntityRelation CjenikEntityUsingArtiklIdStatic = new ArtiklRelations().CjenikEntityUsingArtiklId;
 		internal static readonly IEntityRelation RacunStavkaEntityUsingArtiklIdStatic = new ArtiklRelations().RacunStavkaEntityUsingArtiklId;
 		internal static readonly IEntityRelation PdvEntityUsingPdvIdStatic = new ArtiklRelations().PdvEntityUsingPdvId;
 

@@ -16,7 +16,7 @@ using NinjaSoftware.Enio.Models;
 using System.Linq;
 using NinjaSoftware.Enio.CoolJ.HelperClasses;
 
-namespace NinjaSoftware.Tests
+namespace NinjaSoftware.Enio.Tests
 {
     /// <summary>
     ///This is a test class for HomeControllerTest and is intended
@@ -146,51 +146,6 @@ namespace NinjaSoftware.Tests
         }
 
         [TestMethod()]
-        public void CjenikEditTest()
-        {
-            Dictionary<string, string> routeValues = new Dictionary<string, string>();
-            long partnerId = PartnerEntity.FetchPartnerCollection(_adapter, null, null).First().PartnerId;
-            routeValues.Add("partnerId", partnerId.ToString());
-
-            string page = FetchPage("CjenikEdit", routeValues);
-        }
-
-        [TestMethod()]
-        public void CjenikEditTest1()
-        {
-            long partnerId = PartnerEntity.FetchPartnerCollection(_adapter, null, null).First().PartnerId;
-
-            CjenikViewModel cjenikViewModel = new CjenikViewModel(_adapter, null, partnerId);
-
-            RelationPredicateBucket bucket = new RelationPredicateBucket(CjenikFields.PartnerId == partnerId);
-            EntityCollection<CjenikEntity> cjenikCollection = CjenikEntity.FetchCjenikCollection(_adapter, bucket, null);
-
-            long[] artiklIdArray = cjenikCollection.Select(c => c.ArtiklId).ToArray();
-            bucket = new RelationPredicateBucket(ArtiklFields.ArtiklId != artiklIdArray);
-            long artiklId = ArtiklEntity.FetchArtiklCollection(_adapter, bucket, null).First().ArtiklId;
-
-            cjenikViewModel.Cjenik.ArtiklId = artiklId;
-            cjenikViewModel.Cjenik.Cijena = 23.45M;
-
-            cjenikViewModel.Save(_adapter);
-
-            Dictionary<string, string> routeValues = new Dictionary<string, string>();
-            routeValues.Add("cjenikId", cjenikViewModel.Cjenik.CjenikId.ToString());
-
-            string page = FetchPage("CjenikEdit", routeValues);
-        }
-
-        [TestMethod()]
-        public void CjenikListTest()
-        {
-            long partnerId = PartnerEntity.FetchPartnerCollection(_adapter, null, null).First().PartnerId;
-            Dictionary<string, string> routeValues = new Dictionary<string, string>();
-            routeValues.Add("partnerId", partnerId.ToString());
-
-            string page = FetchPage("CjenikList", routeValues);
-        }
-
-        [TestMethod()]
         public void PartnerEditTest()
         {
             string page = FetchPage("PartnerEdit");
@@ -275,6 +230,12 @@ namespace NinjaSoftware.Tests
         public void TarifaListTest()
         {
             string page = FetchPage("TarifaList");
+        }
+
+        [TestMethod()]
+        public void RacunGlavaListTest()
+        {
+            string page = FetchPage("RacunGlavaList");
         }
     }
 }

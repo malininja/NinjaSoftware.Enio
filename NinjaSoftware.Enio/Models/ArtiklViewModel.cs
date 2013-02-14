@@ -5,6 +5,7 @@ using System.Web;
 using NinjaSoftware.Api.Mvc;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using NinjaSoftware.Enio.CoolJ.EntityClasses;
+using NinjaSoftware.Enio.CoolJ;
 
 namespace NinjaSoftware.Enio.Models
 {
@@ -21,6 +22,7 @@ namespace NinjaSoftware.Enio.Models
             else
             {
                 this.Artikl = new ArtiklEntity();
+                this.Artikl.Jm = "kom";
                 this.Artikl.IsActive = true;
             }
         }

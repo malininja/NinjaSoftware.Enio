@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Api.Core", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Api.Mvc", "..\NinjaSoftware.Helpers\NinjaSoftware.Api.Mvc\NinjaSoftware.Api.Mvc.csproj", "{4D6AE12C-C700-4AB6-A97F-66C9246F0420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Tests", "NinjaSoftware.Tests\NinjaSoftware.Tests.csproj", "{8E615117-39EE-4690-8481-886B9BC43E8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSoftware.Enio.Tests", "NinjaSoftware.Tests\NinjaSoftware.Enio.Tests.csproj", "{8E615117-39EE-4690-8481-886B9BC43E8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

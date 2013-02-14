@@ -72,9 +72,6 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 				case NinjaSoftware.Enio.CoolJ.EntityType.BrojacEntity:
 					toReturn = this.Brojac;
 					break;
-				case NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity:
-					toReturn = this.Cjenik;
-					break;
 				case NinjaSoftware.Enio.CoolJ.EntityType.ConfigEntity:
 					toReturn = this.Config;
 					break;
@@ -137,12 +134,6 @@ namespace NinjaSoftware.Enio.CoolJ.Linq
 		public DataSource2<BrojacEntity> Brojac
 		{
 			get { return new DataSource2<BrojacEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
-		}
-		
-		/// <summary>returns the datasource to use in a Linq query when targeting CjenikEntity instances in the database.</summary>
-		public DataSource2<CjenikEntity> Cjenik
-		{
-			get { return new DataSource2<CjenikEntity>(_adapterToUse, new ElementCreator(), _customFunctionMappings, _contextToUse); }
 		}
 		
 		/// <summary>returns the datasource to use in a Linq query when targeting ConfigEntity instances in the database.</summary>

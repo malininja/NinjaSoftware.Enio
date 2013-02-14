@@ -46,12 +46,11 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 		/// <summary>Method which initializes the internal datastores with the structure of hierarchical types.</summary>
 		private void Init()
 		{
-			this.InitClass((16 + 0));
+			this.InitClass((15 + 0));
 			InitArtiklEntityMappings();
 			InitAuditInfoEntityMappings();
 			InitAuditInfoActionTypeRoEntityMappings();
 			InitBrojacEntityMappings();
-			InitCjenikEntityMappings();
 			InitConfigEntityMappings();
 			InitEntityRoEntityMappings();
 			InitErrorEntityMappings();
@@ -70,13 +69,14 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 		/// <summary>Inits ArtiklEntity's mappings</summary>
 		private void InitArtiklEntityMappings()
 		{
-			this.AddElementMapping( "ArtiklEntity", @"Enio", @"dbo", "Artikl", 6 );
+			this.AddElementMapping( "ArtiklEntity", @"Enio", @"dbo", "Artikl", 7 );
 			this.AddElementFieldMapping( "ArtiklEntity", "ArtiklId", "ArtiklId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 0 );
-			this.AddElementFieldMapping( "ArtiklEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 1 );
-			this.AddElementFieldMapping( "ArtiklEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 2 );
-			this.AddElementFieldMapping( "ArtiklEntity", "Jm", "Jm", false, "NVarChar", 10, 0, 0, false, "", null, typeof(System.String), 3 );
-			this.AddElementFieldMapping( "ArtiklEntity", "Naziv", "Naziv", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 4 );
-			this.AddElementFieldMapping( "ArtiklEntity", "PdvId", "PdvId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 5 );
+			this.AddElementFieldMapping( "ArtiklEntity", "Cijena", "Cijena", false, "Decimal", 0, 2, 10, false, "", null, typeof(System.Decimal), 1 );
+			this.AddElementFieldMapping( "ArtiklEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 2 );
+			this.AddElementFieldMapping( "ArtiklEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 3 );
+			this.AddElementFieldMapping( "ArtiklEntity", "Jm", "Jm", false, "NVarChar", 10, 0, 0, false, "", null, typeof(System.String), 4 );
+			this.AddElementFieldMapping( "ArtiklEntity", "Naziv", "Naziv", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 5 );
+			this.AddElementFieldMapping( "ArtiklEntity", "PdvId", "PdvId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 6 );
 		}
 		/// <summary>Inits AuditInfoEntity's mappings</summary>
 		private void InitAuditInfoEntityMappings()
@@ -108,16 +108,6 @@ namespace NinjaSoftware.Enio.CoolJ.SqlServer.DatabaseSpecific
 			this.AddElementFieldMapping( "BrojacEntity", "Godina", "Godina", false, "SmallInt", 0, 0, 5, false, "", null, typeof(System.Int16), 2 );
 			this.AddElementFieldMapping( "BrojacEntity", "Naziv", "Naziv", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 3 );
 			this.AddElementFieldMapping( "BrojacEntity", "SlijedeciBroj", "SlijedeciBroj", false, "Int", 0, 0, 10, false, "", null, typeof(System.Int32), 4 );
-		}
-		/// <summary>Inits CjenikEntity's mappings</summary>
-		private void InitCjenikEntityMappings()
-		{
-			this.AddElementMapping( "CjenikEntity", @"Enio", @"dbo", "Cjenik", 5 );
-			this.AddElementFieldMapping( "CjenikEntity", "ArtiklId", "ArtiklId", false, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 0 );
-			this.AddElementFieldMapping( "CjenikEntity", "Cijena", "Cijena", false, "Decimal", 0, 4, 10, false, "", null, typeof(System.Decimal), 1 );
-			this.AddElementFieldMapping( "CjenikEntity", "CjenikId", "CjenikId", false, "BigInt", 0, 0, 19, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 2 );
-			this.AddElementFieldMapping( "CjenikEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "NVarChar", 50, 0, 0, false, "", null, typeof(System.String), 3 );
-			this.AddElementFieldMapping( "CjenikEntity", "PartnerId", "PartnerId", true, "BigInt", 0, 0, 19, false, "", null, typeof(System.Int64), 4 );
 		}
 		/// <summary>Inits ConfigEntity's mappings</summary>
 		private void InitConfigEntityMappings()

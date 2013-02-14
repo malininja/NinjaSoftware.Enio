@@ -128,13 +128,12 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ArtiklPager.cs" />
     <Compile Include="Models\ArtiklViewModel.cs" />
-    <Compile Include="Models\CjenikPager.cs" />
-    <Compile Include="Models\CjenikViewModel.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\NsMembershipProvider.cs" />
     <Compile Include="Models\NsRoleProvider.cs" />
     <Compile Include="Models\PartnerPager.cs" />
     <Compile Include="Models\RacunGlavaPager.cs" />
+    <Compile Include="Models\RacunViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -306,12 +305,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\TarifaEdit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\CjenikList.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\CjenikEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\RacunGlavaList.cshtml" />

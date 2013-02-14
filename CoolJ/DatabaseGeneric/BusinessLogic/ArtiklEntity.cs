@@ -25,6 +25,9 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
             [Required(ErrorMessage = DataAnnotationConstants.Required)]
             public object PdvId;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object Cijena;
         }
 
         #endregion

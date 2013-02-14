@@ -15,6 +15,8 @@ namespace NinjaSoftware.Enio.CoolJ
 	{
 		///<summary>ArtiklId. </summary>
 		ArtiklId,
+		///<summary>Cijena. </summary>
+		Cijena,
 		///<summary>ConcurrencyGuid. </summary>
 		ConcurrencyGuid,
 		///<summary>IsActive. </summary>
@@ -75,22 +77,6 @@ namespace NinjaSoftware.Enio.CoolJ
 		Naziv,
 		///<summary>SlijedeciBroj. </summary>
 		SlijedeciBroj,
-		/// <summary></summary>
-		AmountOfFields
-	}
-	/// <summary>Index enum to fast-access EntityFields in the IEntityFields collection for the entity: Cjenik.</summary>
-	public enum CjenikFieldIndex
-	{
-		///<summary>ArtiklId. </summary>
-		ArtiklId,
-		///<summary>Cijena. </summary>
-		Cijena,
-		///<summary>CjenikId. </summary>
-		CjenikId,
-		///<summary>ConcurrencyGuid. </summary>
-		ConcurrencyGuid,
-		///<summary>PartnerId. </summary>
-		PartnerId,
 		/// <summary></summary>
 		AmountOfFields
 	}
@@ -312,8 +298,6 @@ namespace NinjaSoftware.Enio.CoolJ
 		AuditInfoActionTypeRoEntity,
 		///<summary>Brojac</summary>
 		BrojacEntity,
-		///<summary>Cjenik</summary>
-		CjenikEntity,
 		///<summary>Config</summary>
 		ConfigEntity,
 		///<summary>EntityRo</summary>

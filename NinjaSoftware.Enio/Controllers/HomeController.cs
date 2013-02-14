@@ -261,58 +261,6 @@ namespace NinjaSoftware.Enio.Controllers
 
         #endregion Tarifa
 
-        #region Cjenik
-
-        [HttpGet]
-        public ActionResult CjenikList(long? partnerId, int? pageNumber, string sortField, bool? isSortAscending)
-        {
-            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
-            using (adapter)
-            {
-                CjenikPager cjenikPager = new CjenikPager(adapter, partnerId);
-                cjenikPager.LoadData(adapter, pageNumber, this.PageSize, sortField, isSortAscending);
-                return View(cjenikPager);
-            }
-        }
-
-        [HttpGet]
-        public ActionResult CjenikEdit(long? cjenikId, long? partnerId)
-        {
-            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
-            using (adapter)
-            {
-                CjenikViewModel viewModel = new CjenikViewModel(adapter, cjenikId, partnerId);
-                viewModel.LoadViewSpecificData(adapter);
-                return View(viewModel);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult CjenikEdit(long? cjenikId, long? partnerId, FormCollection formCollection)
-        {
-            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
-            using (adapter)
-            {
-                CjenikViewModel viewModel = new CjenikViewModel(adapter, cjenikId, partnerId);
-
-                if (!viewModel.Cjenik.IsNew)
-                {
-                    partnerId = viewModel.Cjenik.PartnerId;
-                }
-
-                if (TryUpdateAndSaveIViewModel(viewModel, adapter))
-                {
-                    return RedirectToAction("CjenikList", new { partnerId });
-                }
-                else
-                {
-                    return View(viewModel);
-                }
-            }
-        }
-
-        #endregion
-
         #region Racun
 
         [HttpGet]

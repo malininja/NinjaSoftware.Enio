@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NinjaSoftware.Tests {
+namespace NinjaSoftware.Enio.Tests {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

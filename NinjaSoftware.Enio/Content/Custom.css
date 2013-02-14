@@ -1,4 +1,9 @@
-﻿table.datatable tfoot td
+﻿table.datatable
+{
+      
+}
+
+table.datatable tfoot td
 {
     text-align: center;
     background-color: #B8B8B8;
@@ -6,6 +11,7 @@
     
 table.datatable th
 {
+    text-align: center;
     background-color: #B8B8B8;
 }
 

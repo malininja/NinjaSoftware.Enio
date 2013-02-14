@@ -34,7 +34,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
 		#region Class Member Declarations
-		private EntityCollection<CjenikEntity> _cjenikCollection;
 		private EntityCollection<RacunGlavaEntity> _racunGlavaCollection;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
@@ -48,8 +47,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name CjenikCollection</summary>
-			public static readonly string CjenikCollection = "CjenikCollection";
 			/// <summary>Member name RacunGlavaCollection</summary>
 			public static readonly string RacunGlavaCollection = "RacunGlavaCollection";
 		}
@@ -169,7 +166,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			if(SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				_cjenikCollection = (EntityCollection<CjenikEntity>)info.GetValue("_cjenikCollection", typeof(EntityCollection<CjenikEntity>));
 				_racunGlavaCollection = (EntityCollection<RacunGlavaEntity>)info.GetValue("_racunGlavaCollection", typeof(EntityCollection<RacunGlavaEntity>));
 				this.FixupDeserialization(FieldInfoProviderSingleton.GetInstance());
 			}
@@ -186,9 +182,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(propertyName)
 			{
-				case "CjenikCollection":
-					this.CjenikCollection.Add((CjenikEntity)entity);
-					break;
 				case "RacunGlavaCollection":
 					this.RacunGlavaCollection.Add((RacunGlavaEntity)entity);
 					break;
@@ -214,9 +207,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			RelationCollection toReturn = new RelationCollection();
 			switch(fieldName)
 			{
-				case "CjenikCollection":
-					toReturn.Add(Relations.CjenikEntityUsingPartnerId);
-					break;
 				case "RacunGlavaCollection":
 					toReturn.Add(Relations.RacunGlavaEntityUsingPartnerId);
 					break;
@@ -248,9 +238,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "CjenikCollection":
-					this.CjenikCollection.Add((CjenikEntity)relatedEntity);
-					break;
 				case "RacunGlavaCollection":
 					this.RacunGlavaCollection.Add((RacunGlavaEntity)relatedEntity);
 					break;
@@ -267,9 +254,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			switch(fieldName)
 			{
-				case "CjenikCollection":
-					this.PerformRelatedEntityRemoval(this.CjenikCollection, relatedEntity, signalRelatedEntityManyToOne);
-					break;
 				case "RacunGlavaCollection":
 					this.PerformRelatedEntityRemoval(this.RacunGlavaCollection, relatedEntity, signalRelatedEntityManyToOne);
 					break;
@@ -300,7 +284,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntityCollection2> GetMemberEntityCollections()
 		{
 			List<IEntityCollection2> toReturn = new List<IEntityCollection2>();
-			toReturn.Add(this.CjenikCollection);
 			toReturn.Add(this.RacunGlavaCollection);
 			return toReturn;
 		}
@@ -313,7 +296,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			if (SerializationHelper.Optimization != SerializationOptimization.Fast) 
 			{
-				info.AddValue("_cjenikCollection", ((_cjenikCollection!=null) && (_cjenikCollection.Count>0) && !this.MarkedForDeletion)?_cjenikCollection:null);
 				info.AddValue("_racunGlavaCollection", ((_racunGlavaCollection!=null) && (_racunGlavaCollection.Count>0) && !this.MarkedForDeletion)?_racunGlavaCollection:null);
 			}
 			// __LLBLGENPRO_USER_CODE_REGION_START GetObjectInfo
@@ -328,15 +310,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override List<IEntityRelation> GetAllRelations()
 		{
 			return new PartnerRelations().GetAllRelations();
-		}
-
-		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'Cjenik' to this entity.</summary>
-		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoCjenikCollection()
-		{
-			IRelationPredicateBucket bucket = new RelationPredicateBucket();
-			bucket.PredicateExpression.Add(new FieldCompareValuePredicate(CjenikFields.PartnerId, null, ComparisonOperator.Equal, this.PartnerId));
-			return bucket;
 		}
 
 		/// <summary> Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'RacunGlava' to this entity.</summary>
@@ -360,7 +333,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void AddToMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue) 
 		{
 			base.AddToMemberEntityCollectionsQueue(collectionsQueue);
-			collectionsQueue.Enqueue(this._cjenikCollection);
 			collectionsQueue.Enqueue(this._racunGlavaCollection);
 		}
 		
@@ -369,7 +341,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void GetFromMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue)
 		{
 			base.GetFromMemberEntityCollectionsQueue(collectionsQueue);
-			this._cjenikCollection = (EntityCollection<CjenikEntity>) collectionsQueue.Dequeue();
 			this._racunGlavaCollection = (EntityCollection<RacunGlavaEntity>) collectionsQueue.Dequeue();
 
 		}
@@ -379,7 +350,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override bool HasPopulatedMemberEntityCollections()
 		{
 			bool toReturn = false;
-			toReturn |=(this._cjenikCollection != null);
 			toReturn |=(this._racunGlavaCollection != null);
 			return toReturn ? true : base.HasPopulatedMemberEntityCollections();
 		}
@@ -390,7 +360,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override void CreateMemberEntityCollectionsQueue(Queue<IEntityCollection2> collectionsQueue, Queue<bool> requiredQueue) 
 		{
 			base.CreateMemberEntityCollectionsQueue(collectionsQueue, requiredQueue);
-			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<CjenikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(CjenikEntityFactory))) : null);
 			collectionsQueue.Enqueue(requiredQueue.Dequeue() ? new EntityCollection<RacunGlavaEntity>(EntityFactoryCache2.GetEntityFactory(typeof(RacunGlavaEntityFactory))) : null);
 		}
 #endif
@@ -399,7 +368,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		protected override Dictionary<string, object> GetRelatedData()
 		{
 			Dictionary<string, object> toReturn = new Dictionary<string, object>();
-			toReturn.Add("CjenikCollection", _cjenikCollection);
 			toReturn.Add("RacunGlavaCollection", _racunGlavaCollection);
 			return toReturn;
 		}
@@ -472,13 +440,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		public  static Dictionary<string, string> CustomProperties
 		{
 			get { return _customProperties;}
-		}
-
-		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'Cjenik' for this entity.</summary>
-		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathCjenikCollection
-		{
-			get	{ return new PrefetchPathElement2( new EntityCollection<CjenikEntity>(EntityFactoryCache2.GetEntityFactory(typeof(CjenikEntityFactory))), (IEntityRelation)GetRelationsForField("CjenikCollection")[0], (int)NinjaSoftware.Enio.CoolJ.EntityType.PartnerEntity, (int)NinjaSoftware.Enio.CoolJ.EntityType.CjenikEntity, 0, null, null, null, null, "CjenikCollection", SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany);	}
 		}
 
 		/// <summary> Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'RacunGlava' for this entity.</summary>
@@ -609,13 +570,6 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			get { return (System.Int16)GetValue((int)PartnerFieldIndex.Valuta, true); }
 			set	{ SetValue((int)PartnerFieldIndex.Valuta, value); }
-		}
-
-		/// <summary> Gets the EntityCollection with the related entities of type 'CjenikEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
-		[TypeContainedAttribute(typeof(CjenikEntity))]
-		public virtual EntityCollection<CjenikEntity> CjenikCollection
-		{
-			get { return GetOrCreateEntityCollection<CjenikEntity, CjenikEntityFactory>("Partner", true, false, ref _cjenikCollection);	}
 		}
 
 		/// <summary> Gets the EntityCollection with the related entities of type 'RacunGlavaEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>

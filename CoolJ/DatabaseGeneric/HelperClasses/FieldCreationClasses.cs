@@ -21,6 +21,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.ArtiklId);}
 		}
+		/// <summary>Creates a new ArtiklEntity.Cijena field instance</summary>
+		public static EntityField2 Cijena
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(ArtiklFieldIndex.Cijena);}
+		}
 		/// <summary>Creates a new ArtiklEntity.ConcurrencyGuid field instance</summary>
 		public static EntityField2 ConcurrencyGuid
 		{
@@ -140,36 +145,6 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		public static EntityField2 SlijedeciBroj
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(BrojacFieldIndex.SlijedeciBroj);}
-		}
-	}
-
-	/// <summary>Field Creation Class for entity CjenikEntity</summary>
-	public partial class CjenikFields
-	{
-		/// <summary>Creates a new CjenikEntity.ArtiklId field instance</summary>
-		public static EntityField2 ArtiklId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(CjenikFieldIndex.ArtiklId);}
-		}
-		/// <summary>Creates a new CjenikEntity.Cijena field instance</summary>
-		public static EntityField2 Cijena
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(CjenikFieldIndex.Cijena);}
-		}
-		/// <summary>Creates a new CjenikEntity.CjenikId field instance</summary>
-		public static EntityField2 CjenikId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(CjenikFieldIndex.CjenikId);}
-		}
-		/// <summary>Creates a new CjenikEntity.ConcurrencyGuid field instance</summary>
-		public static EntityField2 ConcurrencyGuid
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(CjenikFieldIndex.ConcurrencyGuid);}
-		}
-		/// <summary>Creates a new CjenikEntity.PartnerId field instance</summary>
-		public static EntityField2 PartnerId
-		{
-			get { return (EntityField2)EntityFieldFactory.Create(CjenikFieldIndex.PartnerId);}
 		}
 	}
 

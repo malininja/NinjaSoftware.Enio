@@ -57,6 +57,15 @@
                     @Html.ValidationMessageFor(model => model.Artikl.PdvId)
                 </td>            
             </tr>
+            <tr>
+                <td>
+                    Cijena (netto):
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Artikl.Cijena)
+                    @Html.ValidationMessageFor(model => model.Artikl.Cijena)
+                </td>            
+            </tr>
             @if (!Model.Artikl.IsNew)
             { 
             <tr>

@@ -132,6 +132,7 @@
       <EntityDefinition Name="Artikl">
         <Fields>
           <Field Name="ArtiklId" Type="long" IsPrimaryKey="true" />
+          <Field Name="Cijena" Type="decimal" Precision="10" Scale="2" />
           <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
           <Field Name="IsActive" Type="bool" />
           <Field Name="Jm" Type="string" MaxLength="10" />
@@ -166,21 +167,6 @@
           <Field Name="Naziv" Type="string" MaxLength="100" />
           <Field Name="SlijedeciBroj" Type="int" />
         </Fields>
-      </EntityDefinition>
-      <EntityDefinition Name="Cjenik">
-        <Fields>
-          <Field Name="ArtiklId" Type="long" />
-          <Field Name="Cijena" Type="decimal" Precision="10" Scale="4" />
-          <Field Name="CjenikId" Type="long" IsPrimaryKey="true" />
-          <Field Name="ConcurrencyGuid" Type="string" MaxLength="50" />
-          <Field Name="PartnerId" Type="long" IsOptional="true" />
-        </Fields>
-        <UniqueConstraints>
-          <UniqueConstraint Name="CjenikUnique">
-            <Field Name="ArtiklId" />
-            <Field Name="PartnerId" />
-          </UniqueConstraint>
-        </UniqueConstraints>
       </EntityDefinition>
       <EntityDefinition Name="Config">
         <Fields>
@@ -317,16 +303,6 @@
           <FieldFieldRelationship FkField="UserId" PkField="UserId" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Cjenik.Artikl-Artikl.CjenikCollection" Start=":Cjenik" End=":Artikl" StartNavigator="Artikl" EndNavigator="CjenikCollection" Type="4">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="ArtiklId" PkField="ArtiklId" />
-        </FieldRelationships>
-      </NormalRelationship>
-      <NormalRelationship Name="Cjenik.Partner-Partner.CjenikCollection" Start=":Cjenik" End=":Partner" StartNavigator="Partner" EndNavigator="CjenikCollection" Type="4" EndIsOptional="true">
-        <FieldRelationships>
-          <FieldFieldRelationship FkField="PartnerId" PkField="PartnerId" />
-        </FieldRelationships>
-      </NormalRelationship>
       <NormalRelationship Name="Error.ParentError-Error.ChildErrorCollection" Start=":Error" End=":Error" StartNavigator="ParentError" EndNavigator="ChildErrorCollection" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="ParentErrorId" PkField="ErrorId" />
@@ -387,6 +363,7 @@
                     <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
                     <Field Name="PdvId" Ordinal="7" DbType="0" Precision="19" />
                     <Field Name="IsActive" Ordinal="8" DbType="2" />
+                    <Field Name="Cijena" Ordinal="9" DbType="5" Precision="10" Scale="2" />
                   </Fields>
                 </Table>
                 <Table Name="AuditInfo">
@@ -416,21 +393,6 @@
                     <Field Name="Naziv" Ordinal="4" DbType="12" Length="100" />
                     <Field Name="SlijedeciBroj" Ordinal="5" DbType="8" Precision="10" />
                   </Fields>
-                </Table>
-                <Table Name="Cjenik">
-                  <Fields>
-                    <Field Name="ArtiklId" Ordinal="1" DbType="0" Precision="19" />
-                    <Field Name="Cijena" Ordinal="2" DbType="5" Precision="10" Scale="4" />
-                    <Field Name="CjenikId" Ordinal="3" IsIdentity="true" IsPrimaryKey="true" PkConstraintName="PK_115005a482f8b1a2a795c97ea20" DbType="0" Precision="19" />
-                    <Field Name="ConcurrencyGuid" Ordinal="4" DbType="12" Length="50" />
-                    <Field Name="PartnerId" Ordinal="5" IsOptional="true" DbType="0" Precision="19" />
-                  </Fields>
-                  <UniqueConstraints>
-                    <UniqueConstraint Name="UC_e54ae784860b5b0411d030fdd1b">
-                      <Field Name="ArtiklId" />
-                      <Field Name="PartnerId" />
-                    </UniqueConstraint>
-                  </UniqueConstraints>
                 </Table>
                 <Table Name="Config">
                   <Fields>
@@ -569,16 +531,6 @@
                 <FieldPair PkField="dbo:User:UserId" FkField="dbo:AuditInfo:UserId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="dbo:Cjenik:FK_30a409b4f3ca8d0bdd26e4b96e0">
-              <FieldPairs>
-                <FieldPair PkField="dbo:Artikl:ArtiklId" FkField="dbo:Cjenik:ArtiklId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="dbo:Cjenik:FK_47a832d412683069e687ef0f2f7">
-              <FieldPairs>
-                <FieldPair PkField="dbo:Partner:PartnerId" FkField="dbo:Cjenik:PartnerId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="dbo:Error:FK_a100a724e408ba3ba5fc21d3565">
               <FieldPairs>
                 <FieldPair PkField="dbo:Error:ErrorId" FkField="dbo:Error:ParentErrorId" />
@@ -639,6 +591,7 @@
                     <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
                     <Field Name="PdvId" Ordinal="7" DbType="10" Precision="19" />
                     <Field Name="IsActive" Ordinal="8" DbType="0" />
+                    <Field Name="Cijena" Ordinal="9" DbType="14" Precision="10" Scale="2" />
                   </Fields>
                 </Table>
                 <Table Name="AuditInfo">
@@ -668,21 +621,6 @@
                     <Field Name="Naziv" Ordinal="4" DbType="24" Length="100" />
                     <Field Name="SlijedeciBroj" Ordinal="5" DbType="9" />
                   </Fields>
-                </Table>
-                <Table Name="Cjenik">
-                  <Fields>
-                    <Field Name="ArtiklId" Ordinal="1" DbType="10" Precision="19" />
-                    <Field Name="Cijena" Ordinal="2" DbType="14" Precision="10" Scale="4" />
-                    <Field Name="CjenikId" Ordinal="3" IsPrimaryKey="true" PkConstraintName="PK_19f7ec84559b62994314500461f" DbType="10" Precision="19" />
-                    <Field Name="ConcurrencyGuid" Ordinal="4" DbType="24" Length="50" />
-                    <Field Name="PartnerId" Ordinal="5" IsOptional="true" DbType="10" Precision="19" />
-                  </Fields>
-                  <UniqueConstraints>
-                    <UniqueConstraint Name="UC_39d17614e3e9be4f4b04b4e8ede">
-                      <Field Name="ArtiklId" />
-                      <Field Name="PartnerId" />
-                    </UniqueConstraint>
-                  </UniqueConstraints>
                 </Table>
                 <Table Name="Config">
                   <Fields>
@@ -821,16 +759,6 @@
                 <FieldPair PkField="public:EntityRo:EntityId" FkField="public:AuditInfo:EntityId" />
               </FieldPairs>
             </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="public:Cjenik:FK_1556ecf466881bc95e2b77cbbc7">
-              <FieldPairs>
-                <FieldPair PkField="public:Artikl:ArtiklId" FkField="public:Cjenik:ArtiklId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
-            <ForeignKeyConstraint Name="public:Cjenik:FK_d18803841fba0377240280bf196">
-              <FieldPairs>
-                <FieldPair PkField="public:Partner:PartnerId" FkField="public:Cjenik:PartnerId" />
-              </FieldPairs>
-            </ForeignKeyConstraint>
             <ForeignKeyConstraint Name="public:Error:FK_73aecbe4cfe9b4a40434eacf011">
               <FieldPairs>
                 <FieldPair PkField="public:Error:ErrorId" FkField="public:Error:ParentErrorId" />
@@ -877,6 +805,7 @@
         <EntityMapping EntityName=":Artikl" TargetName="Enio:dbo:Artikl">
           <FieldMappings>
             <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" SequenceToUse="SCOPE_IDENTITY()" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
             <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
@@ -910,15 +839,6 @@
             <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
             <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
             <FieldMapping FieldName="SlijedeciBroj" TargetFieldName="SlijedeciBroj" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName=":Cjenik" TargetName="Enio:dbo:Cjenik">
-          <FieldMappings>
-            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
-            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
-            <FieldMapping FieldName="CjenikId" TargetFieldName="CjenikId" SequenceToUse="SCOPE_IDENTITY()" />
-            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
-            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":Config" TargetName="Enio:dbo:Config">
@@ -1044,6 +964,7 @@
         <EntityMapping EntityName=":Artikl" TargetName="Default:public:Artikl">
           <FieldMappings>
             <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" SequenceToUse="Default:public:GenericSequence" />
+            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
             <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="Jm" TargetFieldName="Jm" />
@@ -1077,15 +998,6 @@
             <FieldMapping FieldName="Godina" TargetFieldName="Godina" />
             <FieldMapping FieldName="Naziv" TargetFieldName="Naziv" />
             <FieldMapping FieldName="SlijedeciBroj" TargetFieldName="SlijedeciBroj" />
-          </FieldMappings>
-        </EntityMapping>
-        <EntityMapping EntityName=":Cjenik" TargetName="Default:public:Cjenik">
-          <FieldMappings>
-            <FieldMapping FieldName="ArtiklId" TargetFieldName="ArtiklId" />
-            <FieldMapping FieldName="Cijena" TargetFieldName="Cijena" />
-            <FieldMapping FieldName="CjenikId" TargetFieldName="CjenikId" SequenceToUse="Default:public:GenericSequence" />
-            <FieldMapping FieldName="ConcurrencyGuid" TargetFieldName="ConcurrencyGuid" />
-            <FieldMapping FieldName="PartnerId" TargetFieldName="PartnerId" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":Config" TargetName="Default:public:Config">

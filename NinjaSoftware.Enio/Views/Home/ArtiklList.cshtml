@@ -15,10 +15,11 @@
 <table class="datatable">
   <thead>
     <tr>
-        <th>@Html.ActionLink("Naziv", "ArtiklList", new { sortField = "Naziv", isSortAscending = !Model.IsSortDirectionAscending })</th>
-        <th><span>JM</span></th>
-        <th><span>PDV (%)</span></th>
-        <th><span>Aktivan</span></th>
+        <th width="350px">@Html.ActionLink("Naziv", "ArtiklList", new { sortField = "Naziv", isSortAscending = !Model.IsSortDirectionAscending })</th>
+        <th width="50px"><span>JM</span></th>
+        <th width="100px"><span>PDV (%)</span></th>
+        <th width="100px"><span>Cijena</span></th>
+        <th width="50px"><span>Aktivan</span></th>
         <th></th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td>@artikl.Naziv</td>
         <td align="center">@artikl.Jm</td>
         <td align="right">@artikl.Pdv.Stopa</td>
+        <td align="right">@artikl.Cijena</td>
         <td align="right">@artikl.IsActive.ToLocalizedWord()</td>
         <td align="right">@Html.ActionLink("Uredi", "ArtiklEdit", new { artiklId = artikl.ArtiklId })</td>
     </tr>
@@ -36,7 +38,7 @@
   </tbody>
   <tfoot>
     <tr>
-        <td colspan="5">
+        <td colspan="6">
             @Model.GenerateDropDownPagingAndPrevNextHtmlElements(System.Configuration.ConfigurationManager.AppSettings["PagerPrefixText"])
         </td>
     </tr>

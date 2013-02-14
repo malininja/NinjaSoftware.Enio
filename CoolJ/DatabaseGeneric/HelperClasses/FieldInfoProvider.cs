@@ -48,12 +48,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		/// <summary>Method which initializes the internal datastores.</summary>
 		private void Init()
 		{
-			this.InitClass( (16 + 0));
+			this.InitClass( (15 + 0));
 			InitArtiklEntityInfos();
 			InitAuditInfoEntityInfos();
 			InitAuditInfoActionTypeRoEntityInfos();
 			InitBrojacEntityInfos();
-			InitCjenikEntityInfos();
 			InitConfigEntityInfos();
 			InitEntityRoEntityInfos();
 			InitErrorEntityInfos();
@@ -74,6 +73,7 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			this.AddFieldIndexEnumForElementName(typeof(ArtiklFieldIndex), "ArtiklEntity");
 			this.AddElementFieldInfo("ArtiklEntity", "ArtiklId", typeof(System.Int64), true, false, false, false,  (int)ArtiklFieldIndex.ArtiklId, 0, 0, 19);
+			this.AddElementFieldInfo("ArtiklEntity", "Cijena", typeof(System.Decimal), false, false, false, false,  (int)ArtiklFieldIndex.Cijena, 0, 2, 10);
 			this.AddElementFieldInfo("ArtiklEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)ArtiklFieldIndex.ConcurrencyGuid, 50, 0, 0);
 			this.AddElementFieldInfo("ArtiklEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)ArtiklFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("ArtiklEntity", "Jm", typeof(System.String), false, false, false, false,  (int)ArtiklFieldIndex.Jm, 10, 0, 0);
@@ -110,16 +110,6 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 			this.AddElementFieldInfo("BrojacEntity", "Godina", typeof(System.Int16), false, false, false, false,  (int)BrojacFieldIndex.Godina, 0, 0, 5);
 			this.AddElementFieldInfo("BrojacEntity", "Naziv", typeof(System.String), false, false, false, false,  (int)BrojacFieldIndex.Naziv, 100, 0, 0);
 			this.AddElementFieldInfo("BrojacEntity", "SlijedeciBroj", typeof(System.Int32), false, false, false, false,  (int)BrojacFieldIndex.SlijedeciBroj, 0, 0, 10);
-		}
-		/// <summary>Inits CjenikEntity's FieldInfo objects</summary>
-		private void InitCjenikEntityInfos()
-		{
-			this.AddFieldIndexEnumForElementName(typeof(CjenikFieldIndex), "CjenikEntity");
-			this.AddElementFieldInfo("CjenikEntity", "ArtiklId", typeof(System.Int64), false, true, false, false,  (int)CjenikFieldIndex.ArtiklId, 0, 0, 19);
-			this.AddElementFieldInfo("CjenikEntity", "Cijena", typeof(System.Decimal), false, false, false, false,  (int)CjenikFieldIndex.Cijena, 0, 4, 10);
-			this.AddElementFieldInfo("CjenikEntity", "CjenikId", typeof(System.Int64), true, false, false, false,  (int)CjenikFieldIndex.CjenikId, 0, 0, 19);
-			this.AddElementFieldInfo("CjenikEntity", "ConcurrencyGuid", typeof(System.String), false, false, false, false,  (int)CjenikFieldIndex.ConcurrencyGuid, 50, 0, 0);
-			this.AddElementFieldInfo("CjenikEntity", "PartnerId", typeof(Nullable<System.Int64>), false, true, false, true,  (int)CjenikFieldIndex.PartnerId, 0, 0, 19);
 		}
 		/// <summary>Inits ConfigEntity's FieldInfo objects</summary>
 		private void InitConfigEntityInfos()

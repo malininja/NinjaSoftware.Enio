@@ -29,27 +29,11 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 		public virtual List<IEntityRelation> GetAllRelations()
 		{
 			List<IEntityRelation> toReturn = new List<IEntityRelation>();
-			toReturn.Add(this.CjenikEntityUsingPartnerId);
 			toReturn.Add(this.RacunGlavaEntityUsingPartnerId);
 			return toReturn;
 		}
 
 		#region Class Property Declarations
-
-		/// <summary>Returns a new IEntityRelation object, between PartnerEntity and CjenikEntity over the 1:n relation they have, using the relation between the fields:
-		/// Partner.PartnerId - Cjenik.PartnerId
-		/// </summary>
-		public virtual IEntityRelation CjenikEntityUsingPartnerId
-		{
-			get
-			{
-				IEntityRelation relation = new EntityRelation(SD.LLBLGen.Pro.ORMSupportClasses.RelationType.OneToMany, "CjenikCollection" , true);
-				relation.AddEntityFieldPair(PartnerFields.PartnerId, CjenikFields.PartnerId);
-				relation.InheritanceInfoPkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("PartnerEntity", true);
-				relation.InheritanceInfoFkSideEntity = InheritanceInfoProviderSingleton.GetInstance().GetInheritanceInfo("CjenikEntity", false);
-				return relation;
-			}
-		}
 
 		/// <summary>Returns a new IEntityRelation object, between PartnerEntity and RacunGlavaEntity over the 1:n relation they have, using the relation between the fields:
 		/// Partner.PartnerId - RacunGlava.PartnerId
@@ -81,7 +65,6 @@ namespace NinjaSoftware.Enio.CoolJ.RelationClasses
 	/// <summary>Static class which is used for providing relationship instances which are re-used internally for syncing</summary>
 	internal static class StaticPartnerRelations
 	{
-		internal static readonly IEntityRelation CjenikEntityUsingPartnerIdStatic = new PartnerRelations().CjenikEntityUsingPartnerId;
 		internal static readonly IEntityRelation RacunGlavaEntityUsingPartnerIdStatic = new PartnerRelations().RacunGlavaEntityUsingPartnerId;
 
 		/// <summary>CTor</summary>
