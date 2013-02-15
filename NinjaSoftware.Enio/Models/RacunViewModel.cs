@@ -6,6 +6,10 @@ using NinjaSoftware.Api.Mvc;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using NinjaSoftware.Enio.CoolJ.EntityClasses;
 using NinjaSoftware.Enio.CoolJ;
+using NinjaSoftware.Api.CoolJ;
+using NinjaSoftware.Enio.CoolJ.HelperClasses;
+using Newtonsoft.Json;
+using System.Globalization;
 
 namespace NinjaSoftware.Enio.Models
 {
@@ -34,7 +38,7 @@ namespace NinjaSoftware.Enio.Models
 
         public void Save(DataAccessAdapterBase adapter)
         {
-            throw new NotImplementedException();
+            this.RacunGlava.Save(adapter, false, false);
         }
 
         public void LoadViewSpecificData(DataAccessAdapterBase adapter)
@@ -45,9 +49,20 @@ namespace NinjaSoftware.Enio.Models
             this.StatusCollection = StatusRoEntity.FetchStatusRoCollection(adapter, null, null).OrderBy(s => s.Name);
         }
 
-        public void UpdateRacunStavkaCollection(string racunStavkaCollectionJson)
+        public void UpdateRacunStavkaCollection(DataAccessAdapterBase adapter, string racunStavkaCollectionJson)
         {
-        
+            List<RacunStavkaEntity> deletedRacunStavkaCollection = this.RacunGlava.RacunStavkaCollection.GetEntitiesNotIncludedInJson(racunStavkaCollectionJson);
+            foreach (RacunStavkaEntity racunStavka in deletedRacunStavkaCollection)
+            {
+                this.RacunGlava.RacunStavkaCollection.Remove(racunStavka);
+                racunStavka.Delete(adapter);
+            }
+
+            JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
+            CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+            jsonSettings.Culture = currentCulture;
+            
+            this.RacunGlava.RacunStavkaCollection.UpdateEntityCollectionFromJson(racunStavkaCollectionJson, RacunStavkaFields.RacunStavkaId, null, null, jsonSettings);
         }
 
         #endregion Public methods

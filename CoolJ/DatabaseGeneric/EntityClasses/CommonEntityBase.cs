@@ -105,9 +105,20 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
             return new NinjaSoftware.Api.CoolJ.OptimisticConcurrencyPredicateFactory(concurrencyFieldName, true, false);
         }
 
+        /// <summary>
+        /// Override method if you need some presave validation.
+        /// </summary>
         public virtual void Save(DataAccessAdapterBase adapter, bool refetchAfterSave, bool recurse)
         {
             adapter.SaveEntity(this, refetchAfterSave, recurse);
+        }
+
+        /// <summary>
+        /// Override method if you need some predelete validation.
+        /// </summary>
+        public virtual void Delete(DataAccessAdapterBase adapter)
+        {
+            adapter.DeleteEntity(this);
         }
 
 		// __LLBLGENPRO_USER_CODE_REGION_END

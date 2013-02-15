@@ -1,0 +1,70 @@
+﻿@model NinjaSoftware.Enio.Models.RacunViewModel
+@using NinjaSoftware.Api.Mvc
+@using NinjaSoftware.Enio.CoolJ.HelperClasses
+
+@{
+    string title;
+    
+    if (Model.RacunGlava.IsNew)
+    {
+        title = "Unos novog računa";
+    }
+    else
+    {
+        title = string.Format("Račun br. {0}", Model.RacunGlava.BrojRacuna);
+    }
+
+    ViewBag.Title = title;
+
+    NsController nsController = (NsController)ViewContext.Controller;
+}
+
+<h2>@title</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.ValidationSummary(true)
+    @nsController.ViewUserErrorMessage
+    
+    @Html.HiddenFor(model => model.RacunGlava.ConcurrencyGuid)
+
+    <table>
+        <tr>
+            <td>Partner:</td>
+            <td colspan="2">
+                @Html.DropDownListFor(model => model.RacunGlava.PartnerId, ViewHelper.GenerateDropDownItemSource(Model.PartnerCollection, PartnerFields.PartnerId.Name, PartnerFields.Naziv.Name, Model.RacunGlava.PartnerId))
+                @Html.ValidationMessageFor(model => model.RacunGlava.PartnerId)
+            </td>
+
+            <td>Datum:</td>
+            <td>
+                @Html.EditorFor(model => model.RacunGlava.Datum)
+                @Html.ValidationMessageFor(model => model.RacunGlava.Datum)
+            </td>
+
+            <td>Tarifa:</td>
+            <td>
+                @Html.DropDownListFor(model => model.RacunGlava.TarifaId, ViewHelper.GenerateDropDownItemSource(Model.TarifaCollection, TarifaFields.TarifaId.Name, TarifaFields.Naziv.Name, Model.RacunGlava.TarifaId))
+                @Html.ValidationMessageFor(model => model.RacunGlava.TarifaId)
+            </td>
+
+            <td>
+                <input type="submit" value="Pohrani" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mjesto rada:</td>
+            <td>
+                @Html.EditorFor(model => model.RacunGlava.MjestoRadaNaziv)
+                @Html.ValidationMessageFor(model => model.RacunGlava.MjestoRadaNaziv)
+            </td>
+
+            <td>Adresa rada:</td>
+            <td>
+                @Html.EditorFor(model => model.RacunGlava.MjestoRadaAdresa)
+                @Html.ValidationMessageFor(model => model.RacunGlava.MjestoRadaAdresa)                
+            </td>
+        </tr>
+    </table>
+    
+}
