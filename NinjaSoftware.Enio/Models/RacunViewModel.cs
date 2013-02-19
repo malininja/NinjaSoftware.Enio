@@ -17,19 +17,22 @@ namespace NinjaSoftware.Enio.Models
     {
         #region Constructors
 
-        public RacunViewModel(DataAccessAdapterBase adapter)
-        {
-            this.RacunGlava = new RacunGlavaEntity();
-        }
-
-        public RacunViewModel(DataAccessAdapterBase adapter, long racunGlavaId)
+        public RacunViewModel(DataAccessAdapterBase adapter, long? racunGlavaId)
         {
             PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.RacunGlavaEntity);
             prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection).
                 SubPath.Add(RacunStavkaEntity.PrefetchPathArtikl);
 
-            this.RacunGlava = RacunGlavaEntity.FetchRacunGlava(adapter, prefetchPath, racunGlavaId);
-            this.RacunStavkaCollection = this.RacunGlava.RacunStavkaCollection;
+            if (racunGlavaId.HasValue)
+            {
+                this.RacunGlava = RacunGlavaEntity.FetchRacunGlava(adapter, prefetchPath, racunGlavaId.Value);
+                this.RacunStavkaCollection = this.RacunGlava.RacunStavkaCollection;
+            }
+            else
+            {
+                this.RacunGlava = new RacunGlavaEntity();
+                this.RacunGlava.MjestoRadaAdresa = "tralalala";
+            }
         }
 
         #endregion Constructors

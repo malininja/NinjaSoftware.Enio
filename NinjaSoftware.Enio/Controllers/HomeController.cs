@@ -276,6 +276,19 @@ namespace NinjaSoftware.Enio.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult RacunEdit(long? racunGlavaId)
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+            using (adapter)
+            {
+                RacunViewModel racunViewModel = new RacunViewModel(adapter, racunGlavaId);
+                racunViewModel.LoadViewSpecificData(adapter);
+
+                return View(racunViewModel);
+            }
+        }
+
         #endregion Racun
     }
 }

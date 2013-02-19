@@ -1,6 +1,9 @@
 ﻿@model NinjaSoftware.Enio.Models.RacunViewModel
 @using NinjaSoftware.Api.Mvc
 @using NinjaSoftware.Enio.CoolJ.HelperClasses
+@using Newtonsoft.Json
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/knockout-2.1.0.js")"></script>
 
 @{
     string title;
@@ -21,50 +24,137 @@
 
 <h2>@title</h2>
 
-@using (Html.BeginForm())
-{ 
-    @Html.ValidationSummary(true)
-    @nsController.ViewUserErrorMessage
-    
-    @Html.HiddenFor(model => model.RacunGlava.ConcurrencyGuid)
+<div data-bind="template: { name: 'racunGlavaTemplate', data: racunGlava }"></div>
 
+<script type="text/html" id="racunGlavaTemplate">
     <table>
         <tr>
             <td>Partner:</td>
-            <td colspan="2">
-                @Html.DropDownListFor(model => model.RacunGlava.PartnerId, ViewHelper.GenerateDropDownItemSource(Model.PartnerCollection, PartnerFields.PartnerId.Name, PartnerFields.Naziv.Name, Model.RacunGlava.PartnerId))
-                @Html.ValidationMessageFor(model => model.RacunGlava.PartnerId)
-            </td>
-
-            <td>Datum:</td>
             <td>
-                @Html.EditorFor(model => model.RacunGlava.Datum)
-                @Html.ValidationMessageFor(model => model.RacunGlava.Datum)
+                <select data-bind="options: $root.partnerCollection, value: PartnerId, optionsText: 'Naziv', optionsValue: 'PartnerId'">
+                </select>
             </td>
 
             <td>Tarifa:</td>
             <td>
-                @Html.DropDownListFor(model => model.RacunGlava.TarifaId, ViewHelper.GenerateDropDownItemSource(Model.TarifaCollection, TarifaFields.TarifaId.Name, TarifaFields.Naziv.Name, Model.RacunGlava.TarifaId))
-                @Html.ValidationMessageFor(model => model.RacunGlava.TarifaId)
-            </td>
-
-            <td>
-                <input type="submit" value="Pohrani" />
+                <select data-bind="options: $root.tarifaCollection, value: TarifaId, optionsText: 'Naziv', optionsValue: 'TarifaId'">
+                </select>
             </td>
         </tr>
+
+        <tr>
+            <td>Datum:</td>
+            <td>
+                TODO
+            </td>
+
+            <td>Vrijeme:</td>
+            <td>
+                TODO
+            </td>
+        </tr>
+
         <tr>
             <td>Mjesto rada:</td>
             <td>
-                @Html.EditorFor(model => model.RacunGlava.MjestoRadaNaziv)
-                @Html.ValidationMessageFor(model => model.RacunGlava.MjestoRadaNaziv)
+                <input data-bind="value: MjestoRadaNaziv" />
             </td>
 
             <td>Adresa rada:</td>
             <td>
-                @Html.EditorFor(model => model.RacunGlava.MjestoRadaAdresa)
-                @Html.ValidationMessageFor(model => model.RacunGlava.MjestoRadaAdresa)                
+                <input data-bind="value: MjestoRadaAdresa" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Valuta:</td>
+            <td>
+                <input class="number" data-bind="value: Valuta" />
+                dana
+            </td>
+
+            <td>Status:</td>
+            <td>
+                <select data-bind="options: $root.statusCollection, value: StatusId, optionsText: 'Name', optionsValue: 'StatusId'">
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="button" onclick="viewModel.save();" value="Pohrani" />
+            </td>
+
+            <td>
+                Ispis (TODO)
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</script>
+
+<br /><br />
+    <table>
+        <tr>
+            <td><h3>Unos nove stavke</h3></td>
+        </tr>
+        <tr>
+            <td>Artikl</td>
+            <td>Količina</td>
+            <td>Cijena</td>
+        </tr>
+        <tr>
+            <td>
+                <select id="dropDownArtikl" data-bind="options: $root.artiklCollection, value: $root.selectedArtikl, optionsText: 'Naziv'")></select>
+            </td>
+            <td>
+                <input class="number" data-bind="value: selectedArtiklKolicina" />
+                <span data-bind="text: selectedArtikl().Jm"></span>
+            </td>
+            <td>
+                <input class="number" data-bind="value: selectedArtiklCijena" />
+                kn
             </td>
         </tr>
     </table>
-    
-}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#dropDownArtikl").change(function () {
+            viewModel.selectedArtiklCijena(viewModel.selectedArtikl().Cijena);
+        });
+    });
+
+    var racunViewModel = function () {
+        var self = {};
+
+        self.racunGlava = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.RacunGlava)));
+        self.racunStavkaCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.RacunStavkaCollection)));
+        self.artiklCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.ArtiklCollection)));
+        self.partnerCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.PartnerCollection)));
+        self.tarifaCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.TarifaCollection)));
+        self.statusCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.StatusCollection)));
+
+        var cijena;
+        if (self.artiklCollection().length > 0) {
+            cijena = self.artiklCollection()[0].Cijena;
+        }
+        else {
+            cijena = 0;
+        }
+
+        self.selectedArtikl = ko.observable();
+        self.selectedArtiklKolicina = ko.observable(1);
+        self.selectedArtiklCijena = ko.observable(cijena);
+
+        self.save = function () {
+            alert(self.selectedArtikl().Jm);
+        }; 
+
+        return self;
+    };
+
+    var viewModel = racunViewModel();
+    ko.applyBindings(viewModel);
+</script>

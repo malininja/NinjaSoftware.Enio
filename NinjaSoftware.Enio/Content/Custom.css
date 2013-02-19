@@ -19,3 +19,9 @@ table.datatable th span
 {
     margin: 0px 10px 0px 10px;    
 }
+
+input.number
+{
+    width: 50px; 
+    text-align: right;    
+}

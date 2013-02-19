@@ -237,5 +237,11 @@ namespace NinjaSoftware.Enio.Tests
         {
             string page = FetchPage("RacunGlavaList");
         }
+
+        [TestMethod()]
+        public void RacunEditTest()
+        {
+            string page = FetchPage("RacunEdit");
+        }
     }
 }
