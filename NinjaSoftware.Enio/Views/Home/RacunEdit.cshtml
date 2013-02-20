@@ -3,6 +3,8 @@
 @using NinjaSoftware.Enio.CoolJ.HelperClasses
 @using Newtonsoft.Json
 
+@Scripts.Render("/bundles/CoolJEntities");
+
 <script type="text/javascript" src="@Url.Content("~/Scripts/knockout-2.1.0.js")"></script>
 
 @{
@@ -97,12 +99,13 @@
 <br /><br />
     <table>
         <tr>
-            <td><h3>Unos nove stavke</h3></td>
+            <td colspan="4"><h3>Unos nove stavke</h3></td>
         </tr>
         <tr>
             <td>Artikl</td>
             <td>Količina</td>
             <td>Cijena</td>
+            <td></td>
         </tr>
         <tr>
             <td>
@@ -116,9 +119,32 @@
                 <input class="number" data-bind="value: selectedArtiklCijena" />
                 kn
             </td>
+            <td><input type="button" value="Unesi stavku" onclick="viewModel.addRacunStavka();" /></td>
         </tr>
     </table>
 
+    <table>
+      <thead>
+        <tr>
+            <th>Artikl</th>
+            <th>Količina</th>
+            <th>Cijena</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: racunStavkaCollection">
+        <tr>
+            <td data-bind="text: Artikl.Naziv"></td>
+            <td>
+                <input data-bind="value: Kolicina" />
+                <span data-bind="text: Artikl.Jm"></span>
+            </td>
+            <td>
+                <input data-bind="value: Cijena" />
+            </td>
+        </tr>
+      </tbody>
+        
+    </table>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#dropDownArtikl").change(function () {
@@ -130,11 +156,11 @@
         var self = {};
 
         self.racunGlava = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.RacunGlava)));
-        self.racunStavkaCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.RacunStavkaCollection)));
-        self.artiklCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.ArtiklCollection)));
-        self.partnerCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.PartnerCollection)));
-        self.tarifaCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.TarifaCollection)));
-        self.statusCollection = ko.observable(@Html.Raw(JsonConvert.SerializeObject(Model.StatusCollection)));
+        self.racunStavkaCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.RacunStavkaCollection)));
+        self.artiklCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.ArtiklCollection)));
+        self.partnerCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.PartnerCollection)));
+        self.tarifaCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.TarifaCollection)));
+        self.statusCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.StatusCollection)));
 
         var cijena;
         if (self.artiklCollection().length > 0) {
@@ -152,9 +178,16 @@
             alert(self.selectedArtikl().Jm);
         }; 
 
+        self.addRacunStavka = function () {
+            var racunStavka = Enio.CoolJ.RacunStavka({ Artikl: self.selectedArtikl(), Kolicina: self.selectedArtiklKolicina(), Cijena: self.selectedArtiklCijena() });
+
+            self.racunStavkaCollection.push(racunStavka);
+        };
+
         return self;
     };
 
     var viewModel = racunViewModel();
     ko.applyBindings(viewModel);
+
 </script>

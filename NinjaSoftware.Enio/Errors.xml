@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ErrorEntity>
+  <ErrorEntity ObjectID="f4771eb9-849d-4fe3-b493-1e221a375e3a" Format="Compact25">
+    <ErrorDateTime>2013-02-20T16:50:40.0777804</ErrorDateTime>
+    <Message>The URL '/bundles/CoolJEntities' is not valid. Only application relative URLs (~/url) are allowed.
+Parameter name: virtualPath</Message>
+    <StackTrace>   at System.Web.Optimization.Bundle..ctor(String virtualPath, String cdnPath, IBundleTransform[] transforms)
+   at System.Web.Optimization.ScriptBundle..ctor(String virtualPath, String cdnPath)
+   at System.Web.Optimization.ScriptBundle..ctor(String virtualPath)
+   at NinjaSoftware.Enio.BundleConfig.RegisterBundles(BundleCollection bundles) in g:\Documents\Visual Studio 2010\Projects\NinjaSoftware.Enio\NinjaSoftware.Enio\App_Start\BundleConfig.cs:line 25
+   at NinjaSoftware.Enio.MvcApplication.Application_Start() in g:\Documents\Visual Studio 2010\Projects\NinjaSoftware.Enio\NinjaSoftware.Enio\Global.asax.cs:line 31</StackTrace>
+    <_lps fs="RAQ=" es="0" />
+  </ErrorEntity>
+</ErrorEntity>

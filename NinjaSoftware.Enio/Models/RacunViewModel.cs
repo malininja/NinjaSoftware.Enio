@@ -31,7 +31,7 @@ namespace NinjaSoftware.Enio.Models
             else
             {
                 this.RacunGlava = new RacunGlavaEntity();
-                this.RacunGlava.MjestoRadaAdresa = "tralalala";
+                this.RacunStavkaCollection = new List<RacunStavkaEntity>();
             }
         }
 
