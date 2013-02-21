@@ -289,6 +289,36 @@ namespace NinjaSoftware.Enio.Controllers
             }
         }
 
+        [HttpPost]
+        public ContentResult RacunEditBla(long? racunGlavaId, string racunGlavaJson, string racunStavkaCollectionJson)
+        {
+            DataAccessAdapterBase adapter = Helper.GetDataAccessAdapterFactory(User.Identity.Name);
+
+            try
+            {
+                adapter.StartTransaction(System.Data.IsolationLevel.Serializable, "RacunEdit");
+
+                RacunViewModel racunViewModel = new RacunViewModel(adapter, racunGlavaId);
+                racunViewModel.UpdateModelFromJson(adapter, racunGlavaJson, racunStavkaCollectionJson);
+
+                racunViewModel.Save(adapter);
+
+                adapter.Commit();
+            }
+            catch (Exception)
+            {
+                adapter.Rollback();
+                throw;
+            }
+            finally
+            {
+                adapter.Dispose();
+            }
+
+            ContentResult toReturn = new ContentResult { Content = "jipijaje maderfaker", ContentType = "text/plain" };
+            return toReturn;
+        }
+
         #endregion Racun
     }
 }

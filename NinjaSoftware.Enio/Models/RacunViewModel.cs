@@ -23,7 +23,7 @@ namespace NinjaSoftware.Enio.Models
             prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection).
                 SubPath.Add(RacunStavkaEntity.PrefetchPathArtikl);
 
-            if (racunGlavaId.HasValue)
+            if (racunGlavaId.HasValue && racunGlavaId.Value > 0)
             {
                 this.RacunGlava = RacunGlavaEntity.FetchRacunGlava(adapter, prefetchPath, racunGlavaId.Value);
                 this.RacunStavkaCollection = this.RacunGlava.RacunStavkaCollection;
@@ -31,6 +31,7 @@ namespace NinjaSoftware.Enio.Models
             else
             {
                 this.RacunGlava = new RacunGlavaEntity();
+                this.RacunGlava.Datum = DateTime.Now;
                 this.RacunStavkaCollection = new List<RacunStavkaEntity>();
             }
         }
@@ -41,31 +42,52 @@ namespace NinjaSoftware.Enio.Models
 
         public void Save(DataAccessAdapterBase adapter)
         {
-            this.RacunGlava.Save(adapter, false, false);
+            foreach (RacunStavkaEntity racunStavka in this.RacunStavkaCollectionToDelete)
+            {
+                racunStavka.Delete(adapter);
+            }
+
+            this.RacunGlava.Save(adapter, false, true);
         }
 
         public void LoadViewSpecificData(DataAccessAdapterBase adapter)
         {
-            this.ArtiklCollection = ArtiklEntity.FetchArtiklCollection(adapter, null, null).OrderBy(a => a.Naziv);
+            PrefetchPath2 prefetchPathArtikl = new PrefetchPath2(EntityType.ArtiklEntity);
+            prefetchPathArtikl.Add(ArtiklEntity.PrefetchPathPdv);
+            this.ArtiklCollection = ArtiklEntity.FetchArtiklCollection(adapter, null, prefetchPathArtikl).OrderBy(a => a.Naziv);
+
             this.PartnerCollection = PartnerEntity.FetchPartnerCollection(adapter, null, null).OrderBy(p => p.Naziv);
             this.TarifaCollection = TarifaEntity.FetchTarifaCollection(adapter, null, null).OrderBy(t => t.Naziv);
             this.StatusCollection = StatusRoEntity.FetchStatusRoCollection(adapter, null, null).OrderBy(s => s.Name);
         }
 
-        public void UpdateRacunStavkaCollection(DataAccessAdapterBase adapter, string racunStavkaCollectionJson)
+        public void UpdateModelFromJson(DataAccessAdapterBase adapter, string racunGlavaJson, string racunStavkaCollectionJson)
         {
-            List<RacunStavkaEntity> deletedRacunStavkaCollection = this.RacunGlava.RacunStavkaCollection.GetEntitiesNotIncludedInJson(racunStavkaCollectionJson);
-            foreach (RacunStavkaEntity racunStavka in deletedRacunStavkaCollection)
-            {
-                this.RacunGlava.RacunStavkaCollection.Remove(racunStavka);
-                racunStavka.Delete(adapter);
-            }
-
             JsonSerializerSettings jsonSettings = new JsonSerializerSettings();
             CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
             jsonSettings.Culture = currentCulture;
+
+            RacunGlavaEntity racunGlavaDeserialized = JsonConvert.DeserializeObject<RacunGlavaEntity>(racunGlavaJson);
+            this.RacunGlava.UpdateDataFromOtherObject(racunGlavaDeserialized, null, null);
+
+            this.RacunStavkaCollectionToDelete = this.RacunGlava.RacunStavkaCollection.GetEntitiesNotIncludedInJson(racunStavkaCollectionJson);
+            foreach (RacunStavkaEntity racunStavka in this.RacunStavkaCollectionToDelete)
+            {
+                this.RacunGlava.RacunStavkaCollection.Remove(racunStavka);
+            }
             
             this.RacunGlava.RacunStavkaCollection.UpdateEntityCollectionFromJson(racunStavkaCollectionJson, RacunStavkaFields.RacunStavkaId, null, null, jsonSettings);
+
+            TarifaEntity tarifa = TarifaEntity.FetchTarifa(adapter, null, this.RacunGlava.TarifaId);
+
+            short counter = 0;
+            foreach (RacunStavkaEntity racunStavka in this.RacunStavkaCollection)
+            {
+                racunStavka.Pozicija = counter++;
+                racunStavka.TarifaIznos = racunStavka.Kolicina * racunStavka.Cijena * tarifa.Stopa / 100;
+                racunStavka.PdvIznos = (racunStavka.Kolicina * racunStavka.Cijena + racunStavka.TarifaIznos) * racunStavka.PdvPosto / 100;
+                racunStavka.Iznos = racunStavka.Kolicina * racunStavka.Cijena + racunStavka.TarifaIznos + racunStavka.PdvIznos;
+            }
         }
 
         #endregion Public methods
@@ -74,6 +96,7 @@ namespace NinjaSoftware.Enio.Models
 
         public RacunGlavaEntity RacunGlava { get; set; }
         public IEnumerable<RacunStavkaEntity> RacunStavkaCollection { get; set; }
+        public List<RacunStavkaEntity> RacunStavkaCollectionToDelete { get; set; }
         public IEnumerable<ArtiklEntity> ArtiklCollection { get; set; }
         public IEnumerable<PartnerEntity> PartnerCollection { get; set; }
         public IEnumerable<TarifaEntity> TarifaCollection { get; set; }

@@ -42,4 +42,25 @@ nsHtmlInput.submitAsRedirect = function (submitId, redirectUrl) {
     });
 }
 
-/* START HTML element specific functions */
+/* END HTML element specific functions */
+
+/* START number localization */
+
+var nsNumberLocalization = namespace("ninjaSoftware.numberLocalization");
+
+/*
+    - transforms it to two decimal places number and replace dot with comma
+*/
+nsNumberLocalization.enNumberToHrCurrency = function (number) {
+    var parsedValue = parseFloat(number);
+    return parsedValue.toFixed(2).replace(".", ",");
+}
+
+/*
+    - replace comma with dot and parse result to float
+*/
+nsNumberLocalization.hrToEnNumberFormat = function (number) {
+    var enNumber = number.toString().replace(",", ".");
+    return parseFloat(enNumber);
+}
+/* END number localization */
