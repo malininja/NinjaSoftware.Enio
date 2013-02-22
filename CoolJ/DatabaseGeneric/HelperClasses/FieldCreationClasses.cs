@@ -386,6 +386,11 @@ namespace NinjaSoftware.Enio.CoolJ.HelperClasses
 		{
 			get { return (EntityField2)EntityFieldFactory.Create(RacunGlavaFieldIndex.Valuta);}
 		}
+		/// <summary>Creates a new RacunGlavaEntity.Vrijeme field instance</summary>
+		public static EntityField2 Vrijeme
+		{
+			get { return (EntityField2)EntityFieldFactory.Create(RacunGlavaFieldIndex.Vrijeme);}
+		}
 	}
 
 	/// <summary>Field Creation Class for entity RacunStavkaEntity</summary>

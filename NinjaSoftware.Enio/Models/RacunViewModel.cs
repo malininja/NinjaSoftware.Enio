@@ -20,7 +20,9 @@ namespace NinjaSoftware.Enio.Models
         public RacunViewModel(DataAccessAdapterBase adapter, long? racunGlavaId)
         {
             PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.RacunGlavaEntity);
-            prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection).
+            SortExpression racunStavkaSort = new SortExpression(RacunStavkaFields.Pozicija | SortOperator.Ascending);
+
+            prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection, 0, null, null, racunStavkaSort).
                 SubPath.Add(RacunStavkaEntity.PrefetchPathArtikl);
 
             if (racunGlavaId.HasValue && racunGlavaId.Value > 0)
@@ -47,7 +49,17 @@ namespace NinjaSoftware.Enio.Models
                 racunStavka.Delete(adapter);
             }
 
-            this.RacunGlava.Save(adapter, false, true);
+            foreach (RacunStavkaEntity racunStavka in this.RacunGlava.RacunStavkaCollection)
+            {
+                if (racunStavka.IsDirty)
+                {
+                    this.RacunGlava.IsDirty = true;
+                }
+
+                racunStavka.Save(adapter, false, false);
+            }
+
+            this.RacunGlava.Save(adapter, false, false);
         }
 
         public void LoadViewSpecificData(DataAccessAdapterBase adapter)
@@ -67,7 +79,7 @@ namespace NinjaSoftware.Enio.Models
             CultureInfo currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
             jsonSettings.Culture = currentCulture;
 
-            RacunGlavaEntity racunGlavaDeserialized = JsonConvert.DeserializeObject<RacunGlavaEntity>(racunGlavaJson);
+            RacunGlavaEntity racunGlavaDeserialized = JsonConvert.DeserializeObject<RacunGlavaEntity>(racunGlavaJson, jsonSettings);
             this.RacunGlava.UpdateDataFromOtherObject(racunGlavaDeserialized, null, null);
 
             this.RacunStavkaCollectionToDelete = this.RacunGlava.RacunStavkaCollection.GetEntitiesNotIncludedInJson(racunStavkaCollectionJson);

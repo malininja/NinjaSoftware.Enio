@@ -9,21 +9,27 @@ namespace NinjaSoftware.Enio
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery.datepicker.hr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
-                        "~/Scripts/jquery.validate*"));
+                        "~/Scripts/jquery.validate*",
+                        "~/Scripts/methods_hr.js",
+                        "~/Scripts/messages_hr.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/custom_javascript").Include(
-                "~/Scripts/methods_hr.js",
                 "~/Scripts/NinjaSoftwareLib.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/CoolJEntities").Include(
                 "~/Scripts/CoolJEntities.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/globalize").Include(
+                "~/Scripts/globalize.js",
+                "~/Scripts/globalize.culture.hr.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

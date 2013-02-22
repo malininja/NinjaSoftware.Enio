@@ -540,6 +540,8 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 			_fieldsCustomProperties.Add("TarifaStopa", fieldHashtable);
 			fieldHashtable = new Dictionary<string, string>();
 			_fieldsCustomProperties.Add("Valuta", fieldHashtable);
+			fieldHashtable = new Dictionary<string, string>();
+			_fieldsCustomProperties.Add("Vrijeme", fieldHashtable);
 		}
 		#endregion
 
@@ -855,6 +857,17 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 		{
 			get { return (System.Int16)GetValue((int)RacunGlavaFieldIndex.Valuta, true); }
 			set	{ SetValue((int)RacunGlavaFieldIndex.Valuta, value); }
+		}
+
+		/// <summary> The Vrijeme property of the Entity RacunGlava<br/><br/></summary>
+		/// <remarks>Mapped on  table field: "RacunGlava"."Vrijeme"<br/>
+		/// Table field type characteristics (type, precision, scale, length): NVarChar, 0, 0, 10<br/>
+		/// Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
+		[JsonProperty]		
+		public virtual System.String Vrijeme
+		{
+			get { return (System.String)GetValue((int)RacunGlavaFieldIndex.Vrijeme, true); }
+			set	{ SetValue((int)RacunGlavaFieldIndex.Vrijeme, value); }
 		}
 
 		/// <summary> Gets the EntityCollection with the related entities of type 'RacunStavkaEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>

@@ -167,7 +167,7 @@ namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 		/// <summary>Inits RacunGlavaEntity's mappings</summary>
 		private void InitRacunGlavaEntityMappings()
 		{
-			this.AddElementMapping( "RacunGlavaEntity", @"Default", @"public", "RacunGlava", 12 );
+			this.AddElementMapping( "RacunGlavaEntity", @"Default", @"public", "RacunGlava", 13 );
 			this.AddElementFieldMapping( "RacunGlavaEntity", "BrojRacuna", "BrojRacuna", false, "Integer", 0, 0, 0, false, "", null, typeof(System.Int32), 0 );
 			this.AddElementFieldMapping( "RacunGlavaEntity", "ConcurrencyGuid", "ConcurrencyGuid", false, "Varchar", 50, 0, 0, false, "", null, typeof(System.String), 1 );
 			this.AddElementFieldMapping( "RacunGlavaEntity", "Datum", "Datum", false, "Date", 0, 0, 0, false, "", null, typeof(System.DateTime), 2 );
@@ -180,6 +180,7 @@ namespace NinjaSoftware.Enio.CoolJ.PostgreSql.DatabaseSpecific
 			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaId", "TarifaId", false, "Bigint", 0, 0, 19, false, "", null, typeof(System.Int64), 9 );
 			this.AddElementFieldMapping( "RacunGlavaEntity", "TarifaStopa", "TarifaStopa", false, "Numeric", 0, 2, 5, false, "", null, typeof(System.Decimal), 10 );
 			this.AddElementFieldMapping( "RacunGlavaEntity", "Valuta", "Valuta", false, "Smallint", 0, 0, 0, false, "", null, typeof(System.Int16), 11 );
+			this.AddElementFieldMapping( "RacunGlavaEntity", "Vrijeme", "Vrijeme", false, "Varchar", 10, 0, 0, false, "", null, typeof(System.String), 12 );
 		}
 		/// <summary>Inits RacunStavkaEntity's mappings</summary>
 		private void InitRacunStavkaEntityMappings()

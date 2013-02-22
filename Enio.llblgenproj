@@ -232,6 +232,7 @@
           <Field Name="TarifaId" Type="long" />
           <Field Name="TarifaStopa" Type="decimal" Precision="5" Scale="2" />
           <Field Name="Valuta" Type="short" />
+          <Field Name="Vrijeme" Type="string" MaxLength="10" />
         </Fields>
       </EntityDefinition>
       <EntityDefinition Name="RacunStavka">
@@ -458,6 +459,7 @@
                     <Field Name="Valuta" Ordinal="11" DbType="16" Precision="5" />
                     <Field Name="StatusId" Ordinal="13" DbType="0" Precision="19" />
                     <Field Name="BrojRacuna" Ordinal="14" DbType="8" Precision="10" />
+                    <Field Name="Vrijeme" Ordinal="15" DbType="12" Length="10" />
                   </Fields>
                 </Table>
                 <Table Name="RacunStavka">
@@ -686,6 +688,7 @@
                     <Field Name="Valuta" Ordinal="11" DbType="8" />
                     <Field Name="StatusId" Ordinal="13" DbType="10" Precision="19" />
                     <Field Name="BrojRacuna" Ordinal="14" DbType="9" />
+                    <Field Name="Vrijeme" Ordinal="15" DbType="24" Length="10" />
                   </Fields>
                 </Table>
                 <Table Name="RacunStavka">
@@ -905,6 +908,7 @@
             <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" />
             <FieldMapping FieldName="TarifaStopa" TargetFieldName="TarifaStopa" />
             <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+            <FieldMapping FieldName="Vrijeme" TargetFieldName="Vrijeme" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":RacunStavka" TargetName="Enio:dbo:RacunStavka">
@@ -1064,6 +1068,7 @@
             <FieldMapping FieldName="TarifaId" TargetFieldName="TarifaId" />
             <FieldMapping FieldName="TarifaStopa" TargetFieldName="TarifaStopa" />
             <FieldMapping FieldName="Valuta" TargetFieldName="Valuta" />
+            <FieldMapping FieldName="Vrijeme" TargetFieldName="Vrijeme" />
           </FieldMappings>
         </EntityMapping>
         <EntityMapping EntityName=":RacunStavka" TargetName="Default:public:RacunStavka">

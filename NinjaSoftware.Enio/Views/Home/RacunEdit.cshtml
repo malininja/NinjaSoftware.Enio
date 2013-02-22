@@ -4,6 +4,7 @@
 @using Newtonsoft.Json
 
 @Scripts.Render("/bundles/CoolJEntities")
+@Scripts.Render("/bundles/globalize")
 
 <script type="text/javascript" src="@Url.Content("~/Scripts/knockout-2.1.0.js")"></script>
 
@@ -27,7 +28,7 @@
 <h2>@title</h2>
 
 <form action="/someServerSideHandler">
-
+<fieldset>
     <div data-bind="template: { name: 'racunGlavaTemplate', data: racunGlava }"></div>
 
     <script type="text/html" id="racunGlavaTemplate">
@@ -49,12 +50,12 @@
             <tr>
                 <td>Datum:</td>
                 <td>
-                    <input id="InputDatum" data-bind="value: Datum" />
+                    <input id="InputDatum" class="required date" data-bind="value: Datum, uniqueName: true" />
                 </td>
 
                 <td>Vrijeme:</td>
                 <td>
-                    TODO
+                    <input data-bind="value: Vrijeme" />
                 </td>
             </tr>
 
@@ -73,7 +74,7 @@
             <tr>
                 <td>Valuta:</td>
                 <td>
-                    <input class="number" data-bind="value: Valuta" />
+                    <input class="numberCss" data-bind="value: Valuta" />
                     dana
                 </td>
 
@@ -114,11 +115,11 @@
                 <select id="dropDownArtikl" data-bind="options: $root.artiklCollection, value: $root.selectedArtikl, optionsText: 'Naziv'")></select>
             </td>
             <td>
-                <input class="number" data-bind="value: selectedArtiklKolicina" />
+                <input class="numberCss" data-bind="value: selectedArtiklKolicina" />
                 <span data-bind="text: selectedArtikl().Jm"></span>
             </td>
             <td>
-                <input class="number" data-bind="value: selectedArtiklCijena" />
+                <input class="numberCss" data-bind="value: selectedArtiklCijena" />
                 kn
             </td>
             <td><input type="button" value="Unesi stavku" onclick="viewModel.addRacunStavka();" /></td>
@@ -137,7 +138,7 @@
         <tr>
             <td data-bind="text: Artikl.Naziv"></td>
             <td>
-                <input data-bind="value: Kolicina" />
+                <input class="required number" data-bind="value: Kolicina, uniqueName: true" />
                 <span data-bind="text: Artikl.Jm"></span>
             </td>
             <td>
@@ -147,12 +148,15 @@
       </tbody>
         
     </table>
-
+</fieldset>
 </form>
 <script type="text/javascript">
+    Globalize.culture("hr");
+
     $(document).ready(function () {
         $("#dropDownArtikl").change(function () {
-            viewModel.selectedArtiklCijena(viewModel.selectedArtikl().Cijena);
+            var cijena = Globalize.format(viewModel.selectedArtikl().Cijena, "n2");
+            viewModel.selectedArtiklCijena(cijena);
         });
 
         $("#InputDatum").datepicker();
@@ -168,6 +172,15 @@
         self.tarifaCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.TarifaCollection)));
         self.statusCollection = ko.observableArray(@Html.Raw(JsonConvert.SerializeObject(Model.StatusCollection)));
 
+        // hr formatting
+        var date = new Date(self.racunGlava().Datum);
+        self.racunGlava().Datum = Globalize.format(date, "d");
+
+        $(self.racunStavkaCollection()).each(function () {
+            var kolicina = parseFloat(this.Kolicina.toString());
+            this.Kolicina = Globalize.format(kolicina, "n2");
+        });
+
         var cijena;
         if (self.artiklCollection().length > 0) {
             cijena = self.artiklCollection()[0].Cijena;
@@ -178,7 +191,7 @@
 
         self.selectedArtikl = ko.observable();
         self.selectedArtiklKolicina = ko.observable(1);
-        self.selectedArtiklCijena = ko.observable(cijena);
+        self.selectedArtiklCijena = ko.observable(Globalize.format(cijena, "n2"));
 
         self.save = function () {
             $.ajax({
@@ -190,7 +203,8 @@
                     racunStavkaCollectionJson: ko.toJSON(self.racunStavkaCollection)
                 },
                 success: function (result) {
-                    alert(result)
+                    alert(result);
+                    window.location.href = window.location.href;
                 },
                 error: function () {
                     alert("no go");
@@ -214,7 +228,7 @@
                 racunStavka = Enio.CoolJ.RacunStavka({ 
                     ArtiklId: self.selectedArtikl().ArtiklId,
                     Artikl: self.selectedArtikl(), 
-                    Kolicina: self.selectedArtiklKolicina(), 
+                    Kolicina: Globalize.format(self.selectedArtiklKolicina(), "n2"), 
                     Cijena: self.selectedArtiklCijena(),
                     PdvPosto: self.selectedArtikl().Pdv.Stopa
                 });
@@ -222,7 +236,8 @@
                 self.racunStavkaCollection.push(racunStavka);
             }
             else {
-                racunStavka.Kolicina = racunStavka.Kolicina + self.selectedArtiklKolicina();
+                var kolicina = Globalize.parseFloat(racunStavka.Kolicina.toString()) + Globalize.parseFloat(self.selectedArtiklKolicina().toString());
+                racunStavka.Kolicina = Globalize.format(kolicina, "n2");
                 self.racunStavkaCollection.remove(racunStavka);
                 self.racunStavkaCollection.splice(racunStavkaIndex, 0, racunStavka);
             }

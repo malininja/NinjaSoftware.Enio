@@ -197,6 +197,8 @@ namespace NinjaSoftware.Enio.CoolJ
 		TarifaStopa,
 		///<summary>Valuta. </summary>
 		Valuta,
+		///<summary>Vrijeme. </summary>
+		Vrijeme,
 		/// <summary></summary>
 		AmountOfFields
 	}
