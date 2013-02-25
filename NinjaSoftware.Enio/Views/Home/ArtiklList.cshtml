@@ -16,10 +16,10 @@
   <thead>
     <tr>
         <th width="350px">@Html.ActionLink("Naziv", "ArtiklList", new { sortField = "Naziv", isSortAscending = !Model.IsSortDirectionAscending })</th>
-        <th width="50px"><span>JM</span></th>
+        <th width="50px">@Html.ActionLink("JM", "ArtiklList", new { sortField = "Jm", isSortAscending = !Model.IsSortDirectionAscending })</th>
         <th width="100px"><span>PDV (%)</span></th>
-        <th width="100px"><span>Cijena</span></th>
-        <th width="50px"><span>Aktivan</span></th>
+        <th width="100px">@Html.ActionLink("Cijena", "ArtiklList", new { sortField = "Cijena", isSortAscending = !Model.IsSortDirectionAscending })</th>
+        <th width="50px">@Html.ActionLink("Aktivan", "ArtiklList", new { sortField = "IsActive", isSortAscending = !Model.IsSortDirectionAscending })</th>
         <th></th>
     </tr>
   </thead>

@@ -27,7 +27,7 @@
 
 <h2>@title</h2>
 
-<form action="/someServerSideHandler">
+<form id="FormRacun" action="/someServerSideHandler">
 <fieldset>
     <div data-bind="template: { name: 'racunGlavaTemplate', data: racunGlava }"></div>
 
@@ -193,7 +193,7 @@
         self.selectedArtiklKolicina = ko.observable(1);
         self.selectedArtiklCijena = ko.observable(Globalize.format(cijena, "n2"));
 
-        self.save = function () {
+        self.save = function (form) {
             $.ajax({
                 type: "POST",
                 url: "@Url.Action("RacunEditBla")",
@@ -248,6 +248,6 @@
 
     var viewModel = racunViewModel();
     ko.applyBindings(viewModel);
-    $("form").validate({ submitHandler: viewModel.save });
+    $("#FormRacun").validate({ submitHandler: viewModel.save });
 
 </script>
