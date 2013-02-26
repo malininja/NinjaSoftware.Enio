@@ -96,9 +96,7 @@ namespace NinjaSoftware.Enio.Models
             foreach (RacunStavkaEntity racunStavka in this.RacunStavkaCollection)
             {
                 racunStavka.Pozicija = counter++;
-                racunStavka.TarifaIznos = racunStavka.Kolicina * racunStavka.Cijena * tarifa.Stopa / 100;
-                racunStavka.PdvIznos = (racunStavka.Kolicina * racunStavka.Cijena + racunStavka.TarifaIznos) * racunStavka.PdvPosto / 100;
-                racunStavka.Iznos = racunStavka.Kolicina * racunStavka.Cijena + racunStavka.TarifaIznos + racunStavka.PdvIznos;
+                racunStavka.RefreshCalculatedData(tarifa.Stopa);
             }
         }
 

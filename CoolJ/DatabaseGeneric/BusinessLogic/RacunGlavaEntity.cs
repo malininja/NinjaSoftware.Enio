@@ -17,6 +17,27 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
         {
             [Required(ErrorMessage = DataAnnotationConstants.Required)]
             public object Datum;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object Godina;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object PartnerId;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object StatusId;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object TarifaId;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object TarifaStopa;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object Valuta;
+
+            [Required(ErrorMessage = DataAnnotationConstants.Required)]
+            public object Vrijeme;
         }
 
         #endregion
@@ -40,7 +61,7 @@ namespace NinjaSoftware.Enio.CoolJ.EntityClasses
 
                 return _iznos.Value;
             }
-        }
+        }   
         #endregion
     }
 }

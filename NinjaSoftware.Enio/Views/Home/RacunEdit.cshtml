@@ -8,6 +8,18 @@
 
 <script type="text/javascript" src="@Url.Content("~/Scripts/knockout-2.1.0.js")"></script>
 
+<style type="text/css">
+select {
+   width: 310px;
+   height: 34px;
+   overflow: hidden;
+   background: #ddd;
+   border: 1px solid #ccc;
+   font-size: 1.2em;
+   padding: 5px;
+}
+</style>
+
 @{
     string title;
     
@@ -25,10 +37,10 @@
     NsController nsController = (NsController)ViewContext.Controller;
 }
 
-<h2>@title</h2>
+<h2 style="color: red">@title</h2>
 
 <form id="FormRacun" action="/someServerSideHandler">
-<fieldset>
+
     <div data-bind="template: { name: 'racunGlavaTemplate', data: racunGlava }"></div>
 
     <script type="text/html" id="racunGlavaTemplate">
@@ -36,7 +48,7 @@
             <tr>
                 <td>Partner:</td>
                 <td>
-                    <select data-bind="options: $root.partnerCollection, value: PartnerId, optionsText: 'Naziv', optionsValue: 'PartnerId'">
+                    <select class="styled-select" id="partnerList" data-bind="options: $root.partnerCollection, value: PartnerId, optionsText: 'Naziv', optionsValue: 'PartnerId'">
                     </select>
                 </td>
 
@@ -50,12 +62,12 @@
             <tr>
                 <td>Datum:</td>
                 <td>
-                    <input id="InputDatum" class="required date" data-bind="value: Datum, uniqueName: true" />
+                    <input id="InputDatum" class="required date" data-bind="value: Datum" />
                 </td>
 
                 <td>Vrijeme:</td>
                 <td>
-                    <input data-bind="value: Vrijeme" />
+                    <input class="required" data-bind="value: Vrijeme" />
                 </td>
             </tr>
 
@@ -74,7 +86,7 @@
             <tr>
                 <td>Valuta:</td>
                 <td>
-                    <input class="numberCss" data-bind="value: Valuta" />
+                    <input id="inputValuta" class="required number numberCss" data-bind="value: Valuta" />
                     dana
                 </td>
 
@@ -100,14 +112,13 @@
     </script>
 
     <br /><br />
+    <h3 style="color: blue">Unos nove stavke</h3>
     <table>
         <tr>
-            <td colspan="4"><h3>Unos nove stavke</h3></td>
-        </tr>
-        <tr>
-            <td>Artikl</td>
-            <td>Količina</td>
-            <td>Cijena</td>
+            <th width="300px">Artikl</th>
+            <th width="150px">Količina</th>
+            <th width="40px">Jm</th>
+            <th width="150px">Cijena</th>
             <td></td>
         </tr>
         <tr>
@@ -115,40 +126,51 @@
                 <select id="dropDownArtikl" data-bind="options: $root.artiklCollection, value: $root.selectedArtikl, optionsText: 'Naziv'")></select>
             </td>
             <td>
-                <input class="numberCss" data-bind="value: selectedArtiklKolicina" />
+                <input class="requrired number numberCss" data-bind="value: selectedArtiklKolicina" />
+            </td>
+            <td>
                 <span data-bind="text: selectedArtikl().Jm"></span>
             </td>
             <td>
-                <input class="numberCss" data-bind="value: selectedArtiklCijena" />
+                <input class="required number numberCss" data-bind="value: selectedArtiklCijena" />
                 kn
             </td>
             <td><input type="button" value="Unesi stavku" onclick="viewModel.addRacunStavka();" /></td>
         </tr>
     </table>
 
-    <table>
+    <br />
+    <h3 style="color: blue">Unesene stavke</h3>
+    <table id="tableStavke">
       <thead>
         <tr>
-            <th>Artikl</th>
-            <th>Količina</th>
-            <th>Cijena</th>
+            <th width="330px">Artikl</th>
+            <th width="150px">Količina</th>
+            <th width="40px">Jm</th>
+            <th width="150px">Cijena</th>
+            <th></th>
         </tr>
       </thead>
       <tbody data-bind="foreach: racunStavkaCollection">
         <tr>
             <td data-bind="text: Artikl.Naziv"></td>
             <td>
-                <input class="required number" data-bind="value: Kolicina, uniqueName: true" />
+                <input class="required number numberCss" data-bind="value: Kolicina, uniqueName: true" />
+            </td>
+            <td>
                 <span data-bind="text: Artikl.Jm"></span>
             </td>
             <td>
-                <input data-bind="value: Cijena" />
+                <input class="required number numberCss" data-bind="value: Cijena, uniqueName: true" />
+                kn
+            </td>
+            <td>
+                <a href="#" data-bind="click: function(data) { $root.deleteRacunStavka(data); }"><span>Obriši</span></a>
             </td>
         </tr>
       </tbody>
         
     </table>
-</fieldset>
 </form>
 <script type="text/javascript">
     Globalize.culture("hr");
@@ -157,6 +179,17 @@
         $("#dropDownArtikl").change(function () {
             var cijena = Globalize.format(viewModel.selectedArtikl().Cijena, "n2");
             viewModel.selectedArtiklCijena(cijena);
+        });
+
+        $("#partnerList").change(function () {
+            //viewModel.racunGlava().Valuta = a
+            partnerId = $(this).val();
+
+            $(viewModel.partnerCollection()).each(function () {
+                if (this.PartnerId.toString() === partnerId.toString()) {
+                    $("#inputValuta").val(this.Valuta);
+                }
+            });
         });
 
         $("#InputDatum").datepicker();
@@ -179,6 +212,9 @@
         $(self.racunStavkaCollection()).each(function () {
             var kolicina = parseFloat(this.Kolicina.toString());
             this.Kolicina = Globalize.format(kolicina, "n2");
+
+            var cijena = parseFloat(this.Cijena.toString());
+            this.Cijena = Globalize.format(cijena, "n2");
         });
 
         var cijena;
@@ -215,8 +251,21 @@
         }; 
 
         self.addRacunStavka = function () {
+            var kolicina = Globalize.parseFloat(self.selectedArtiklKolicina().toString());
+            if (isNaN(kolicina)) {
+                alert("Unesena količina nije ispravna.");
+                return;
+            }
+
+            var cijena = Globalize.parseFloat(self.selectedArtiklCijena());
+            if (isNaN(cijena)) {
+                alert("Unesena cijena nije ispravna.");
+                return;
+            }
+
             var racunStavka;
             var racunStavkaIndex;
+
             $(self.racunStavkaCollection()).each(function (index) {
                 if (this.ArtiklId === self.selectedArtikl().ArtiklId) {
                     racunStavka = this;
@@ -228,20 +277,24 @@
                 racunStavka = Enio.CoolJ.RacunStavka({ 
                     ArtiklId: self.selectedArtikl().ArtiklId,
                     Artikl: self.selectedArtikl(), 
-                    Kolicina: Globalize.format(self.selectedArtiklKolicina(), "n2"), 
-                    Cijena: self.selectedArtiklCijena(),
+                    Kolicina: Globalize.format(kolicina, "n2"), 
+                    Cijena: cijena,
                     PdvPosto: self.selectedArtikl().Pdv.Stopa
                 });
 
                 self.racunStavkaCollection.push(racunStavka);
             }
             else {
-                var kolicina = Globalize.parseFloat(racunStavka.Kolicina.toString()) + Globalize.parseFloat(self.selectedArtiklKolicina().toString());
+                var kolicina = Globalize.parseFloat(racunStavka.Kolicina.toString()) + Globalize.parseFloat(kolicina.toString());
                 racunStavka.Kolicina = Globalize.format(kolicina, "n2");
                 self.racunStavkaCollection.remove(racunStavka);
                 self.racunStavkaCollection.splice(racunStavkaIndex, 0, racunStavka);
             }
         };
+
+        self.deleteRacunStavka = function (racunStavka) {
+            self.racunStavkaCollection.remove(racunStavka);
+        }
 
         return self;
     };
@@ -249,5 +302,4 @@
     var viewModel = racunViewModel();
     ko.applyBindings(viewModel);
     $("#FormRacun").validate({ submitHandler: viewModel.save });
-
 </script>
