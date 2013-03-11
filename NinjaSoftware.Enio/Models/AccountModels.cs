@@ -7,7 +7,7 @@ using System.Web.Security;
 
 namespace NinjaSoftware.Enio.Models
 {
-     public class LoginModel
+    public class LoginModel
     {
         [Required]
         [Display(Name = "User name")]

@@ -19,14 +19,14 @@ namespace NinjaSoftware.Enio.Models
 
         public RacunViewModel(DataAccessAdapterBase adapter, long? racunGlavaId)
         {
-            PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.RacunGlavaEntity);
-            SortExpression racunStavkaSort = new SortExpression(RacunStavkaFields.Pozicija | SortOperator.Ascending);
-
-            prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection, 0, null, null, racunStavkaSort).
-                SubPath.Add(RacunStavkaEntity.PrefetchPathArtikl);
-
             if (racunGlavaId.HasValue && racunGlavaId.Value > 0)
             {
+                PrefetchPath2 prefetchPath = new PrefetchPath2(EntityType.RacunGlavaEntity);
+                SortExpression racunStavkaSort = new SortExpression(RacunStavkaFields.Pozicija | SortOperator.Ascending);
+
+                prefetchPath.Add(RacunGlavaEntity.PrefetchPathRacunStavkaCollection, 0, null, null, racunStavkaSort).
+                    SubPath.Add(RacunStavkaEntity.PrefetchPathArtikl);
+
                 this.RacunGlava = RacunGlavaEntity.FetchRacunGlava(adapter, prefetchPath, racunGlavaId.Value);
                 this.RacunStavkaCollection = this.RacunGlava.RacunStavkaCollection;
             }

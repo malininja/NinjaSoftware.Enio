@@ -143,16 +143,16 @@ namespace <[RootNamespace]><[DbSpecificNamespaceSuffix]>
 
         protected override void OnSaveEntityComplete(IActionQuery saveQuery, IEntity2 entityToSave)
         {
-            if (!(entityToSave is NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity) &&
-                !(entityToSave is NinjaSoftware.Enio.CoolJ.EntityClasses.ErrorEntity))
+            if (!(entityToSave is AuditInfoEntity) &&
+                !(entityToSave is ErrorEntity))
             {
                 if (entityToSave.IsNew)
                 {
-                    AuditInfo(entityToSave, NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum.Insert);
+                    AuditInfo(entityToSave, AuditInfoActionTypeEnum.Insert);
                 }
                 else
                 {
-                    AuditInfo(entityToSave, NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum.Update);
+                    AuditInfo(entityToSave, AuditInfoActionTypeEnum.Update);
                 }
             }
 
@@ -161,7 +161,7 @@ namespace <[RootNamespace]><[DbSpecificNamespaceSuffix]>
 
         protected override void OnDeleteEntityComplete(IActionQuery deleteQuery, IEntity2 entityToDelete)
         {
-            AuditInfo(entityToDelete, NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum.Delete);
+            AuditInfo(entityToDelete, AuditInfoActionTypeEnum.Delete);
             base.OnDeleteEntityComplete(deleteQuery, entityToDelete);
         }
 		
@@ -169,12 +169,12 @@ namespace <[RootNamespace]><[DbSpecificNamespaceSuffix]>
         /// Saves data from changed fields in JSON.
         /// Enables to track entity history.
         /// </summary>
-        private void AuditInfo(IEntity2 entity, NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum auditInfoActionTypeEnum)
+        private void AuditInfo(IEntity2 entity, AuditInfoActionTypeEnum auditInfoActionTypeEnum)
         {
-            NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity auditInfo = new NinjaSoftware.Enio.CoolJ.EntityClasses.AuditInfoEntity();
+            AuditInfoEntity auditInfo = new AuditInfoEntity();
             auditInfo.ActionDateTime = DateTime.Now;
             auditInfo.AuditInfoActionTypeId = (long)auditInfoActionTypeEnum;
-            auditInfo.EntityId = (long)(NinjaSoftware.Enio.CoolJ.Enums.EntityEnum)Enum.Parse(typeof(NinjaSoftware.Enio.CoolJ.Enums.EntityEnum), entity.LLBLGenProEntityName.Replace("Entity", ""));
+            auditInfo.EntityId = (long)(EntityEnum)Enum.Parse(typeof(EntityEnum), entity.LLBLGenProEntityName.Replace("Entity", ""));
             auditInfo.UserId = this.UserId.Value;
 
             System.Collections.Generic.Dictionary<string, object> fieldsDictionary = new System.Collections.Generic.Dictionary<string, object>();
@@ -189,11 +189,11 @@ namespace <[RootNamespace]><[DbSpecificNamespaceSuffix]>
                     // primary key is saved in separately
                     auditInfo.PrimaryKeyValue = (long)field.CurrentValue;
                 }
-                else if (NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum.Delete == auditInfoActionTypeEnum)
+                else if (AuditInfoActionTypeEnum.Delete == auditInfoActionTypeEnum)
                 {
                     // nothing, you can recreate entity from other audit infos for this entity
                 }
-                else if ((auditInfoActionTypeEnum != NinjaSoftware.Enio.CoolJ.Enums.AuditInfoActionTypeEnum.Update || field.IsChanged) &&
+                else if ((auditInfoActionTypeEnum != AuditInfoActionTypeEnum.Update || field.IsChanged) &&
                     !field.IsPrimaryKey &&
                     field.Name != concurrencyFieldName)
                 {

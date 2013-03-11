@@ -40,6 +40,4 @@ namespace NinjaSoftware.Enio.CoolJ.Enums
         Unpaid = 2,
         Delete = 3
     }
-
-
 }
